@@ -291,7 +291,7 @@ Each profile in the `profiles` array contains:
 | `location` | string | Current location |
 | `linkedin_url` | string | LinkedIn profile URL |
 
-Note: Search results do **not** include contact information (email/phone). Use the [Contact Lookup API](./API_CONTACT_LOOKUP_ENDPOINT.md) with the candidate `id` to retrieve contact details.
+Note: Search results do **not** include contact information (email/phone). Use the [Contact Lookup API](./api_contact_lookup_endpoint.md) with the candidate `id` to retrieve contact details.
 
 Pagination Object
 
@@ -548,7 +548,7 @@ while True:
 
 ### 4. Store Candidate IDs
 
-Search results don't include contact information. Store the `id` field from each profile to use with the [Contact Lookup API](./API_CONTACT_LOOKUP_ENDPOINT.md):
+Search results don't include contact information. Store the `id` field from each profile to use with the [Contact Lookup API](./api_contact_lookup_endpoint.md):
 
 ```python
 candidate_ids = [profile['id'] for profile in response['data']['profiles']]
