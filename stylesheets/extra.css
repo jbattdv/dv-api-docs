@@ -1,0 +1,12 @@
+:root {
+    --md-primary-fg-color: #4B6FE4;        /* periwinkle blue from wordmark */
+    --md-primary-fg-color--light: #6B8AEE;
+    --md-primary-fg-color--dark: #2F50C8;
+    --md-accent-fg-color: #2B4FD4;         /* deeper cobalt from the icon */
+    --md-default-bg-color: #0D0D0D;        /* near-black from logo background */
+  }
+
+  .md-header__button.md-logo img {
+    height: 180px !important;
+    width: auto !important;
+  }

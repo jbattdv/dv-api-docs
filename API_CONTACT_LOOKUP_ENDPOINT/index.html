@@ -1,0 +1,2568 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Official API documentation for the DataVertex Candidate API">
+      
+      
+        <meta name="author" content="DataVertex">
+      
+      
+        <link rel="canonical" href="https://api.data-vertex.com/API_CONTACT_LOOKUP_ENDPOINT/">
+      
+      
+        <link rel="prev" href="../API_SEARCH_ENDPOINT/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Contact Lookup API - DataVertex API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#datavertex-contact-lookup-api" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="DataVertex API Documentation" class="md-header__button md-logo" aria-label="DataVertex API Documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DataVertex API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Contact Lookup API
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="DataVertex API Documentation" class="md-nav__button md-logo" aria-label="DataVertex API Documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    DataVertex API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../API_SEARCH_ENDPOINT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Search API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact Lookup API
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact Lookup API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#credit-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Credit Costs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Credit Costs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#success-based-billing-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success-Based Billing Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request Format
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Request Format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#body-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Body Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Request Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-lookup-by-candidate-id-from-search-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 1: Lookup by Candidate ID (from search results)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-lookup-by-linkedin-url-direct-lookup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 2: Lookup by LinkedIn URL (direct lookup)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#response-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Response Format
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Response Format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#success-response-200-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Response (200 OK)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#response-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Response Fields
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Response Fields">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contact-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contact Object
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profile-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Profile Object
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contact-data-retrieved-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contact Data Retrieved Array
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary Object
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#credits-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Credits Object
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#curl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cURL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#javascript-nodejs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JavaScript (Node.js)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-workflow-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete Workflow Example
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Complete Workflow Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-example-direct-linkedin-url-lookup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python Example - Direct LinkedIn URL Lookup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-responses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Responses
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Error Responses">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#400-bad-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        400 Bad Request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#403-forbidden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        403 Forbidden
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#404-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        404 Not Found
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#500-internal-server-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        500 Internal Server Error
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-codes-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Codes Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-request-only-what-you-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Request Only What You Need
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-make-concurrent-requests-for-multiple-candidates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Make Concurrent Requests for Multiple Candidates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-handle-partial-failures-gracefully" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Handle Partial Failures Gracefully
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-validate-identifiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Validate Identifiers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-monitor-success-based-billing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Monitor Success-Based Billing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Use Cases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-email-only-lookup-for-cold-outreach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 1: Email-Only Lookup for Cold Outreach
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-full-contact-profile-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 2: Full Contact + Profile Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-healthcare-professional-lookup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 3: Healthcare Professional Lookup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-4-phone-only-lookup-for-sms-campaigns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 4: Phone-Only Lookup for SMS Campaigns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-5-concurrent-lookups-for-multiple-candidates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 5: Concurrent Lookups for Multiple Candidates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#need-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need Help?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#credit-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Credit Costs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Credit Costs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#success-based-billing-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success-Based Billing Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request Format
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Request Format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#body-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Body Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Request Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-lookup-by-candidate-id-from-search-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 1: Lookup by Candidate ID (from search results)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-lookup-by-linkedin-url-direct-lookup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 2: Lookup by LinkedIn URL (direct lookup)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#response-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Response Format
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Response Format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#success-response-200-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Response (200 OK)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#response-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Response Fields
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Response Fields">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contact-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contact Object
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profile-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Profile Object
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contact-data-retrieved-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contact Data Retrieved Array
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary Object
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#credits-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Credits Object
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#curl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cURL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#javascript-nodejs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JavaScript (Node.js)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-workflow-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete Workflow Example
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Complete Workflow Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-example-direct-linkedin-url-lookup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python Example - Direct LinkedIn URL Lookup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-responses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Responses
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Error Responses">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#400-bad-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        400 Bad Request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#403-forbidden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        403 Forbidden
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#404-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        404 Not Found
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#500-internal-server-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        500 Internal Server Error
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-codes-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Codes Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-request-only-what-you-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Request Only What You Need
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-make-concurrent-requests-for-multiple-candidates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Make Concurrent Requests for Multiple Candidates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-handle-partial-failures-gracefully" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Handle Partial Failures Gracefully
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-validate-identifiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Validate Identifiers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-monitor-success-based-billing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Monitor Success-Based Billing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Use Cases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-email-only-lookup-for-cold-outreach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 1: Email-Only Lookup for Cold Outreach
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-full-contact-profile-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 2: Full Contact + Profile Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-healthcare-professional-lookup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 3: Healthcare Professional Lookup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-4-phone-only-lookup-for-sms-campaigns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 4: Phone-Only Lookup for SMS Campaigns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-5-concurrent-lookups-for-multiple-candidates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 5: Concurrent Lookups for Multiple Candidates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#need-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need Help?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="datavertex-contact-lookup-api">DataVertex Contact Lookup API</h1>
+<h2 id="overview">Overview</h2>
+<p>The DataVertex Contact Lookup API retrieves detailed contact information for specific candidates, including personal emails, phone numbers, and enriched profile data. You can lookup contacts using:
+- <strong>Candidate IDs</strong> from search results
+- <strong>LinkedIn URLs</strong> directly (no search required)</p>
+<p><strong>Endpoint:</strong> <code>POST https://api.data-vertex.com/v1/contact-lookup</code></p>
+<p><strong>Credit Cost:</strong> Variable (3-11 credits per candidate based on enrichments requested)</p>
+<p><strong>Billing:</strong> Success-based - you're only charged for data actually retrieved</p>
+<p><strong>Capacity:</strong> 1 contact per request</p>
+<p><strong>Performance:</strong> For multiple candidates, make concurrent API calls for optimal speed. Each request is processed independently, allowing for parallel execution and faster overall throughput</p>
+<hr />
+<h2 id="authentication">Authentication</h2>
+<p>All API requests must include your API key in the request headers:</p>
+<pre><code>x-api-key: YOUR_API_KEY
+</code></pre>
+<p>You can obtain your API key from DataVertex directly.</p>
+<hr />
+<h2 id="credit-costs">Credit Costs</h2>
+<p>DataVertex uses a flexible, success-based pricing model. You only pay for data that's actually retrieved:</p>
+<table>
+<thead>
+<tr>
+<th>Enrichment Type</th>
+<th>Credit Cost</th>
+<th>Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Personal Email</strong></td>
+<td>3 credits per email</td>
+<td><code>reveal_personal_email: true</code></td>
+</tr>
+<tr>
+<td><strong>Mobile Phone</strong></td>
+<td>6 credits per phone</td>
+<td><code>reveal_phone: true</code></td>
+</tr>
+<tr>
+<td><strong>Detailed Profile</strong></td>
+<td>1 credit per profile</td>
+<td><code>reveal_detailed_person_enrichment: true</code></td>
+</tr>
+<tr>
+<td><strong>Healthcare Data</strong></td>
+<td>1 credit per profile</td>
+<td><code>reveal_healthcare_enrichment: true</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="success-based-billing-example">Success-Based Billing Example</h3>
+<p>If you request email + phone for 5 candidates, but only 3 have emails and 2 have phones:
+- <strong>Email charges:</strong> 3 candidates × 3 credits = 9 credits
+- <strong>Phone charges:</strong> 2 candidates × 6 credits = 12 credits
+- <strong>Total:</strong> 21 credits (not 45 credits)</p>
+<p>You're <strong>never charged</strong> for:
+- Failed lookups
+- Missing data
+- Invalid candidate IDs</p>
+<hr />
+<h2 id="request-format">Request Format</h2>
+<h3 id="headers">Headers</h3>
+<table>
+<thead>
+<tr>
+<th>Header</th>
+<th>Value</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x-api-key</code></td>
+<td>Your API key</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>Content-Type</code></td>
+<td><code>application/json</code></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="body-parameters">Body Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>candidate_ids</code></td>
+<td>array of strings (1 item)</td>
+<td>Single candidate ID from search results</td>
+<td>One identifier required</td>
+</tr>
+<tr>
+<td><code>linkedin_urls</code></td>
+<td>array of strings (1 item)</td>
+<td>Single LinkedIn profile URL</td>
+<td>One identifier required</td>
+</tr>
+<tr>
+<td><code>reveal_personal_email</code></td>
+<td>boolean</td>
+<td>Retrieve personal email address</td>
+<td>No (default: false)</td>
+</tr>
+<tr>
+<td><code>reveal_phone</code></td>
+<td>boolean</td>
+<td>Retrieve mobile phone number</td>
+<td>No (default: false)</td>
+</tr>
+<tr>
+<td><code>reveal_detailed_person_enrichment</code></td>
+<td>boolean</td>
+<td>Retrieve skills, experience, education</td>
+<td>No (default: false)</td>
+</tr>
+<tr>
+<td><code>reveal_healthcare_enrichment</code></td>
+<td>boolean</td>
+<td>Retrieve NPI, medical license, specialty</td>
+<td>No (default: false)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Important:</strong> 
+- Provide exactly one identifier: either <code>candidate_ids</code> with 1 ID OR <code>linkedin_urls</code> with 1 URL
+- At least one enrichment parameter must be set to <code>true</code>
+- For multiple candidates, make concurrent API calls</p>
+<hr />
+<h2 id="request-examples">Request Examples</h2>
+<h3 id="option-1-lookup-by-candidate-id-from-search-results">Option 1: Lookup by Candidate ID (from search results)</h3>
+<p>Basic Request (Email Only)</p>
+<pre><code class="language-json">{
+  &quot;candidate_ids&quot;: [&quot;12345&quot;],
+  &quot;reveal_personal_email&quot;: true,
+  &quot;reveal_phone&quot;: false,
+  &quot;reveal_detailed_person_enrichment&quot;: false,
+  &quot;reveal_healthcare_enrichment&quot;: false
+}
+</code></pre>
+<p>Full Enrichment Request</p>
+<pre><code class="language-json">{
+  &quot;candidate_ids&quot;: [&quot;67890&quot;],
+  &quot;reveal_personal_email&quot;: true,
+  &quot;reveal_phone&quot;: true,
+  &quot;reveal_detailed_person_enrichment&quot;: true,
+  &quot;reveal_healthcare_enrichment&quot;: false
+}
+</code></pre>
+<h3 id="option-2-lookup-by-linkedin-url-direct-lookup">Option 2: Lookup by LinkedIn URL (direct lookup)</h3>
+<p>Basic Request (Email Only)</p>
+<pre><code class="language-json">{
+  &quot;linkedin_urls&quot;: [&quot;https://www.linkedin.com/in/jane-smith-12345&quot;],
+  &quot;reveal_personal_email&quot;: true,
+  &quot;reveal_phone&quot;: false,
+  &quot;reveal_detailed_person_enrichment&quot;: false,
+  &quot;reveal_healthcare_enrichment&quot;: false
+}
+</code></pre>
+<p>Full Enrichment Request</p>
+<pre><code class="language-json">{
+  &quot;linkedin_urls&quot;: [&quot;https://www.linkedin.com/in/john-doe-67890&quot;],
+  &quot;reveal_personal_email&quot;: true,
+  &quot;reveal_phone&quot;: true,
+  &quot;reveal_detailed_person_enrichment&quot;: true,
+  &quot;reveal_healthcare_enrichment&quot;: false
+}
+</code></pre>
+<hr />
+<h2 id="response-format">Response Format</h2>
+<h3 id="success-response-200-ok">Success Response (200 OK)</h3>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;data&quot;: {
+    &quot;contacts&quot;: [
+      {
+        &quot;lookup_identifier&quot;: &quot;12345&quot;,
+        &quot;lookup_type&quot;: &quot;id&quot;,
+        &quot;success&quot;: true,
+        &quot;profile&quot;: {
+          &quot;id&quot;: &quot;12345&quot;,
+          &quot;name&quot;: &quot;Jane Smith&quot;,
+          &quot;current_title&quot;: &quot;Software Engineer&quot;,
+          &quot;current_employer&quot;: &quot;TechCorp&quot;,
+          &quot;personal_email&quot;: &quot;jane.smith@gmail.com&quot;,
+          &quot;phone_number&quot;: &quot;+14155551234&quot;,
+          &quot;phone_type&quot;: &quot;mobile&quot;,
+          &quot;phones&quot;: [
+            {
+              &quot;number&quot;: &quot;+14155551234&quot;,
+              &quot;type&quot;: &quot;mobile&quot;
+            }
+          ],
+          &quot;skills&quot;: [&quot;Python&quot;, &quot;JavaScript&quot;, &quot;React&quot;],
+          &quot;experience&quot;: [...],
+          &quot;education&quot;: [...]
+        },
+        &quot;contact_data_retrieved&quot;: [&quot;email&quot;, &quot;phone&quot;, &quot;detailed_profile&quot;],
+        &quot;retrieved_at&quot;: &quot;2025-12-10T12:00:00Z&quot;
+      }
+    ],
+    &quot;summary&quot;: {
+      &quot;total_requested&quot;: 1,
+      &quot;successful&quot;: 1,
+      &quot;failed&quot;: 0
+    }
+  },
+  &quot;credits&quot;: {
+    &quot;used&quot;: 10,
+    &quot;remaining&quot;: 990,
+    &quot;billing_note&quot;: &quot;Charged for 1 successful lookup only&quot;
+  }
+}
+</code></pre>
+<hr />
+<h2 id="response-fields">Response Fields</h2>
+<h3 id="contact-object">Contact Object</h3>
+<p>Each contact in the <code>contacts</code> array contains:</p>
+<p>Success Case</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lookup_identifier</code></td>
+<td>string</td>
+<td>The requested identifier (candidate ID or LinkedIn URL)</td>
+</tr>
+<tr>
+<td><code>lookup_type</code></td>
+<td>string</td>
+<td>Type of lookup: "id" or "linkedin_url"</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td>boolean</td>
+<td>Whether lookup succeeded (true)</td>
+</tr>
+<tr>
+<td><code>profile</code></td>
+<td>object</td>
+<td>Enriched profile data (see below)</td>
+</tr>
+<tr>
+<td><code>contact_data_retrieved</code></td>
+<td>array of strings</td>
+<td>Types of data retrieved</td>
+</tr>
+<tr>
+<td><code>retrieved_at</code></td>
+<td>string</td>
+<td>ISO timestamp when data was retrieved</td>
+</tr>
+</tbody>
+</table>
+<p>Failure Case</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lookup_identifier</code></td>
+<td>string</td>
+<td>The requested identifier (candidate ID or LinkedIn URL)</td>
+</tr>
+<tr>
+<td><code>lookup_type</code></td>
+<td>string</td>
+<td>Type of lookup: "id" or "linkedin_url"</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td>boolean</td>
+<td>Whether lookup succeeded (false)</td>
+</tr>
+<tr>
+<td><code>error</code></td>
+<td>string</td>
+<td>Error description</td>
+</tr>
+<tr>
+<td><code>status_code</code></td>
+<td>integer</td>
+<td>HTTP status code (404, 500, etc.)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="profile-object">Profile Object</h3>
+<p>The profile object contains enriched data based on your requested enrichments:</p>
+<p>Basic Fields (Always Included)</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>string</td>
+<td>Candidate ID</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>Full name</td>
+</tr>
+<tr>
+<td><code>current_title</code></td>
+<td>string</td>
+<td>Current job title</td>
+</tr>
+<tr>
+<td><code>current_employer</code></td>
+<td>string</td>
+<td>Current company name</td>
+</tr>
+</tbody>
+</table>
+<p>Email Fields (<code>reveal_personal_email: true</code>)</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>personal_email</code></td>
+<td>string</td>
+<td>Personal email address (verified)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Multi-Source Data:</strong> DataVertex uses multiple data sources to maximize email retrieval success. If our primary source doesn't have an email, we automatically check secondary sources at no extra cost.</p>
+<p>Phone Fields (<code>reveal_phone: true</code>)</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>phone_number</code></td>
+<td>string</td>
+<td>Primary/mobile phone number</td>
+</tr>
+<tr>
+<td><code>phone_type</code></td>
+<td>string</td>
+<td>Phone type (mobile, work, home)</td>
+</tr>
+<tr>
+<td><code>phones</code></td>
+<td>array</td>
+<td>Complete list of phone numbers with types</td>
+</tr>
+</tbody>
+</table>
+<p>Example phones array:</p>
+<pre><code class="language-json">&quot;phones&quot;: [
+  {
+    &quot;number&quot;: &quot;+14155551234&quot;,
+    &quot;type&quot;: &quot;mobile&quot;
+  },
+  {
+    &quot;number&quot;: &quot;+16505559876&quot;,
+    &quot;type&quot;: &quot;work&quot;
+  }
+]
+</code></pre>
+<p>Detailed Profile Fields (<code>reveal_detailed_person_enrichment: true</code>)</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>skills</code></td>
+<td>array</td>
+<td>List of skills</td>
+</tr>
+<tr>
+<td><code>experience</code></td>
+<td>array</td>
+<td>Work experience/job history</td>
+</tr>
+<tr>
+<td><code>education</code></td>
+<td>array</td>
+<td>Educational background</td>
+</tr>
+<tr>
+<td><code>job_history</code></td>
+<td>array</td>
+<td>Complete employment history</td>
+</tr>
+</tbody>
+</table>
+<p>Healthcare Fields (<code>reveal_healthcare_enrichment: true</code>)</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>npi_data</code></td>
+<td>object</td>
+<td>National Provider Identifier data</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>npi_data</code> object contains:
+- <code>npi_number</code>: National Provider Identifier
+- <code>license_number</code>: Medical license number
+- <code>license_state</code>: State where licensed
+- <code>specialty</code>: Medical specialty
+- <code>credentials</code>: Professional credentials (MD, RN, etc.)</p>
+<h3 id="contact-data-retrieved-array">Contact Data Retrieved Array</h3>
+<p>Indicates what data types were successfully retrieved:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"email"</code></td>
+<td>Personal email was found</td>
+</tr>
+<tr>
+<td><code>"phone"</code></td>
+<td>Phone number was found</td>
+</tr>
+<tr>
+<td><code>"detailed_profile"</code></td>
+<td>Skills/experience/education data was found</td>
+</tr>
+<tr>
+<td><code>"healthcare_profile"</code></td>
+<td>Healthcare/NPI data was found</td>
+</tr>
+</tbody>
+</table>
+<h3 id="summary-object">Summary Object</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>total_requested</code></td>
+<td>integer</td>
+<td>Total candidates requested</td>
+</tr>
+<tr>
+<td><code>successful</code></td>
+<td>integer</td>
+<td>Number of successful lookups</td>
+</tr>
+<tr>
+<td><code>failed</code></td>
+<td>integer</td>
+<td>Number of failed lookups</td>
+</tr>
+</tbody>
+</table>
+<h3 id="credits-object">Credits Object</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>used</code></td>
+<td>integer</td>
+<td>Credits charged for this request</td>
+</tr>
+<tr>
+<td><code>remaining</code></td>
+<td>integer</td>
+<td>Your remaining credit balance</td>
+</tr>
+<tr>
+<td><code>billing_note</code></td>
+<td>string</td>
+<td>Explanation of charges</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="code-examples">Code Examples</h2>
+<h3 id="curl">cURL</h3>
+<pre><code class="language-bash">curl -X POST https://api.data-vertex.com/v1/contact-lookup \
+  -H &quot;x-api-key: YOUR_API_KEY&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{
+    &quot;candidate_ids&quot;: [&quot;12345&quot;],
+    &quot;reveal_personal_email&quot;: true,
+    &quot;reveal_phone&quot;: true,
+    &quot;reveal_detailed_person_enrichment&quot;: false,
+    &quot;reveal_healthcare_enrichment&quot;: false
+  }'
+</code></pre>
+<h3 id="python">Python</h3>
+<pre><code class="language-python">import requests
+
+url = &quot;https://api.data-vertex.com/v1/contact-lookup&quot;
+
+headers = {
+    &quot;x-api-key&quot;: &quot;YOUR_API_KEY&quot;,
+    &quot;Content-Type&quot;: &quot;application/json&quot;
+}
+
+payload = {
+    &quot;candidate_ids&quot;: [&quot;12345&quot;],
+    &quot;reveal_personal_email&quot;: True,
+    &quot;reveal_phone&quot;: True,
+    &quot;reveal_detailed_person_enrichment&quot;: False,
+    &quot;reveal_healthcare_enrichment&quot;: False
+}
+
+response = requests.post(url, headers=headers, json=payload)
+
+if response.status_code == 200:
+    data = response.json()
+
+    for contact in data['data']['contacts']:
+        if contact['success']:
+            profile = contact['profile']
+            print(f&quot;Name: {profile['name']}&quot;)
+            print(f&quot;Email: {profile.get('personal_email', 'N/A')}&quot;)
+            print(f&quot;Phone: {profile.get('phone_number', 'N/A')}&quot;)
+            print(f&quot;Retrieved: {', '.join(contact['contact_data_retrieved'])}&quot;)
+            print(&quot;---&quot;)
+
+    print(f&quot;\nCredits used: {data['credits']['used']}&quot;)
+    print(f&quot;Credits remaining: {data['credits']['remaining']}&quot;)
+else:
+    print(f&quot;Error: {response.status_code}&quot;)
+    print(response.text)
+</code></pre>
+<h3 id="javascript-nodejs">JavaScript (Node.js)</h3>
+<pre><code class="language-javascript">const axios = require('axios');
+
+const lookupContact = async (candidateId) =&gt; {
+  try {
+    const response = await axios.post(
+      'https://api.data-vertex.com/v1/contact-lookup',
+      {
+        candidate_ids: [candidateId],
+        reveal_personal_email: true,
+        reveal_phone: true,
+        reveal_detailed_person_enrichment: false,
+        reveal_healthcare_enrichment: false
+      },
+      {
+        headers: {
+          'x-api-key': 'YOUR_API_KEY',
+          'Content-Type': 'application/json'
+        }
+      }
+    );
+
+    const { contacts, summary } = response.data.data;
+
+    contacts.forEach(contact =&gt; {
+      if (contact.success) {
+        const { profile, contact_data_retrieved } = contact;
+        console.log(`Name: ${profile.name}`);
+        console.log(`Email: ${profile.personal_email || 'N/A'}`);
+        console.log(`Phone: ${profile.phone_number || 'N/A'}`);
+        console.log(`Retrieved: ${contact_data_retrieved.join(', ')}`);
+        console.log('---');
+      } else {
+        console.log(`Failed: ${contact.lookup_identifier} - ${contact.error}`);
+      }
+    });
+
+    console.log(`Credits used: ${response.data.credits.used}`);
+
+    return response.data;
+  } catch (error) {
+    console.error('Error:', error.response?.data || error.message);
+  }
+};
+
+// Example usage
+lookupContact('12345');
+</code></pre>
+<hr />
+<h2 id="complete-workflow-example">Complete Workflow Example</h2>
+<p>Here's a complete example showing search followed by concurrent contact lookups:</p>
+<h3 id="python_1">Python</h3>
+<pre><code class="language-python">import requests
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
+API_KEY = &quot;YOUR_API_KEY&quot;
+BASE_URL = &quot;https://api.data-vertex.com/v1&quot;
+
+headers = {
+    &quot;x-api-key&quot;: API_KEY,
+    &quot;Content-Type&quot;: &quot;application/json&quot;
+}
+
+# Step 1: Search for candidates
+search_response = requests.post(
+    f&quot;{BASE_URL}/search&quot;,
+    headers=headers,
+    json={
+        &quot;search_criteria&quot;: {
+            &quot;current_title&quot;: [&quot;Software Engineer&quot;],
+            &quot;location&quot;: [&quot;San Francisco::~50mi&quot;],
+            &quot;contact_method&quot;: [&quot;personal email&quot;]
+        },
+        &quot;page_size&quot;: 10
+    }
+)
+
+search_data = search_response.json()
+
+# Step 2: Extract candidate IDs
+candidate_ids = [
+    profile['id'] 
+    for profile in search_data['data']['profiles']
+][:5]  # Take first 5
+
+print(f&quot;Found {len(candidate_ids)} candidates to lookup&quot;)
+
+# Step 3: Lookup contact information concurrently
+def lookup_single_contact(candidate_id):
+    &quot;&quot;&quot;Lookup a single candidate&quot;&quot;&quot;
+    response = requests.post(
+        f&quot;{BASE_URL}/contact-lookup&quot;,
+        headers=headers,
+        json={
+            &quot;candidate_ids&quot;: [candidate_id],
+            &quot;reveal_personal_email&quot;: True,
+            &quot;reveal_phone&quot;: True,
+            &quot;reveal_detailed_person_enrichment&quot;: True,
+            &quot;reveal_healthcare_enrichment&quot;: False
+        }
+    )
+    return response.json()
+
+# Make concurrent requests (up to 10 at a time)
+all_results = []
+with ThreadPoolExecutor(max_workers=10) as executor:
+    future_to_id = {
+        executor.submit(lookup_single_contact, cid): cid 
+        for cid in candidate_ids
+    }
+
+    for future in as_completed(future_to_id):
+        try:
+            result = future.result()
+            all_results.append(result)
+        except Exception as e:
+            print(f&quot;Error looking up {future_to_id[future]}: {e}&quot;)
+
+# Step 4: Process results
+print(&quot;\nContact Information:&quot;)
+total_credits = 0
+for result in all_results:
+    contacts = result['data']['contacts']
+    for contact in contacts:
+        if contact['success']:
+            profile = contact['profile']
+            print(f&quot;\n{profile['name']} - {profile['current_title']} at {profile['current_employer']}&quot;)
+            print(f&quot;  Email: {profile.get('personal_email', 'N/A')}&quot;)
+            print(f&quot;  Phone: {profile.get('phone_number', 'N/A')}&quot;)
+            print(f&quot;  Skills: {', '.join(profile.get('skills', [])[:5])}&quot;)
+        else:
+            print(f&quot;\nFailed to lookup {contact['lookup_identifier']}: {contact['error']}&quot;)
+
+    total_credits += result['credits']['used']
+
+# Step 5: Check credits
+print(f&quot;\n--- Credit Usage ---&quot;)
+print(f&quot;Search credits: {search_data['credits']['used']}&quot;)
+print(f&quot;Lookup credits: {total_credits}&quot;)
+print(f&quot;Total used: {search_data['credits']['used'] + total_credits}&quot;)
+print(f&quot;Remaining: {all_results[-1]['credits']['remaining']}&quot;)
+</code></pre>
+<h3 id="python-example-direct-linkedin-url-lookup">Python Example - Direct LinkedIn URL Lookup</h3>
+<pre><code class="language-python">import requests
+
+BASE_URL = &quot;https://api.data-vertex.com/v1&quot;
+API_KEY = &quot;your_api_key_here&quot;
+
+headers = {
+    &quot;x-api-key&quot;: API_KEY,
+    &quot;Content-Type&quot;: &quot;application/json&quot;
+}
+
+# Direct lookup using a LinkedIn URL (no search required)
+linkedin_url = &quot;https://www.linkedin.com/in/jane-smith-12345&quot;
+
+# Lookup contact information directly
+lookup_response = requests.post(
+    f&quot;{BASE_URL}/contact-lookup&quot;,
+    headers=headers,
+    json={
+        &quot;linkedin_urls&quot;: [linkedin_url],
+        &quot;reveal_personal_email&quot;: True,
+        &quot;reveal_phone&quot;: True,
+        &quot;reveal_detailed_person_enrichment&quot;: False,
+        &quot;reveal_healthcare_enrichment&quot;: False
+    }
+)
+
+lookup_data = lookup_response.json()
+
+# Process result
+contact = lookup_data['data']['contacts'][0]
+if contact['success']:
+    profile = contact['profile']
+    print(f&quot;{profile['name']} - {profile['current_title']} at {profile['current_employer']}&quot;)
+    print(f&quot;  LinkedIn: {contact['lookup_identifier']}&quot;)
+    print(f&quot;  Email: {profile.get('personal_email', 'N/A')}&quot;)
+    print(f&quot;  Phone: {profile.get('phone_number', 'N/A')}&quot;)
+else:
+    print(f&quot;Failed to lookup {contact['lookup_identifier']}: {contact['error']}&quot;)
+
+# Check credits
+print(f&quot;\n--- Credit Usage ---&quot;)
+print(f&quot;Lookup credits: {lookup_data['credits']['used']}&quot;)
+print(f&quot;Remaining: {lookup_data['credits']['remaining']}&quot;)
+</code></pre>
+<hr />
+<h2 id="error-responses">Error Responses</h2>
+<h3 id="400-bad-request">400 Bad Request</h3>
+<p>Missing or invalid parameters:</p>
+<pre><code class="language-json">{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Either candidate_ids or linkedin_urls array is required.&quot;
+}
+</code></pre>
+<p>Or invalid enrichment parameters:</p>
+<pre><code class="language-json">{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;At least one enrichment option must be enabled (set to true).&quot;
+}
+</code></pre>
+<p>Or too many identifiers:</p>
+<pre><code class="language-json">{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Must provide exactly 1 identifier (candidate_id or linkedin_url) per request. You provided 5. For multiple candidates, make concurrent API calls.&quot;
+}
+</code></pre>
+<h3 id="403-forbidden">403 Forbidden</h3>
+<p>Authentication error:</p>
+<pre><code class="language-json">{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Invalid or inactive API key.&quot;
+}
+</code></pre>
+<p>Or insufficient credits:</p>
+<pre><code class="language-json">{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Insufficient credits. Required: 27, Available: 10&quot;,
+  &quot;credits_info&quot;: {
+    &quot;required&quot;: 27,
+    &quot;available&quot;: 10,
+    &quot;breakdown&quot;: &quot;3 contacts × 9 credits each&quot;
+  }
+}
+</code></pre>
+<p><strong>Note:</strong> The <code>required</code> credits shown is the <strong>maximum</strong> if all data is found. Actual charges will be lower based on success-based billing.</p>
+<h3 id="404-not-found">404 Not Found</h3>
+<p>Individual candidate not found (per-contact error within 200 response):</p>
+<pre><code class="language-json">{
+  &quot;candidate_id&quot;: &quot;99999&quot;,
+  &quot;success&quot;: false,
+  &quot;error&quot;: &quot;Profile not found&quot;,
+  &quot;status_code&quot;: 404
+}
+</code></pre>
+<h3 id="500-internal-server-error">500 Internal Server Error</h3>
+<p>Server error:</p>
+<pre><code class="language-json">{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Internal server error occurred.&quot;
+}
+</code></pre>
+<hr />
+<h2 id="error-codes-summary">Error Codes Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Status Code</th>
+<th>Meaning</th>
+<th>Common Causes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>200</strong></td>
+<td>OK</td>
+<td>Request successful (check individual contact success)</td>
+</tr>
+<tr>
+<td><strong>400</strong></td>
+<td>Bad Request</td>
+<td>Missing parameters, invalid enrichment options, too many IDs</td>
+</tr>
+<tr>
+<td><strong>403</strong></td>
+<td>Forbidden</td>
+<td>Missing/invalid API key, insufficient credits</td>
+</tr>
+<tr>
+<td><strong>404</strong></td>
+<td>Not Found</td>
+<td>Candidate not found (per-contact, within 200 response)</td>
+</tr>
+<tr>
+<td><strong>500</strong></td>
+<td>Internal Server Error</td>
+<td>Unexpected server error</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Important:</strong> A 200 response doesn't mean all lookups succeeded. Check each contact's <code>success</code> field individually.</p>
+<hr />
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="1-request-only-what-you-need">1. Request Only What You Need</h3>
+<p>Only enable enrichments you'll actually use to minimize credit costs:</p>
+<pre><code class="language-python"># Just need emails for outreach
+payload = {
+    &quot;candidate_ids&quot;: [&quot;12345&quot;],
+    &quot;reveal_personal_email&quot;: True,
+    &quot;reveal_phone&quot;: False,
+    &quot;reveal_detailed_person_enrichment&quot;: False,
+    &quot;reveal_healthcare_enrichment&quot;: False
+}
+</code></pre>
+<h3 id="2-make-concurrent-requests-for-multiple-candidates">2. Make Concurrent Requests for Multiple Candidates</h3>
+<p>For optimal performance when looking up multiple candidates, make concurrent API calls:</p>
+<pre><code class="language-python">from concurrent.futures import ThreadPoolExecutor, as_completed
+
+def lookup_contact(candidate_id):
+    &quot;&quot;&quot;Lookup a single candidate&quot;&quot;&quot;
+    response = requests.post(
+        &quot;https://api.data-vertex.com/v1/contact-lookup&quot;,
+        headers=headers,
+        json={
+            &quot;candidate_ids&quot;: [candidate_id],
+            &quot;reveal_personal_email&quot;: True,
+            &quot;reveal_phone&quot;: True
+        }
+    )
+    return response.json()
+
+# Process candidates concurrently (up to 15 at a time recommended)
+with ThreadPoolExecutor(max_workers=15) as executor:
+    futures = {
+        executor.submit(lookup_contact, cid): cid 
+        for cid in all_candidate_ids
+    }
+
+    for future in as_completed(futures):
+        try:
+            result = future.result()
+            # Process result
+            print(f&quot;Completed: {futures[future]}&quot;)
+        except Exception as e:
+            print(f&quot;Error: {e}&quot;)
+</code></pre>
+<p><strong>Performance Benefits:</strong>
+- Results available progressively (don't wait for all to finish)
+- Better user experience with streaming results
+- Efficient parallel processing</p>
+<h3 id="3-handle-partial-failures-gracefully">3. Handle Partial Failures Gracefully</h3>
+<p>Not all lookups will succeed. Handle failures appropriately:</p>
+<pre><code class="language-python">for result in results:
+    contacts = result['data']['contacts']
+    for contact in contacts:
+        if contact['success']:
+            # Process successful lookup
+            print(f&quot;Success: {contact['profile']['name']}&quot;)
+        else:
+            # Log failure
+            print(f&quot;Failed: {contact['lookup_identifier']} - {contact['error']}&quot;)
+</code></pre>
+<h3 id="4-validate-identifiers">4. Validate Identifiers</h3>
+<p>Ensure identifiers are valid:</p>
+<pre><code class="language-python"># Good: IDs from DataVertex search
+candidate_ids = [profile['id'] for profile in search_results['profiles']]
+
+# Good: Valid LinkedIn URLs
+linkedin_urls = [
+    &quot;https://www.linkedin.com/in/john-doe-12345&quot;,
+    &quot;https://www.linkedin.com/in/jane-smith-67890&quot;
+]
+
+# Bad: Random or malformed identifiers
+candidate_ids = [&quot;invalid_id&quot;, &quot;expired_id&quot;]
+linkedin_urls = [&quot;not-a-linkedin-url&quot;, &quot;malformed&quot;]
+</code></pre>
+<h3 id="5-monitor-success-based-billing">5. Monitor Success-Based Billing</h3>
+<p>Track what data you're actually getting:</p>
+<pre><code class="language-python">email_count = 0
+phone_count = 0
+total_credits = 0
+
+for result in results:
+    contacts = result['data']['contacts']
+    for contact in contacts:
+        if contact['success']:
+            if 'email' in contact['contact_data_retrieved']:
+                email_count += 1
+            if 'phone' in contact['contact_data_retrieved']:
+                phone_count += 1
+
+    total_credits += result['credits']['used']
+
+print(f&quot;Retrieved {email_count} emails and {phone_count} phones&quot;)
+print(f&quot;Total credits used: {total_credits}&quot;)
+</code></pre>
+<hr />
+<h2 id="common-use-cases">Common Use Cases</h2>
+<h3 id="example-1-email-only-lookup-for-cold-outreach">Example 1: Email-Only Lookup for Cold Outreach</h3>
+<pre><code class="language-json">{
+  &quot;candidate_ids&quot;: [&quot;12345&quot;],
+  &quot;reveal_personal_email&quot;: true,
+  &quot;reveal_phone&quot;: false,
+  &quot;reveal_detailed_person_enrichment&quot;: false,
+  &quot;reveal_healthcare_enrichment&quot;: false
+}
+</code></pre>
+<p><strong>Cost:</strong> 3 credits per email found (success-based)</p>
+<h3 id="example-2-full-contact-profile-data">Example 2: Full Contact + Profile Data</h3>
+<pre><code class="language-json">{
+  &quot;candidate_ids&quot;: [&quot;12345&quot;],
+  &quot;reveal_personal_email&quot;: true,
+  &quot;reveal_phone&quot;: true,
+  &quot;reveal_detailed_person_enrichment&quot;: true,
+  &quot;reveal_healthcare_enrichment&quot;: false
+}
+</code></pre>
+<p><strong>Cost:</strong> Up to 10 credits per contact (3 email + 6 phone + 1 profile)</p>
+<h3 id="example-3-healthcare-professional-lookup">Example 3: Healthcare Professional Lookup</h3>
+<pre><code class="language-json">{
+  &quot;candidate_ids&quot;: [&quot;98765&quot;],
+  &quot;reveal_personal_email&quot;: true,
+  &quot;reveal_phone&quot;: true,
+  &quot;reveal_detailed_person_enrichment&quot;: false,
+  &quot;reveal_healthcare_enrichment&quot;: true
+}
+</code></pre>
+<p><strong>Cost:</strong> Up to 10 credits per contact (3 email + 6 phone + 1 healthcare)</p>
+<h3 id="example-4-phone-only-lookup-for-sms-campaigns">Example 4: Phone-Only Lookup for SMS Campaigns</h3>
+<pre><code class="language-json">{
+  &quot;candidate_ids&quot;: [&quot;12345&quot;],
+  &quot;reveal_personal_email&quot;: false,
+  &quot;reveal_phone&quot;: true,
+  &quot;reveal_detailed_person_enrichment&quot;: false,
+  &quot;reveal_healthcare_enrichment&quot;: false
+}
+</code></pre>
+<p><strong>Cost:</strong> 6 credits per phone found (success-based)</p>
+<h3 id="example-5-concurrent-lookups-for-multiple-candidates">Example 5: Concurrent Lookups for Multiple Candidates</h3>
+<p>For multiple candidates, make concurrent API calls:</p>
+<pre><code class="language-python">from concurrent.futures import ThreadPoolExecutor
+
+candidate_ids = [&quot;12345&quot;, &quot;67890&quot;, &quot;11111&quot;, &quot;22222&quot;]
+
+def lookup_contact(cid):
+    return requests.post(
+        &quot;https://api.data-vertex.com/v1/contact-lookup&quot;,
+        headers={&quot;x-api-key&quot;: API_KEY, &quot;Content-Type&quot;: &quot;application/json&quot;},
+        json={
+            &quot;candidate_ids&quot;: [cid],
+            &quot;reveal_personal_email&quot;: True,
+            &quot;reveal_phone&quot;: True
+        }
+    ).json()
+
+# Make concurrent requests
+with ThreadPoolExecutor(max_workers=15) as executor:
+    results = list(executor.map(lookup_contact, candidate_ids))
+
+# Total cost: Up to 9 credits per contact (3 email + 6 phone) × 4 contacts = up to 36 credits
+</code></pre>
+<p><strong>Use Case:</strong> Efficiently lookup multiple candidates from search results or external lists.</p>
+<hr />
+<h2 id="need-help">Need Help?</h2>
+<ul>
+<li><strong>Support:</strong> dev@data-vertex.com</li>
+<li><strong>Website:</strong> https://www.data-vertex.com</li>
+</ul>
+<hr />
+<p><em>Last Updated: February 20, 2026</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2025 DataVertex. All rights reserved.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/company/data-vertex/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.data-vertex.com" target="_blank" rel="noopener" title="www.data-vertex.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

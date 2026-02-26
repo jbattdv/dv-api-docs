@@ -1,0 +1,2704 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Official API documentation for the DataVertex Candidate API">
+      
+      
+        <meta name="author" content="DataVertex">
+      
+      
+        <link rel="canonical" href="https://api.data-vertex.com/API_SEARCH_ENDPOINT/">
+      
+      
+      
+        <link rel="next" href="../API_CONTACT_LOOKUP_ENDPOINT/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Search API - DataVertex API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#datavertex-search-api" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="DataVertex API Documentation" class="md-header__button md-logo" aria-label="DataVertex API Documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DataVertex API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Search API
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="DataVertex API Documentation" class="md-nav__button md-logo" aria-label="DataVertex API Documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    DataVertex API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Search API
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Search API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request Format
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Request Format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#body-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Body Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search-criteria-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Search Criteria Parameters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Search Criteria Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#profile-identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Profile Identification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-title-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Job Title &amp; Role
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#current-employer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current Employer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#previous-employer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Previous Employer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#company-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Company Attributes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#company-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Company Location
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#industry-sector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Industry &amp; Sector
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#company-intelligence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Company Intelligence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#education" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Education
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skills-experience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skills &amp; Experience
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#social-connections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Social &amp; Connections
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#healthcare-for-healthcare-professionals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Healthcare (for healthcare professionals)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata-filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata &amp; Filters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-search-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced Search Features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Search Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exact-match" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exact Match
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exclude-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exclude Terms
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numeric-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Numeric Operators
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#response-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Response Format
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Response Format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#success-response-200-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Response (200 OK)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Response Fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#curl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cURL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#javascript-nodejs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JavaScript (Node.js)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pagination-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pagination Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-responses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Responses
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Error Responses">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#400-bad-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        400 Bad Request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#403-forbidden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        403 Forbidden
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#500-internal-server-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        500 Internal Server Error
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-codes-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Codes Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-use-specific-search-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Use Specific Search Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-optimize-page-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Optimize Page Size
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-handle-pagination-efficiently" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Handle Pagination Efficiently
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-store-candidate-ids" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Store Candidate IDs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-monitor-your-credits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Monitor Your Credits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Use Cases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-find-software-engineers-in-bay-area" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 1: Find Software Engineers in Bay Area
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-find-healthcare-professionals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 2: Find Healthcare Professionals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-find-sales-leaders-at-tech-companies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 3: Find Sales Leaders at Tech Companies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-4-find-recent-job-changers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 4: Find Recent Job Changers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#need-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need Help?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../API_CONTACT_LOOKUP_ENDPOINT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact Lookup API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request Format
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Request Format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#body-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Body Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search-criteria-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Search Criteria Parameters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Search Criteria Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#profile-identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Profile Identification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-title-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Job Title &amp; Role
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#current-employer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current Employer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#previous-employer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Previous Employer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#company-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Company Attributes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#company-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Company Location
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#industry-sector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Industry &amp; Sector
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#company-intelligence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Company Intelligence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#education" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Education
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skills-experience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skills &amp; Experience
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#social-connections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Social &amp; Connections
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#healthcare-for-healthcare-professionals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Healthcare (for healthcare professionals)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata-filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata &amp; Filters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-search-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced Search Features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Search Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exact-match" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exact Match
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exclude-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exclude Terms
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numeric-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Numeric Operators
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#response-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Response Format
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Response Format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#success-response-200-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Response (200 OK)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Response Fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#curl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cURL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#javascript-nodejs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JavaScript (Node.js)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pagination-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pagination Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-responses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Responses
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Error Responses">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#400-bad-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        400 Bad Request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#403-forbidden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        403 Forbidden
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#500-internal-server-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        500 Internal Server Error
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-codes-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Codes Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-use-specific-search-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Use Specific Search Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-optimize-page-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Optimize Page Size
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-handle-pagination-efficiently" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Handle Pagination Efficiently
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-store-candidate-ids" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Store Candidate IDs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-monitor-your-credits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Monitor Your Credits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Use Cases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-find-software-engineers-in-bay-area" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 1: Find Software Engineers in Bay Area
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-find-healthcare-professionals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 2: Find Healthcare Professionals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-find-sales-leaders-at-tech-companies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 3: Find Sales Leaders at Tech Companies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-4-find-recent-job-changers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 4: Find Recent Job Changers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#need-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need Help?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="datavertex-search-api">DataVertex Search API</h1>
+<h2 id="overview">Overview</h2>
+<p>The DataVertex Search API allows you to discover and filter professional profiles by criteria such as job title, company, location, skills, and more. Search across 700M+ professional profiles to find candidates that match your specific requirements.</p>
+<p><strong>Endpoint:</strong> <code>POST https://api.data-vertex.com/v1/search</code></p>
+<p><strong>Credit Cost:</strong> 1 credit per search (up to 100 profiles per page)</p>
+<p><strong>Billing:</strong> Success-based - you're only charged if results are returned</p>
+<hr />
+<h2 id="authentication">Authentication</h2>
+<p>All API requests must include your API key in the request headers:</p>
+<pre><code>x-api-key: YOUR_API_KEY
+</code></pre>
+<p>You can obtain your API key from DataVertex directly.</p>
+<hr />
+<h2 id="request-format">Request Format</h2>
+<h3 id="headers">Headers</h3>
+<table>
+<thead>
+<tr>
+<th>Header</th>
+<th>Value</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x-api-key</code></td>
+<td>Your API key</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>Content-Type</code></td>
+<td><code>application/json</code></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="body-parameters">Body Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>search_criteria</code></td>
+<td>object</td>
+<td>Search filters and criteria</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>page_size</code></td>
+<td>integer</td>
+<td>Number of profiles per page (1-100)</td>
+<td>No (default: 50)</td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>integer</td>
+<td>Starting position for pagination</td>
+<td>No (default: 1)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="search-criteria-parameters">Search Criteria Parameters</h2>
+<p>The <code>search_criteria</code> object supports 80+ parameters organized into logical categories:</p>
+<h3 id="profile-identification">Profile Identification</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>array of strings</td>
+<td>DataVertex Profile IDs</td>
+<td><code>["123456"]</code></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>array of strings</td>
+<td>Profile names</td>
+<td><code>["John Doe"]</code></td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>array of strings</td>
+<td>Email addresses</td>
+<td><code>["john.doe@data-vertex.com"]</code></td>
+</tr>
+<tr>
+<td><code>phone</code></td>
+<td>array of strings</td>
+<td>Phone numbers</td>
+<td><code>["+15555555555"]</code></td>
+</tr>
+<tr>
+<td><code>handle</code></td>
+<td>array of strings</td>
+<td>Social media handles</td>
+<td><code>["johndoe"]</code></td>
+</tr>
+<tr>
+<td><code>link</code></td>
+<td>array of strings</td>
+<td>Profile URLs</td>
+<td><code>["https://linkedin.com/in/johndoe"]</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="job-title-role">Job Title &amp; Role</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>current_title</code></td>
+<td>array of strings</td>
+<td>Current job titles</td>
+<td><code>["Product Manager", "VP of Product"]</code></td>
+</tr>
+<tr>
+<td><code>previous_title</code></td>
+<td>array of strings</td>
+<td>Previous job titles</td>
+<td><code>["Software Engineer"]</code></td>
+</tr>
+<tr>
+<td><code>current_or_previous_title</code></td>
+<td>array of strings</td>
+<td>Current or previous titles</td>
+<td><code>["VP of Sales", "Director of Sales"]</code></td>
+</tr>
+<tr>
+<td><code>department</code></td>
+<td>array of strings</td>
+<td>Company departments</td>
+<td><code>["Product Management", "Engineering"]</code></td>
+</tr>
+<tr>
+<td><code>management_levels</code></td>
+<td>array of strings</td>
+<td>Management levels</td>
+<td><code>["Director", "VP", "C-Level"]</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="current-employer">Current Employer</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>current_employer</code></td>
+<td>array of strings</td>
+<td>Current company names</td>
+<td><code>["DataVertex"]</code></td>
+</tr>
+<tr>
+<td><code>employer</code></td>
+<td>array of strings</td>
+<td>Company names (current)</td>
+<td><code>["DataVertex"]</code></td>
+</tr>
+<tr>
+<td><code>company_name</code></td>
+<td>array of strings</td>
+<td>Company names</td>
+<td><code>["DataVertex"]</code></td>
+</tr>
+<tr>
+<td><code>company_domain</code></td>
+<td>array of strings</td>
+<td>Company domains</td>
+<td><code>["data-vertex.com"]</code></td>
+</tr>
+<tr>
+<td><code>company_email</code></td>
+<td>array of strings</td>
+<td>Company email addresses</td>
+<td><code>["info@data-vertex.com"]</code></td>
+</tr>
+<tr>
+<td><code>company_website_url</code></td>
+<td>array of strings</td>
+<td>Company website URLs</td>
+<td><code>["data-vertex.com"]</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="previous-employer">Previous Employer</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>previous_employer</code></td>
+<td>array of strings</td>
+<td>Previous company names</td>
+<td><code>["Google", "Microsoft"]</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="company-attributes">Company Attributes</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>company_size</code></td>
+<td>array of strings</td>
+<td>Company size ranges</td>
+<td><code>["51-200", "201-500"]</code></td>
+</tr>
+<tr>
+<td><code>employees</code></td>
+<td>array of strings</td>
+<td>Employee count ranges</td>
+<td><code>["100-500"]</code></td>
+</tr>
+<tr>
+<td><code>company_revenue</code></td>
+<td>array of strings</td>
+<td>Revenue ranges</td>
+<td><code>["10000000-50000000"]</code></td>
+</tr>
+<tr>
+<td><code>revenue</code></td>
+<td>array of strings</td>
+<td>Revenue values</td>
+<td><code>["10000000-50000000"]</code></td>
+</tr>
+<tr>
+<td><code>company_funding_min</code></td>
+<td>array of strings</td>
+<td>Minimum funding amount</td>
+<td><code>["1000000"]</code></td>
+</tr>
+<tr>
+<td><code>company_funding_max</code></td>
+<td>array of strings</td>
+<td>Maximum funding amount</td>
+<td><code>["50000000"]</code></td>
+</tr>
+<tr>
+<td><code>total_funding</code></td>
+<td>array of strings</td>
+<td>Total capital raised</td>
+<td><code>["10000000"]</code></td>
+</tr>
+<tr>
+<td><code>company_publicly_traded</code></td>
+<td>array of strings</td>
+<td>Public trading status</td>
+<td><code>["true"]</code></td>
+</tr>
+<tr>
+<td><code>publicly_traded</code></td>
+<td>array of strings</td>
+<td>Public trading status</td>
+<td><code>["true"]</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="company-location">Company Location</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>company_country_code</code></td>
+<td>array of strings</td>
+<td>Company country codes</td>
+<td><code>["US"]</code></td>
+</tr>
+<tr>
+<td><code>geo</code></td>
+<td>array of strings</td>
+<td>Geographic regions</td>
+<td><code>["North America"]</code></td>
+</tr>
+<tr>
+<td><code>state</code></td>
+<td>array of strings</td>
+<td>US states</td>
+<td><code>["MA", "CA"]</code></td>
+</tr>
+<tr>
+<td><code>postal_code</code></td>
+<td>array of strings</td>
+<td>Postal codes</td>
+<td><code>["02110"]</code></td>
+</tr>
+<tr>
+<td><code>location</code></td>
+<td>array of strings</td>
+<td>Location with optional radius</td>
+<td><code>["San Francisco::~50mi"]</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Location with Radius:</strong> Add a radius to location searches using the format <code>"City::~Nmi"</code> or <code>"City::~Nkm"</code>:
+- Example: <code>"location": ["San Francisco::~50mi"]</code>
+- Example: <code>"location": ["Boston::~25km"]</code></p>
+<h3 id="industry-sector">Industry &amp; Sector</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>company_industry</code></td>
+<td>array of strings</td>
+<td>Company industries</td>
+<td><code>["Software Engineering"]</code></td>
+</tr>
+<tr>
+<td><code>industry</code></td>
+<td>array of strings</td>
+<td>Industries</td>
+<td><code>["Software"]</code></td>
+</tr>
+<tr>
+<td><code>primary_industry</code></td>
+<td>array of strings</td>
+<td>Primary industries</td>
+<td><code>["Software"]</code></td>
+</tr>
+<tr>
+<td><code>company_industry_keywords</code></td>
+<td>array of strings</td>
+<td>Industry keywords</td>
+<td><code>["SaaS", "B2B"]</code></td>
+</tr>
+<tr>
+<td><code>industry_keywords</code></td>
+<td>array of strings</td>
+<td>Industry keywords</td>
+<td><code>["AI", "Machine Learning"]</code></td>
+</tr>
+<tr>
+<td><code>company_naics_code</code></td>
+<td>array of strings</td>
+<td>NAICS codes</td>
+<td><code>["541330", "541512"]</code></td>
+</tr>
+<tr>
+<td><code>naics_code</code></td>
+<td>array of strings</td>
+<td>NAICS codes</td>
+<td><code>["541330"]</code></td>
+</tr>
+<tr>
+<td><code>naics_codes</code></td>
+<td>array of strings</td>
+<td>NAICS codes</td>
+<td><code>["541330", "541340"]</code></td>
+</tr>
+<tr>
+<td><code>company_sic_code</code></td>
+<td>array of strings</td>
+<td>SIC codes</td>
+<td><code>["7372"]</code></td>
+</tr>
+<tr>
+<td><code>sic_code</code></td>
+<td>array of strings</td>
+<td>SIC codes</td>
+<td><code>["7372"]</code></td>
+</tr>
+<tr>
+<td><code>sic_codes</code></td>
+<td>array of strings</td>
+<td>SIC codes</td>
+<td><code>["7372", "7373"]</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="company-intelligence">Company Intelligence</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>company_competitors</code></td>
+<td>array of strings</td>
+<td>Competitor domains</td>
+<td><code>["competitor.com"]</code></td>
+</tr>
+<tr>
+<td><code>competitors</code></td>
+<td>array of strings</td>
+<td>Competitor domains</td>
+<td><code>["competitor.com"]</code></td>
+</tr>
+<tr>
+<td><code>company_tag</code></td>
+<td>array of strings</td>
+<td>Company tags</td>
+<td><code>["unicorn", "startup"]</code></td>
+</tr>
+<tr>
+<td><code>company_intent</code></td>
+<td>array of strings</td>
+<td>Company intent signals</td>
+<td><code>["hiring"]</code></td>
+</tr>
+<tr>
+<td><code>company_news_timestamp</code></td>
+<td>array of strings</td>
+<td>News event filters</td>
+<td><code>["mergers &amp; acquisitions::one_month"]</code></td>
+</tr>
+<tr>
+<td><code>company_list</code></td>
+<td>array of strings</td>
+<td>Company list names</td>
+<td><code>["Fortune 500"]</code></td>
+</tr>
+<tr>
+<td><code>company_list_id</code></td>
+<td>array of strings</td>
+<td>Company list IDs</td>
+<td><code>["12345"]</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Company News Timestamp Format:</strong> Use <code>"category::time_period"</code>:
+- Categories: <code>mergers &amp; acquisitions</code>, <code>executive changes</code>, <code>funding</code>
+- Time periods: <code>one_week</code>, <code>one_month</code>, <code>three_months</code>, <code>six_months</code>, <code>all_time</code>
+- Example: <code>["funding::three_months", "executive changes::one_month"]</code></p>
+<h3 id="education">Education</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>school</code></td>
+<td>array of strings</td>
+<td>Schools attended</td>
+<td><code>["Stanford University", "MIT"]</code></td>
+</tr>
+<tr>
+<td><code>degree</code></td>
+<td>array of strings</td>
+<td>Degree types</td>
+<td><code>["Bachelors", "Masters", "PhD"]</code></td>
+</tr>
+<tr>
+<td><code>major</code></td>
+<td>array of strings</td>
+<td>Academic majors</td>
+<td><code>["Computer Science", "Biology"]</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="skills-experience">Skills &amp; Experience</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>skills</code></td>
+<td>array of strings</td>
+<td>Listed skills (any match)</td>
+<td><code>["Python", "SQL", "Machine Learning"]</code></td>
+</tr>
+<tr>
+<td><code>all_skills</code></td>
+<td>array of strings</td>
+<td>Required skills (must match all)</td>
+<td><code>["python", "sql", "machine learning"]</code></td>
+</tr>
+<tr>
+<td><code>years_experience</code></td>
+<td>array of strings</td>
+<td>Years of experience</td>
+<td><code>["10", "15"]</code></td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>array of strings</td>
+<td>Profile descriptions</td>
+<td><code>["Experienced software engineer..."]</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="social-connections">Social &amp; Connections</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>connections</code></td>
+<td>array of strings</td>
+<td>LinkedIn connection counts</td>
+<td><code>["500+"]</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="healthcare-for-healthcare-professionals">Healthcare (for healthcare professionals)</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>health_credentials</code></td>
+<td>array of strings</td>
+<td>Healthcare credentials</td>
+<td><code>["MD", "RN", "PhD"]</code></td>
+</tr>
+<tr>
+<td><code>health_license</code></td>
+<td>array of strings</td>
+<td>Healthcare licenses</td>
+<td><code>["MA12345"]</code></td>
+</tr>
+<tr>
+<td><code>health_npi</code></td>
+<td>array of strings</td>
+<td>National Provider Identifiers</td>
+<td><code>["1234567890"]</code></td>
+</tr>
+<tr>
+<td><code>health_specialization</code></td>
+<td>array of strings</td>
+<td>Medical specializations</td>
+<td><code>["Cardiology", "Neurology"]</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="metadata-filters">Metadata &amp; Filters</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>keyword</code></td>
+<td>string or null</td>
+<td>General keyword search</td>
+<td><code>"data enrichment"</code></td>
+</tr>
+<tr>
+<td><code>keywords</code></td>
+<td>string or null</td>
+<td>Multiple keywords (comma-separated)</td>
+<td><code>"sales prospecting, data enrichment"</code></td>
+</tr>
+<tr>
+<td><code>insight</code></td>
+<td>array of strings</td>
+<td>Insight filters</td>
+<td><code>["funding"]</code></td>
+</tr>
+<tr>
+<td><code>news_timestamp</code></td>
+<td>array of strings</td>
+<td>News timestamp filters</td>
+<td><code>["one_month"]</code></td>
+</tr>
+<tr>
+<td><code>update_time</code></td>
+<td>array of strings</td>
+<td>Profile update time</td>
+<td><code>["2025-01-01"]</code></td>
+</tr>
+<tr>
+<td><code>is_primary</code></td>
+<td>array of strings</td>
+<td>Primary profile flag</td>
+<td><code>["true"]</code></td>
+</tr>
+<tr>
+<td><code>veteran_status</code></td>
+<td>array of strings</td>
+<td>Veteran status (only 'True' accepted)</td>
+<td><code>["True"]</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="advanced-search-features">Advanced Search Features</h2>
+<h3 id="exact-match">Exact Match</h3>
+<p>Add quotes around search terms to specify exact matches:</p>
+<pre><code class="language-json">{
+  &quot;search_criteria&quot;: {
+    &quot;name&quot;: [&quot;\&quot;Marc Benioff\&quot;&quot;],
+    &quot;current_employer&quot;: [&quot;\&quot;IBM\&quot;&quot;]
+  }
+}
+</code></pre>
+<p>Without quotes, <code>"Marc Benioff"</code> matches "Marc Benioff", "Benioff Marc", "Marc Anthony Benioff", and ignores typos.
+With quotes, only exact matches are returned.</p>
+<h3 id="exclude-terms">Exclude Terms</h3>
+<p>Prepend <code>-</code> to filter values to exclude results matching those terms:</p>
+<pre><code class="language-json">{
+  &quot;search_criteria&quot;: {
+    &quot;current_title&quot;: [&quot;Software Engineer&quot;, &quot;Software Developer&quot;, &quot;-Senior&quot;, &quot;-Sr&quot;]
+  }
+}
+</code></pre>
+<p>This matches Software Engineers and Software Developers that don't have "Senior" or "Sr" in their title.</p>
+<h3 id="numeric-operators">Numeric Operators</h3>
+<p>Some fields support mathematical operators:</p>
+<pre><code class="language-json">{
+  &quot;search_criteria&quot;: {
+    &quot;company_funding_min&quot;: [&quot;1000000+&quot;],
+    &quot;company_funding_max&quot;: [&quot;&lt;90000000&quot;],
+    &quot;company_revenue&quot;: [&quot;1000000-90000000&quot;]
+  }
+}
+</code></pre>
+<p>Valid operators: <code>+</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>-</code> (range)</p>
+<hr />
+<h2 id="response-format">Response Format</h2>
+<h3 id="success-response-200-ok">Success Response (200 OK)</h3>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;data&quot;: {
+    &quot;profiles&quot;: [
+      {
+        &quot;id&quot;: &quot;12345&quot;,
+        &quot;name&quot;: &quot;Jane Smith&quot;,
+        &quot;current_title&quot;: &quot;Software Engineer&quot;,
+        &quot;current_employer&quot;: &quot;TechCorp&quot;,
+        &quot;location&quot;: &quot;San Francisco, CA&quot;,
+        &quot;linkedin_url&quot;: &quot;https://linkedin.com/in/janesmith&quot;
+      }
+    ],
+    &quot;pagination&quot;: {
+      &quot;current_page&quot;: 1,
+      &quot;page_size&quot;: 50,
+      &quot;start&quot;: 1,
+      &quot;total&quot;: 1500,
+      &quot;has_next&quot;: true,
+      &quot;next_start&quot;: 51
+    }
+  },
+  &quot;credits&quot;: {
+    &quot;used&quot;: 1,
+    &quot;remaining&quot;: 999
+  }
+}
+</code></pre>
+<h3 id="response-fields">Response Fields</h3>
+<p>Profile Object</p>
+<p>Each profile in the <code>profiles</code> array contains:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>string</td>
+<td>Unique candidate ID (use for contact lookup)</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>Full name</td>
+</tr>
+<tr>
+<td><code>current_title</code></td>
+<td>string</td>
+<td>Current job title</td>
+</tr>
+<tr>
+<td><code>current_employer</code></td>
+<td>string</td>
+<td>Current company name</td>
+</tr>
+<tr>
+<td><code>location</code></td>
+<td>string</td>
+<td>Current location</td>
+</tr>
+<tr>
+<td><code>linkedin_url</code></td>
+<td>string</td>
+<td>LinkedIn profile URL</td>
+</tr>
+</tbody>
+</table>
+<p>Note: Search results do <strong>not</strong> include contact information (email/phone). Use the <a href="../API_CONTACT_LOOKUP_ENDPOINT/">Contact Lookup API</a> with the candidate <code>id</code> to retrieve contact details.</p>
+<p>Pagination Object</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>current_page</code></td>
+<td>integer</td>
+<td>Current page number</td>
+</tr>
+<tr>
+<td><code>page_size</code></td>
+<td>integer</td>
+<td>Profiles per page</td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>integer</td>
+<td>Starting position</td>
+</tr>
+<tr>
+<td><code>total</code></td>
+<td>integer</td>
+<td>Total matching profiles</td>
+</tr>
+<tr>
+<td><code>has_next</code></td>
+<td>boolean</td>
+<td>Whether more results exist</td>
+</tr>
+<tr>
+<td><code>next_start</code></td>
+<td>integer or null</td>
+<td>Starting position for next page</td>
+</tr>
+</tbody>
+</table>
+<p>Credits Object</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>used</code></td>
+<td>integer</td>
+<td>Credits charged for this request</td>
+</tr>
+<tr>
+<td><code>remaining</code></td>
+<td>integer</td>
+<td>Your remaining credit balance</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="code-examples">Code Examples</h2>
+<h3 id="curl">cURL</h3>
+<pre><code class="language-bash">curl -X POST https://api.data-vertex.com/v1/search \
+  -H &quot;x-api-key: YOUR_API_KEY&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{
+    &quot;search_criteria&quot;: {
+      &quot;current_title&quot;: [&quot;Software Engineer&quot;, &quot;Senior Software Engineer&quot;],
+      &quot;location&quot;: [&quot;San Francisco::~50mi&quot;],
+      &quot;skills&quot;: [&quot;Python&quot;, &quot;React&quot;]
+    },
+    &quot;page_size&quot;: 50,
+    &quot;start&quot;: 1
+  }'
+</code></pre>
+<h3 id="python">Python</h3>
+<pre><code class="language-python">import requests
+import json
+
+url = &quot;https://api.data-vertex.com/v1/search&quot;
+
+headers = {
+    &quot;x-api-key&quot;: &quot;YOUR_API_KEY&quot;,
+    &quot;Content-Type&quot;: &quot;application/json&quot;
+}
+
+payload = {
+    &quot;search_criteria&quot;: {
+        &quot;current_title&quot;: [&quot;Software Engineer&quot;, &quot;Senior Software Engineer&quot;],
+        &quot;location&quot;: [&quot;San Francisco::~50mi&quot;],
+        &quot;skills&quot;: [&quot;Python&quot;, &quot;React&quot;]
+    },
+    &quot;page_size&quot;: 50,
+    &quot;start&quot;: 1
+}
+
+response = requests.post(url, headers=headers, json=payload)
+
+if response.status_code == 200:
+    data = response.json()
+    print(f&quot;Found {len(data['data']['profiles'])} profiles&quot;)
+    print(f&quot;Credits used: {data['credits']['used']}&quot;)
+    print(f&quot;Credits remaining: {data['credits']['remaining']}&quot;)
+else:
+    print(f&quot;Error: {response.status_code}&quot;)
+    print(response.text)
+</code></pre>
+<h3 id="javascript-nodejs">JavaScript (Node.js)</h3>
+<pre><code class="language-javascript">const axios = require('axios');
+
+const searchCandidates = async () =&gt; {
+  try {
+    const response = await axios.post(
+      'https://api.data-vertex.com/v1/search',
+      {
+        search_criteria: {
+          current_title: ['Software Engineer', 'Senior Software Engineer'],
+          location: ['San Francisco::~50mi'],
+          skills: ['Python', 'React']
+        },
+        page_size: 50,
+        start: 1
+      },
+      {
+        headers: {
+          'x-api-key': 'YOUR_API_KEY',
+          'Content-Type': 'application/json'
+        }
+      }
+    );
+
+    console.log(`Found ${response.data.data.profiles.length} profiles`);
+    console.log(`Credits used: ${response.data.credits.used}`);
+    console.log(`Credits remaining: ${response.data.credits.remaining}`);
+
+    return response.data;
+  } catch (error) {
+    console.error('Error:', error.response?.data || error.message);
+  }
+};
+
+searchCandidates();
+</code></pre>
+<hr />
+<h2 id="pagination-example">Pagination Example</h2>
+<p>To retrieve the next page of results:</p>
+<pre><code class="language-python">import requests
+
+url = &quot;https://api.data-vertex.com/v1/search&quot;
+headers = {
+    &quot;x-api-key&quot;: &quot;YOUR_API_KEY&quot;,
+    &quot;Content-Type&quot;: &quot;application/json&quot;
+}
+
+# First page
+payload = {
+    &quot;search_criteria&quot;: {
+        &quot;current_title&quot;: [&quot;Software Engineer&quot;]
+    },
+    &quot;page_size&quot;: 100,
+    &quot;start&quot;: 1
+}
+
+response = requests.post(url, headers=headers, json=payload)
+data = response.json()
+
+# Check if there's a next page
+if data['data']['pagination']['has_next']:
+    next_start = data['data']['pagination']['next_start']
+
+    # Get next page
+    payload['start'] = next_start
+    next_response = requests.post(url, headers=headers, json=payload)
+    next_data = next_response.json()
+</code></pre>
+<hr />
+<h2 id="error-responses">Error Responses</h2>
+<h3 id="400-bad-request">400 Bad Request</h3>
+<p>Missing or invalid parameters:</p>
+<pre><code class="language-json">{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;search_criteria is required.&quot;
+}
+</code></pre>
+<h3 id="403-forbidden">403 Forbidden</h3>
+<p>Authentication or authorization error:</p>
+<pre><code class="language-json">{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Invalid or inactive API key.&quot;
+}
+</code></pre>
+<p>Or insufficient credits:</p>
+<pre><code class="language-json">{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Insufficient credits. Required: 1, Available: 0&quot;,
+  &quot;credits_info&quot;: {
+    &quot;required&quot;: 1,
+    &quot;available&quot;: 0
+  }
+}
+</code></pre>
+<h3 id="500-internal-server-error">500 Internal Server Error</h3>
+<p>Server error:</p>
+<pre><code class="language-json">{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Internal server error occurred.&quot;
+}
+</code></pre>
+<hr />
+<h2 id="error-codes-summary">Error Codes Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Status Code</th>
+<th>Meaning</th>
+<th>Common Causes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>200</strong></td>
+<td>OK</td>
+<td>Request successful, data returned</td>
+</tr>
+<tr>
+<td><strong>400</strong></td>
+<td>Bad Request</td>
+<td>Malformed request, missing required parameters, invalid page_size</td>
+</tr>
+<tr>
+<td><strong>403</strong></td>
+<td>Forbidden</td>
+<td>Missing/invalid API key, insufficient credits</td>
+</tr>
+<tr>
+<td><strong>500</strong></td>
+<td>Internal Server Error</td>
+<td>Unexpected server error</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="1-use-specific-search-criteria">1. Use Specific Search Criteria</h3>
+<p>The more specific your search criteria, the better your results:</p>
+<pre><code class="language-json">{
+  &quot;search_criteria&quot;: {
+    &quot;current_title&quot;: [&quot;Software Engineer&quot;],
+    &quot;location&quot;: [&quot;San Francisco::~25mi&quot;],
+    &quot;skills&quot;: [&quot;Python&quot;, &quot;Django&quot;],
+    &quot;years_experience&quot;: [&quot;5&quot;]
+  }
+}
+</code></pre>
+<h3 id="2-optimize-page-size">2. Optimize Page Size</h3>
+<ul>
+<li>Use <code>page_size: 100</code> for maximum profiles per request</li>
+<li>Smaller page sizes (10-20) for testing or incremental processing</li>
+<li>Balance between API calls and processing time</li>
+</ul>
+<h3 id="3-handle-pagination-efficiently">3. Handle Pagination Efficiently</h3>
+<pre><code class="language-python">all_profiles = []
+start = 1
+
+while True:
+    response = search_candidates(start=start)
+    profiles = response['data']['profiles']
+    all_profiles.extend(profiles)
+
+    if not response['data']['pagination']['has_next']:
+        break
+
+    start = response['data']['pagination']['next_start']
+</code></pre>
+<h3 id="4-store-candidate-ids">4. Store Candidate IDs</h3>
+<p>Search results don't include contact information. Store the <code>id</code> field from each profile to use with the <a href="../API_CONTACT_LOOKUP_ENDPOINT/">Contact Lookup API</a>:</p>
+<pre><code class="language-python">candidate_ids = [profile['id'] for profile in response['data']['profiles']]
+</code></pre>
+<h3 id="5-monitor-your-credits">5. Monitor Your Credits</h3>
+<p>Check your remaining credits in each response to avoid interruptions:</p>
+<pre><code class="language-python">if response['credits']['remaining'] &lt; 100:
+    print(&quot;Warning: Low credit balance!&quot;)
+</code></pre>
+<hr />
+<h2 id="common-use-cases">Common Use Cases</h2>
+<h3 id="example-1-find-software-engineers-in-bay-area">Example 1: Find Software Engineers in Bay Area</h3>
+<pre><code class="language-json">{
+  &quot;search_criteria&quot;: {
+    &quot;current_title&quot;: [&quot;Software Engineer&quot;, &quot;Senior Software Engineer&quot;, &quot;Staff Engineer&quot;],
+    &quot;location&quot;: [&quot;San Francisco::~50mi&quot;],
+    &quot;skills&quot;: [&quot;Python&quot;, &quot;JavaScript&quot;, &quot;React&quot;]
+  },
+  &quot;page_size&quot;: 100
+}
+</code></pre>
+<h3 id="example-2-find-healthcare-professionals">Example 2: Find Healthcare Professionals</h3>
+<pre><code class="language-json">{
+  &quot;search_criteria&quot;: {
+    &quot;current_title&quot;: [&quot;Registered Nurse&quot;, &quot;RN&quot;],
+    &quot;health_credentials&quot;: [&quot;RN&quot;],
+    &quot;location&quot;: [&quot;Boston::~30mi&quot;],
+    &quot;years_experience&quot;: [&quot;3&quot;]
+  },
+  &quot;page_size&quot;: 50
+}
+</code></pre>
+<h3 id="example-3-find-sales-leaders-at-tech-companies">Example 3: Find Sales Leaders at Tech Companies</h3>
+<pre><code class="language-json">{
+  &quot;search_criteria&quot;: {
+    &quot;current_title&quot;: [&quot;VP of Sales&quot;, &quot;Director of Sales&quot;, &quot;Sales Manager&quot;],
+    &quot;company_industry&quot;: [&quot;Software&quot;, &quot;SaaS&quot;],
+    &quot;company_size&quot;: [&quot;51-200&quot;, &quot;201-500&quot;],
+    &quot;management_levels&quot;: [&quot;Director&quot;, &quot;VP&quot;]
+  },
+  &quot;page_size&quot;: 100
+}
+</code></pre>
+<h3 id="example-4-find-recent-job-changers">Example 4: Find Recent Job Changers</h3>
+<pre><code class="language-json">{
+  &quot;search_criteria&quot;: {
+    &quot;current_title&quot;: [&quot;Product Manager&quot;],
+    &quot;location&quot;: [&quot;New York::~40mi&quot;],
+    &quot;job_change_range_days&quot;: [&quot;30&quot;]
+  },
+  &quot;page_size&quot;: 50
+}
+</code></pre>
+<hr />
+<h2 id="need-help">Need Help?</h2>
+<ul>
+<li><strong>Support:</strong> dev@data-vertex.com</li>
+<li><strong>Website:</strong> https://www.data-vertex.com</li>
+</ul>
+<hr />
+<p><em>Last Updated: February 2, 2026</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2025 DataVertex. All rights reserved.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/company/data-vertex/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.data-vertex.com" target="_blank" rel="noopener" title="www.data-vertex.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
