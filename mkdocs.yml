@@ -24,8 +24,8 @@ extra_css:
   - stylesheets/extra.css
 
 nav:
-- Search API: API_SEARCH_ENDPOINT.md
-- Contact Lookup API: API_CONTACT_LOOKUP_ENDPOINT.md
+- Search API: api_search_endpoint.md
+- Contact Lookup API: api_contact_lookup_endpoint.md
 
 extra:
   social:

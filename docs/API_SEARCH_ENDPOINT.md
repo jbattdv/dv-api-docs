@@ -176,7 +176,7 @@ The `search_criteria` object supports 80+ parameters organized into logical cate
 | `health_credentials` | array of strings | Healthcare credentials | `["MD", "RN", "PhD"]` |
 | `health_license` | array of strings | Healthcare licenses | `["MA12345"]` |
 | `health_npi` | array of strings | National Provider Identifiers | `["1234567890"]` |
-| `health_specialization` | array of strings | Medical specializations | `["Cardiology", "Neurology"]` |
+| `health_specialization` | array of strings | Medical specializations | `["Cardiology Technician", "Clinical Psychologist"]` |
 
 ### Metadata & Filters
 

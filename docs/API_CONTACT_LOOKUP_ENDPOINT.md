@@ -2,9 +2,7 @@
 
 ## Overview
 
-The DataVertex Contact Lookup API retrieves detailed contact information for specific candidates, including personal emails, phone numbers, and enriched profile data. You can lookup contacts using:
-- **Candidate IDs** from search results
-- **LinkedIn URLs** directly (no search required)
+The DataVertex Contact Lookup API retrieves detailed contact information for specific candidates, including personal emails, phone numbers, and enriched profile data. You can lookup contacts using **Candidate IDs** from search results or **LinkedIn URLs** directly (no search required)
 
 **Endpoint:** `POST https://api.data-vertex.com/v1/contact-lookup`
 
@@ -26,7 +24,7 @@ All API requests must include your API key in the request headers:
 x-api-key: YOUR_API_KEY
 ```
 
-You can obtain your API key from DataVertex directly.
+You can obtain your API key from DataVertex directly or contact dev@data-vertex.com.
 
 ---
 
@@ -98,7 +96,7 @@ Basic Request (Email Only)
 }
 ```
 
-Full Enrichment Request
+All Contact Information + Candidate's work history, education, and skills.
 
 ```json
 {
@@ -110,7 +108,7 @@ Full Enrichment Request
 }
 ```
 
-### Option 2: Lookup by LinkedIn URL (direct lookup)
+### Option 2: Lookup by LinkedIn URL
 
 Basic Request (Email Only)
 
@@ -124,7 +122,7 @@ Basic Request (Email Only)
 }
 ```
 
-Full Enrichment Request
+All Contact Information + Candidate's work history, education, and skills.
 
 ```json
 {
@@ -158,16 +156,9 @@ Full Enrichment Request
           "current_employer": "TechCorp",
           "personal_email": "jane.smith@gmail.com",
           "phone_number": "+14155551234",
-          "phone_type": "mobile",
-          "phones": [
-            {
-              "number": "+14155551234",
-              "type": "mobile"
-            }
-          ],
           "skills": ["Python", "JavaScript", "React"],
+          "education": [...],
           "experience": [...],
-          "education": [...]
         },
         "contact_data_retrieved": ["email", "phone", "detailed_profile"],
         "retrieved_at": "2025-12-10T12:00:00Z"
@@ -237,27 +228,11 @@ Email Fields (`reveal_personal_email: true`)
 
 **Multi-Source Data:** DataVertex uses multiple data sources to maximize email retrieval success. If our primary source doesn't have an email, we automatically check secondary sources at no extra cost.
 
-Phone Fields (`reveal_phone: true`)
+Phone Field (`reveal_phone: true`)
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `phone_number` | string | Primary/mobile phone number |
-| `phone_type` | string | Phone type (mobile, work, home) |
-| `phones` | array | Complete list of phone numbers with types |
-
-Example phones array:
-```json
-"phones": [
-  {
-    "number": "+14155551234",
-    "type": "mobile"
-  },
-  {
-    "number": "+16505559876",
-    "type": "work"
-  }
-]
-```
 
 Detailed Profile Fields (`reveal_detailed_person_enrichment: true`)
 
@@ -459,7 +434,7 @@ search_data = search_response.json()
 candidate_ids = [
     profile['id'] 
     for profile in search_data['data']['profiles']
-][:5]  # Take first 5
+  ][:5]  # Take first 5
 
 print(f"Found {len(candidate_ids)} candidates to lookup")
 
