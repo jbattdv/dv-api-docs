@@ -2267,7 +2267,7 @@ With quotes, only exact matches are returned.</p>
 </tr>
 </tbody>
 </table>
-<p>Note: Search results do <strong>not</strong> include contact information (email/phone). Use the <a href="./API_CONTACT_LOOKUP_ENDPOINT.md">Contact Lookup API</a> with the candidate <code>id</code> to retrieve contact details.</p>
+<p>Note: Search results do <strong>not</strong> include contact information (email/phone). Use the <a href="../api_contact_lookup_endpoint/">Contact Lookup API</a> with the candidate <code>id</code> to retrieve contact details.</p>
 <p>Pagination Object</p>
 <table>
 <thead>
@@ -2548,7 +2548,7 @@ while True:
     start = response['data']['pagination']['next_start']
 </code></pre>
 <h3 id="4-store-candidate-ids">4. Store Candidate IDs</h3>
-<p>Search results don't include contact information. Store the <code>id</code> field from each profile to use with the <a href="./API_CONTACT_LOOKUP_ENDPOINT.md">Contact Lookup API</a>:</p>
+<p>Search results don't include contact information. Store the <code>id</code> field from each profile to use with the <a href="../api_contact_lookup_endpoint/">Contact Lookup API</a>:</p>
 <pre><code class="language-python">candidate_ids = [profile['id'] for profile in response['data']['profiles']]
 </code></pre>
 <h3 id="5-monitor-your-credits">5. Monitor Your Credits</h3>
