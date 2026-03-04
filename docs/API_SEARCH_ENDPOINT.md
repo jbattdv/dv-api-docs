@@ -2,7 +2,7 @@
 
 ## Overview
 
-The DataVertex Search API allows you to discover and filter professional profiles by criteria such as job title, company, location, skills, and more. Search across 700M+ professional profiles to find candidates that match your specific requirements.
+The DataVertex Search API allows you to discover and filter professional profiles by criteria such as job title, company, location, skills, and more. Search across 800M+ professional profiles to find candidates that match your specific requirements.
 
 **Endpoint:** `POST https://api.data-vertex.com/v1/search`
 
@@ -284,14 +284,14 @@ Each profile in the `profiles` array contains:
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | string | Unique candidate ID (use for contact lookup) |
+| `id` | string | Unique candidate ID (use for a lookup) |
 | `name` | string | Full name |
 | `current_title` | string | Current job title |
 | `current_employer` | string | Current company name |
 | `location` | string | Current location |
 | `linkedin_url` | string | LinkedIn profile URL |
 
-Note: Search results do **not** include contact information (email/phone). Use the [Contact Lookup API](./api_contact_lookup_endpoint.md) with the candidate `id` to retrieve contact details.
+Note: Search results do **not** include contact information (email/phone). Use the [Lookup API](./API_LOOKUP_ENDPOINT.md) with the candidate `id` to retrieve contact details.
 
 Pagination Object
 
@@ -548,7 +548,7 @@ while True:
 
 ### 4. Store Candidate IDs
 
-Search results don't include contact information. Store the `id` field from each profile to use with the [Contact Lookup API](./api_contact_lookup_endpoint.md):
+Search results don't include contact information. Store the `id` field from each profile to use with the [Lookup API](./API_LOOKUP_ENDPOINT.md):
 
 ```python
 candidate_ids = [profile['id'] for profile in response['data']['profiles']]
