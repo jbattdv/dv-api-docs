@@ -12,11 +12,11 @@
   }
   
   .md-header {
-    height: 40px !important;
-    padding: 0 !important;
+    height: 140px !important;
+    padding: 0 8px !important;
   }
   
   .md-header__inner {
-    height: 40px !important;
+    height: 140px !important;
     padding: 0 8px !important;
   }
