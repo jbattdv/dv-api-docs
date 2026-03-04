@@ -12,10 +12,8 @@
         <meta name="author" content="DataVertex">
       
       
-        <link rel="canonical" href="https://docs.data-vertex.com/api_contact_lookup_endpoint/">
+        <link rel="canonical" href="https://docs.data-vertex.com/API_LOOKUP_ENDPOINT/">
       
-      
-        <link rel="prev" href="../api_search_endpoint/">
       
       
       
@@ -27,7 +25,7 @@
     
     
       
-        <title>Contact Lookup API - DataVertex API Documentation</title>
+        <title>DataVertex Lookup API - DataVertex API Documentation</title>
       
     
     
@@ -78,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#datavertex-contact-lookup-api" class="md-skip">
+        <a href="#datavertex-lookup-api" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Contact Lookup API
+              DataVertex Lookup API
             
           </span>
         </div>
@@ -210,7 +208,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../api_search_endpoint/" class="md-nav__link">
+      <a href="../api_search_endpoint.md" class="md-nav__link">
         
   
   
@@ -234,44 +232,17 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Contact Lookup API
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../api_lookup_endpoint.md" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Contact Lookup API
+    Lookup API
   
 
     
@@ -280,570 +251,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Overview
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#authentication" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Authentication
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#credit-costs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Credit Costs
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Credit Costs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#success-based-billing-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Success-Based Billing Example
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#request-format" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Request Format
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Request Format">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#headers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Headers
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#body-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Body Parameters
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#request-examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Request Examples
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Request Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#option-1-lookup-by-candidate-id-from-search-results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Option 1: Lookup by Candidate ID (from search results)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#option-2-lookup-by-linkedin-url" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Option 2: Lookup by LinkedIn URL
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#response-format" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Response Format
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Response Format">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#success-response-200-ok" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Success Response (200 OK)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#response-fields" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Response Fields
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Response Fields">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#contact-object" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Contact Object
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#profile-object" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Profile Object
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#contact-data-retrieved-array" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Contact Data Retrieved Array
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#summary-object" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Summary Object
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#credits-object" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Credits Object
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#code-examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Code Examples
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Code Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#curl" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        cURL
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Python
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#javascript-nodejs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        JavaScript (Node.js)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#complete-workflow-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Complete Workflow Example
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Complete Workflow Example">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#python_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Python
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#python-example-direct-linkedin-url-lookup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Python Example - Direct LinkedIn URL Lookup
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#error-responses" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Error Responses
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Error Responses">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#400-bad-request" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        400 Bad Request
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#403-forbidden" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        403 Forbidden
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#404-not-found" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        404 Not Found
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#500-internal-server-error" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        500 Internal Server Error
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#error-codes-summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Error Codes Summary
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Best Practices
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Best Practices">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-request-only-what-you-need" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Request Only What You Need
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-make-concurrent-requests-for-multiple-candidates" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Make Concurrent Requests for Multiple Candidates
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-handle-partial-failures-gracefully" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Handle Partial Failures Gracefully
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-validate-identifiers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Validate Identifiers
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-monitor-success-based-billing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Monitor Success-Based Billing
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#common-use-cases" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Common Use Cases
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Common Use Cases">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-1-email-only-lookup-for-cold-outreach" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example 1: Email-Only Lookup for Cold Outreach
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-2-full-contact-profile-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example 2: Full Contact + Profile Data
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-3-healthcare-professional-lookup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example 3: Healthcare Professional Lookup
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-4-phone-only-lookup-for-sms-campaigns" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example 4: Phone-Only Lookup for SMS Campaigns
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-5-concurrent-lookups-for-multiple-candidates" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example 5: Concurrent Lookups for Multiple Candidates
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#need-help" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Need Help?
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1435,10 +842,10 @@
 
 
 
-<h1 id="datavertex-contact-lookup-api">DataVertex Contact Lookup API</h1>
+<h1 id="datavertex-lookup-api">DataVertex Lookup API</h1>
 <h2 id="overview">Overview</h2>
-<p>The DataVertex Contact Lookup API retrieves detailed contact information for specific candidates, including personal emails, phone numbers, and enriched profile data. You can lookup contacts using <strong>Candidate IDs</strong> from search results or <strong>LinkedIn URLs</strong> directly (no search required)</p>
-<p><strong>Endpoint:</strong> <code>POST https://api.data-vertex.com/v1/contact-lookup</code></p>
+<p>The DataVertex Lookup API retrieves detailed contact information for specific candidates, including personal emails, phone numbers, and enriched profile data. You can lookup contacts using <strong>Candidate IDs</strong> from search results or <strong>LinkedIn URLs</strong> directly (no search required)</p>
+<p><strong>Endpoint:</strong> <code>POST https://api.data-vertex.com/v1/lookup</code></p>
 <p><strong>Credit Cost:</strong> Variable (3-11 credits per candidate based on enrichments requested)</p>
 <p><strong>Billing:</strong> Success-based - you're only charged for data actually retrieved</p>
 <p><strong>Capacity:</strong> 1 contact per request</p>
@@ -1528,15 +935,15 @@
 </thead>
 <tbody>
 <tr>
-<td><code>candidate_ids</code></td>
-<td>array of strings (1 item)</td>
-<td>Single candidate ID from search results</td>
+<td><code>candidate_id</code></td>
+<td>string</td>
+<td>Candidate ID from search results</td>
 <td>One identifier required</td>
 </tr>
 <tr>
-<td><code>linkedin_urls</code></td>
-<td>array of strings (1 item)</td>
-<td>Single LinkedIn profile URL</td>
+<td><code>linkedin_url</code></td>
+<td>string</td>
+<td>LinkedIn profile URL</td>
 <td>One identifier required</td>
 </tr>
 <tr>
@@ -1566,7 +973,7 @@
 </tbody>
 </table>
 <p><strong>Important:</strong> 
-- Provide exactly one identifier: either <code>candidate_ids</code> with 1 ID OR <code>linkedin_urls</code> with 1 URL
+- Provide exactly one identifier: either <code>candidate_id</code> OR <code>linkedin_url</code>
 - At least one enrichment parameter must be set to <code>true</code>
 - For multiple candidates, make concurrent API calls</p>
 <hr />
@@ -1574,7 +981,7 @@
 <h3 id="option-1-lookup-by-candidate-id-from-search-results">Option 1: Lookup by Candidate ID (from search results)</h3>
 <p>Basic Request (Email Only)</p>
 <pre><code class="language-json">{
-  &quot;candidate_ids&quot;: [&quot;12345&quot;],
+  &quot;candidate_id&quot;: &quot;12345&quot;,
   &quot;reveal_personal_email&quot;: true,
   &quot;reveal_phone&quot;: false,
   &quot;reveal_detailed_person_enrichment&quot;: false,
@@ -1583,7 +990,7 @@
 </code></pre>
 <p>All Contact Information + Candidate's work history, education, and skills.</p>
 <pre><code class="language-json">{
-  &quot;candidate_ids&quot;: [&quot;67890&quot;],
+  &quot;candidate_id&quot;: &quot;67890&quot;,
   &quot;reveal_personal_email&quot;: true,
   &quot;reveal_phone&quot;: true,
   &quot;reveal_detailed_person_enrichment&quot;: true,
@@ -1593,7 +1000,7 @@
 <h3 id="option-2-lookup-by-linkedin-url">Option 2: Lookup by LinkedIn URL</h3>
 <p>Basic Request (Email Only)</p>
 <pre><code class="language-json">{
-  &quot;linkedin_urls&quot;: [&quot;https://www.linkedin.com/in/jane-smith-12345&quot;],
+  &quot;linkedin_url&quot;: &quot;https://www.linkedin.com/in/jane-smith-12345&quot;,
   &quot;reveal_personal_email&quot;: true,
   &quot;reveal_phone&quot;: false,
   &quot;reveal_detailed_person_enrichment&quot;: false,
@@ -1602,7 +1009,7 @@
 </code></pre>
 <p>All Contact Information + Candidate's work history, education, and skills.</p>
 <pre><code class="language-json">{
-  &quot;linkedin_urls&quot;: [&quot;https://www.linkedin.com/in/john-doe-67890&quot;],
+  &quot;linkedin_url&quot;: &quot;https://www.linkedin.com/in/john-doe-67890&quot;,
   &quot;reveal_personal_email&quot;: true,
   &quot;reveal_phone&quot;: true,
   &quot;reveal_detailed_person_enrichment&quot;: true,
@@ -1940,11 +1347,11 @@
 <hr />
 <h2 id="code-examples">Code Examples</h2>
 <h3 id="curl">cURL</h3>
-<pre><code class="language-bash">curl -X POST https://api.data-vertex.com/v1/contact-lookup \
+<pre><code class="language-bash">curl -X POST https://api.data-vertex.com/v1/lookup \
   -H &quot;x-api-key: YOUR_API_KEY&quot; \
   -H &quot;Content-Type: application/json&quot; \
   -d '{
-    &quot;candidate_ids&quot;: [&quot;12345&quot;],
+    &quot;candidate_id&quot;: &quot;12345&quot;,
     &quot;reveal_personal_email&quot;: true,
     &quot;reveal_phone&quot;: true,
     &quot;reveal_detailed_person_enrichment&quot;: false,
@@ -1954,7 +1361,7 @@
 <h3 id="python">Python</h3>
 <pre><code class="language-python">import requests
 
-url = &quot;https://api.data-vertex.com/v1/contact-lookup&quot;
+url = &quot;https://api.data-vertex.com/v1/lookup&quot;
 
 headers = {
     &quot;x-api-key&quot;: &quot;YOUR_API_KEY&quot;,
@@ -1962,7 +1369,7 @@ headers = {
 }
 
 payload = {
-    &quot;candidate_ids&quot;: [&quot;12345&quot;],
+    &quot;candidate_id&quot;: &quot;12345&quot;,
     &quot;reveal_personal_email&quot;: True,
     &quot;reveal_phone&quot;: True,
     &quot;reveal_detailed_person_enrichment&quot;: False,
@@ -1995,9 +1402,9 @@ else:
 const lookupContact = async (candidateId) =&gt; {
   try {
     const response = await axios.post(
-      'https://api.data-vertex.com/v1/contact-lookup',
+      'https://api.data-vertex.com/v1/lookup',
       {
-        candidate_ids: [candidateId],
+        candidate_id: candidateId,
         reveal_personal_email: true,
         reveal_phone: true,
         reveal_detailed_person_enrichment: false,
@@ -2039,7 +1446,7 @@ lookupContact('12345');
 </code></pre>
 <hr />
 <h2 id="complete-workflow-example">Complete Workflow Example</h2>
-<p>Here's a complete example showing search followed by concurrent contact lookups:</p>
+<p>Here's a complete example showing search followed by concurrent lookups:</p>
 <h3 id="python_1">Python</h3>
 <pre><code class="language-python">import requests
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -2080,10 +1487,10 @@ print(f&quot;Found {len(candidate_ids)} candidates to lookup&quot;)
 def lookup_single_contact(candidate_id):
     &quot;&quot;&quot;Lookup a single candidate&quot;&quot;&quot;
     response = requests.post(
-        f&quot;{BASE_URL}/contact-lookup&quot;,
+        f&quot;{BASE_URL}/lookup&quot;,
         headers=headers,
         json={
-            &quot;candidate_ids&quot;: [candidate_id],
+            &quot;candidate_id&quot;: candidate_id,
             &quot;reveal_personal_email&quot;: True,
             &quot;reveal_phone&quot;: True,
             &quot;reveal_detailed_person_enrichment&quot;: True,
@@ -2147,10 +1554,10 @@ linkedin_url = &quot;https://www.linkedin.com/in/jane-smith-12345&quot;
 
 # Lookup contact information directly
 lookup_response = requests.post(
-    f&quot;{BASE_URL}/contact-lookup&quot;,
+    f&quot;{BASE_URL}/lookup&quot;,
     headers=headers,
     json={
-        &quot;linkedin_urls&quot;: [linkedin_url],
+        &quot;linkedin_url&quot;: linkedin_url,
         &quot;reveal_personal_email&quot;: True,
         &quot;reveal_phone&quot;: True,
         &quot;reveal_detailed_person_enrichment&quot;: False,
@@ -2182,7 +1589,7 @@ print(f&quot;Remaining: {lookup_data['credits']['remaining']}&quot;)
 <p>Missing or invalid parameters:</p>
 <pre><code class="language-json">{
   &quot;success&quot;: false,
-  &quot;message&quot;: &quot;Either candidate_ids or linkedin_urls array is required.&quot;
+  &quot;message&quot;: &quot;Either candidate_id or linkedin_url is required.&quot;
 }
 </code></pre>
 <p>Or invalid enrichment parameters:</p>
@@ -2277,7 +1684,7 @@ print(f&quot;Remaining: {lookup_data['credits']['remaining']}&quot;)
 <p>Only enable enrichments you'll actually use to minimize credit costs:</p>
 <pre><code class="language-python"># Just need emails for outreach
 payload = {
-    &quot;candidate_ids&quot;: [&quot;12345&quot;],
+    &quot;candidate_id&quot;: &quot;12345&quot;,
     &quot;reveal_personal_email&quot;: True,
     &quot;reveal_phone&quot;: False,
     &quot;reveal_detailed_person_enrichment&quot;: False,
@@ -2291,10 +1698,10 @@ payload = {
 def lookup_contact(candidate_id):
     &quot;&quot;&quot;Lookup a single candidate&quot;&quot;&quot;
     response = requests.post(
-        &quot;https://api.data-vertex.com/v1/contact-lookup&quot;,
+        &quot;https://api.data-vertex.com/v1/lookup&quot;,
         headers=headers,
         json={
-            &quot;candidate_ids&quot;: [candidate_id],
+            &quot;candidate_id&quot;: candidate_id,
             &quot;reveal_personal_email&quot;: True,
             &quot;reveal_phone&quot;: True
         }
@@ -2371,7 +1778,7 @@ print(f&quot;Total credits used: {total_credits}&quot;)
 <h2 id="common-use-cases">Common Use Cases</h2>
 <h3 id="example-1-email-only-lookup-for-cold-outreach">Example 1: Email-Only Lookup for Cold Outreach</h3>
 <pre><code class="language-json">{
-  &quot;candidate_ids&quot;: [&quot;12345&quot;],
+  &quot;candidate_id&quot;: &quot;12345&quot;,
   &quot;reveal_personal_email&quot;: true,
   &quot;reveal_phone&quot;: false,
   &quot;reveal_detailed_person_enrichment&quot;: false,
@@ -2381,7 +1788,7 @@ print(f&quot;Total credits used: {total_credits}&quot;)
 <p><strong>Cost:</strong> 3 credits per email found (success-based)</p>
 <h3 id="example-2-full-contact-profile-data">Example 2: Full Contact + Profile Data</h3>
 <pre><code class="language-json">{
-  &quot;candidate_ids&quot;: [&quot;12345&quot;],
+  &quot;candidate_id&quot;: &quot;12345&quot;,
   &quot;reveal_personal_email&quot;: true,
   &quot;reveal_phone&quot;: true,
   &quot;reveal_detailed_person_enrichment&quot;: true,
@@ -2391,7 +1798,7 @@ print(f&quot;Total credits used: {total_credits}&quot;)
 <p><strong>Cost:</strong> Up to 10 credits per contact (3 email + 6 phone + 1 profile)</p>
 <h3 id="example-3-healthcare-professional-lookup">Example 3: Healthcare Professional Lookup</h3>
 <pre><code class="language-json">{
-  &quot;candidate_ids&quot;: [&quot;98765&quot;],
+  &quot;candidate_id&quot;: &quot;98765&quot;,
   &quot;reveal_personal_email&quot;: true,
   &quot;reveal_phone&quot;: true,
   &quot;reveal_detailed_person_enrichment&quot;: false,
@@ -2401,7 +1808,7 @@ print(f&quot;Total credits used: {total_credits}&quot;)
 <p><strong>Cost:</strong> Up to 10 credits per contact (3 email + 6 phone + 1 healthcare)</p>
 <h3 id="example-4-phone-only-lookup-for-sms-campaigns">Example 4: Phone-Only Lookup for SMS Campaigns</h3>
 <pre><code class="language-json">{
-  &quot;candidate_ids&quot;: [&quot;12345&quot;],
+  &quot;candidate_id&quot;: &quot;12345&quot;,
   &quot;reveal_personal_email&quot;: false,
   &quot;reveal_phone&quot;: true,
   &quot;reveal_detailed_person_enrichment&quot;: false,
@@ -2417,10 +1824,10 @@ candidate_ids = [&quot;12345&quot;, &quot;67890&quot;, &quot;11111&quot;, &quot;
 
 def lookup_contact(cid):
     return requests.post(
-        &quot;https://api.data-vertex.com/v1/contact-lookup&quot;,
+        &quot;https://api.data-vertex.com/v1/lookup&quot;,
         headers={&quot;x-api-key&quot;: API_KEY, &quot;Content-Type&quot;: &quot;application/json&quot;},
         json={
-            &quot;candidate_ids&quot;: [cid],
+            &quot;candidate_id&quot;: cid,
             &quot;reveal_personal_email&quot;: True,
             &quot;reveal_phone&quot;: True
         }

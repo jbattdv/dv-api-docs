@@ -12,11 +12,9 @@
         <meta name="author" content="DataVertex">
       
       
-        <link rel="canonical" href="https://docs.data-vertex.com/api_search_endpoint/">
+        <link rel="canonical" href="https://docs.data-vertex.com/API_SEARCH_ENDPOINT/">
       
       
-      
-        <link rel="next" href="../api_contact_lookup_endpoint/">
       
       
         
@@ -27,7 +25,7 @@
     
     
       
-        <title>Search API - DataVertex API Documentation</title>
+        <title>DataVertex Search API - DataVertex API Documentation</title>
       
     
     
@@ -113,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Search API
+              DataVertex Search API
             
           </span>
         </div>
@@ -207,37 +205,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Search API
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../api_search_endpoint.md" class="md-nav__link">
         
   
   
@@ -253,602 +224,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Overview
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#authentication" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Authentication
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#request-format" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Request Format
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Request Format">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#headers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Headers
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#body-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Body Parameters
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#search-criteria-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Search Criteria Parameters
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Search Criteria Parameters">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#profile-identification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Profile Identification
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#job-title-role" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Job Title &amp; Role
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#current-employer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Current Employer
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#previous-employer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Previous Employer
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#company-attributes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Company Attributes
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#company-location" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Company Location
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#industry-sector" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Industry &amp; Sector
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#company-intelligence" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Company Intelligence
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#education" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Education
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#skills-experience" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Skills &amp; Experience
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#social-connections" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Social &amp; Connections
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#healthcare-for-healthcare-professionals" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Healthcare (for healthcare professionals)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#metadata-filters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Metadata &amp; Filters
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#advanced-search-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Advanced Search Features
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Advanced Search Features">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#exact-match" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exact Match
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exclude-terms" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exclude Terms
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#numeric-operators" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Numeric Operators
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#response-format" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Response Format
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Response Format">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#success-response-200-ok" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Success Response (200 OK)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#response-fields" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Response Fields
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#code-examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Code Examples
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Code Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#curl" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        cURL
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Python
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#javascript-nodejs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        JavaScript (Node.js)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pagination-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pagination Example
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#error-responses" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Error Responses
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Error Responses">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#400-bad-request" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        400 Bad Request
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#403-forbidden" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        403 Forbidden
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#500-internal-server-error" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        500 Internal Server Error
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#error-codes-summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Error Codes Summary
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Best Practices
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Best Practices">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-use-specific-search-criteria" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Use Specific Search Criteria
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-optimize-page-size" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Optimize Page Size
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-handle-pagination-efficiently" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Handle Pagination Efficiently
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-store-candidate-ids" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Store Candidate IDs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-monitor-your-credits" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Monitor Your Credits
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#common-use-cases" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Common Use Cases
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Common Use Cases">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-1-find-software-engineers-in-bay-area" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example 1: Find Software Engineers in Bay Area
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-2-find-healthcare-professionals" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example 2: Find Healthcare Professionals
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-3-find-sales-leaders-at-tech-companies" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example 3: Find Sales Leaders at Tech Companies
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-4-find-recent-job-changers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example 4: Find Recent Job Changers
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#need-help" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Need Help?
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -860,14 +235,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../api_contact_lookup_endpoint/" class="md-nav__link">
+      <a href="../api_lookup_endpoint.md" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Contact Lookup API
+    Lookup API
   
 
     
@@ -2267,7 +1642,7 @@ With quotes, only exact matches are returned.</p>
 </tr>
 </tbody>
 </table>
-<p>Note: Search results do <strong>not</strong> include contact information (email/phone). Use the <a href="../api_contact_lookup_endpoint/">Contact Lookup API</a> with the candidate <code>id</code> to retrieve contact details.</p>
+<p>Note: Search results do <strong>not</strong> include contact information (email/phone). Use the <a href="./api_contact_lookup_endpoint.md">Contact Lookup API</a> with the candidate <code>id</code> to retrieve contact details.</p>
 <p>Pagination Object</p>
 <table>
 <thead>
@@ -2548,7 +1923,7 @@ while True:
     start = response['data']['pagination']['next_start']
 </code></pre>
 <h3 id="4-store-candidate-ids">4. Store Candidate IDs</h3>
-<p>Search results don't include contact information. Store the <code>id</code> field from each profile to use with the <a href="../api_contact_lookup_endpoint/">Contact Lookup API</a>:</p>
+<p>Search results don't include contact information. Store the <code>id</code> field from each profile to use with the <a href="./api_contact_lookup_endpoint.md">Contact Lookup API</a>:</p>
 <pre><code class="language-python">candidate_ids = [profile['id'] for profile in response['data']['profiles']]
 </code></pre>
 <h3 id="5-monitor-your-credits">5. Monitor Your Credits</h3>
