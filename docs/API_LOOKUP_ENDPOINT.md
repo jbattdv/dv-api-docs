@@ -1,10 +1,10 @@
-# DataVertex Contact Lookup API
+# DataVertex Lookup API
 
 ## Overview
 
-The DataVertex Contact Lookup API retrieves detailed contact information for specific candidates, including personal emails, phone numbers, and enriched profile data. You can lookup contacts using **Candidate IDs** from search results or **LinkedIn URLs** directly (no search required)
+The DataVertex Lookup API retrieves detailed contact information for specific candidates, including personal emails, phone numbers, and enriched profile data. You can lookup contacts using **Candidate IDs** from search results or **LinkedIn URLs** directly (no search required)
 
-**Endpoint:** `POST https://api.data-vertex.com/v1/contact-lookup`
+**Endpoint:** `POST https://api.data-vertex.com/v1/lookup`
 
 **Credit Cost:** Variable (3-11 credits per candidate based on enrichments requested)
 
@@ -66,15 +66,15 @@ You're **never charged** for:
 
 | Parameter | Type | Description | Required |
 |-----------|------|-------------|----------|
-| `candidate_ids` | array of strings (1 item) | Single candidate ID from search results | One identifier required |
-| `linkedin_urls` | array of strings (1 item) | Single LinkedIn profile URL | One identifier required |
+| `candidate_id` | string | Candidate ID from search results | One identifier required |
+| `linkedin_url` | string | LinkedIn profile URL | One identifier required |
 | `reveal_personal_email` | boolean | Retrieve personal email address | No (default: false) |
 | `reveal_phone` | boolean | Retrieve mobile phone number | No (default: false) |
 | `reveal_detailed_person_enrichment` | boolean | Retrieve skills, experience, education | No (default: false) |
 | `reveal_healthcare_enrichment` | boolean | Retrieve NPI, medical license, specialty | No (default: false) |
 
 **Important:** 
-- Provide exactly one identifier: either `candidate_ids` with 1 ID OR `linkedin_urls` with 1 URL
+- Provide exactly one identifier: either `candidate_id` OR `linkedin_url`
 - At least one enrichment parameter must be set to `true`
 - For multiple candidates, make concurrent API calls
 
@@ -88,7 +88,7 @@ Basic Request (Email Only)
 
 ```json
 {
-  "candidate_ids": ["12345"],
+  "candidate_id": "12345",
   "reveal_personal_email": true,
   "reveal_phone": false,
   "reveal_detailed_person_enrichment": false,
@@ -100,7 +100,7 @@ All Contact Information + Candidate's work history, education, and skills.
 
 ```json
 {
-  "candidate_ids": ["67890"],
+  "candidate_id": "67890",
   "reveal_personal_email": true,
   "reveal_phone": true,
   "reveal_detailed_person_enrichment": true,
@@ -114,7 +114,7 @@ Basic Request (Email Only)
 
 ```json
 {
-  "linkedin_urls": ["https://www.linkedin.com/in/jane-smith-12345"],
+  "linkedin_url": "https://www.linkedin.com/in/jane-smith-12345",
   "reveal_personal_email": true,
   "reveal_phone": false,
   "reveal_detailed_person_enrichment": false,
@@ -126,7 +126,7 @@ All Contact Information + Candidate's work history, education, and skills.
 
 ```json
 {
-  "linkedin_urls": ["https://www.linkedin.com/in/john-doe-67890"],
+  "linkedin_url": "https://www.linkedin.com/in/john-doe-67890",
   "reveal_personal_email": true,
   "reveal_phone": true,
   "reveal_detailed_person_enrichment": true,
@@ -290,11 +290,11 @@ Indicates what data types were successfully retrieved:
 ### cURL
 
 ```bash
-curl -X POST https://api.data-vertex.com/v1/contact-lookup \
+curl -X POST https://api.data-vertex.com/v1/lookup \
   -H "x-api-key: YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "candidate_ids": ["12345"],
+    "candidate_id": "12345",
     "reveal_personal_email": true,
     "reveal_phone": true,
     "reveal_detailed_person_enrichment": false,
@@ -307,7 +307,7 @@ curl -X POST https://api.data-vertex.com/v1/contact-lookup \
 ```python
 import requests
 
-url = "https://api.data-vertex.com/v1/contact-lookup"
+url = "https://api.data-vertex.com/v1/lookup"
 
 headers = {
     "x-api-key": "YOUR_API_KEY",
@@ -315,7 +315,7 @@ headers = {
 }
 
 payload = {
-    "candidate_ids": ["12345"],
+    "candidate_id": "12345",
     "reveal_personal_email": True,
     "reveal_phone": True,
     "reveal_detailed_person_enrichment": False,
@@ -351,9 +351,9 @@ const axios = require('axios');
 const lookupContact = async (candidateId) => {
   try {
     const response = await axios.post(
-      'https://api.data-vertex.com/v1/contact-lookup',
+      'https://api.data-vertex.com/v1/lookup',
       {
-        candidate_ids: [candidateId],
+        candidate_id: candidateId,
         reveal_personal_email: true,
         reveal_phone: true,
         reveal_detailed_person_enrichment: false,
@@ -398,7 +398,7 @@ lookupContact('12345');
 
 ## Complete Workflow Example
 
-Here's a complete example showing search followed by concurrent contact lookups:
+Here's a complete example showing search followed by concurrent lookups:
 
 ### Python
 
@@ -442,10 +442,10 @@ print(f"Found {len(candidate_ids)} candidates to lookup")
 def lookup_single_contact(candidate_id):
     """Lookup a single candidate"""
     response = requests.post(
-        f"{BASE_URL}/contact-lookup",
+        f"{BASE_URL}/lookup",
         headers=headers,
         json={
-            "candidate_ids": [candidate_id],
+            "candidate_id": candidate_id,
             "reveal_personal_email": True,
             "reveal_phone": True,
             "reveal_detailed_person_enrichment": True,
@@ -512,10 +512,10 @@ linkedin_url = "https://www.linkedin.com/in/jane-smith-12345"
 
 # Lookup contact information directly
 lookup_response = requests.post(
-    f"{BASE_URL}/contact-lookup",
+    f"{BASE_URL}/lookup",
     headers=headers,
     json={
-        "linkedin_urls": [linkedin_url],
+        "linkedin_url": linkedin_url,
         "reveal_personal_email": True,
         "reveal_phone": True,
         "reveal_detailed_person_enrichment": False,
@@ -553,7 +553,7 @@ Missing or invalid parameters:
 ```json
 {
   "success": false,
-  "message": "Either candidate_ids or linkedin_urls array is required."
+  "message": "Either candidate_id or linkedin_url is required."
 }
 ```
 
@@ -651,7 +651,7 @@ Only enable enrichments you'll actually use to minimize credit costs:
 ```python
 # Just need emails for outreach
 payload = {
-    "candidate_ids": ["12345"],
+    "candidate_id": "12345",
     "reveal_personal_email": True,
     "reveal_phone": False,
     "reveal_detailed_person_enrichment": False,
@@ -669,10 +669,10 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 def lookup_contact(candidate_id):
     """Lookup a single candidate"""
     response = requests.post(
-        "https://api.data-vertex.com/v1/contact-lookup",
+        "https://api.data-vertex.com/v1/lookup",
         headers=headers,
         json={
-            "candidate_ids": [candidate_id],
+            "candidate_id": candidate_id,
             "reveal_personal_email": True,
             "reveal_phone": True
         }
@@ -767,7 +767,7 @@ print(f"Total credits used: {total_credits}")
 
 ```json
 {
-  "candidate_ids": ["12345"],
+  "candidate_id": "12345",
   "reveal_personal_email": true,
   "reveal_phone": false,
   "reveal_detailed_person_enrichment": false,
@@ -781,7 +781,7 @@ print(f"Total credits used: {total_credits}")
 
 ```json
 {
-  "candidate_ids": ["12345"],
+  "candidate_id": "12345",
   "reveal_personal_email": true,
   "reveal_phone": true,
   "reveal_detailed_person_enrichment": true,
@@ -795,7 +795,7 @@ print(f"Total credits used: {total_credits}")
 
 ```json
 {
-  "candidate_ids": ["98765"],
+  "candidate_id": "98765",
   "reveal_personal_email": true,
   "reveal_phone": true,
   "reveal_detailed_person_enrichment": false,
@@ -809,7 +809,7 @@ print(f"Total credits used: {total_credits}")
 
 ```json
 {
-  "candidate_ids": ["12345"],
+  "candidate_id": "12345",
   "reveal_personal_email": false,
   "reveal_phone": true,
   "reveal_detailed_person_enrichment": false,
@@ -830,10 +830,10 @@ candidate_ids = ["12345", "67890", "11111", "22222"]
 
 def lookup_contact(cid):
     return requests.post(
-        "https://api.data-vertex.com/v1/contact-lookup",
+        "https://api.data-vertex.com/v1/lookup",
         headers={"x-api-key": API_KEY, "Content-Type": "application/json"},
         json={
-            "candidate_ids": [cid],
+            "candidate_id": cid,
             "reveal_personal_email": True,
             "reveal_phone": True
         }
