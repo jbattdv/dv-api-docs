@@ -20,3 +20,16 @@
     height: 140px !important;
     padding: 0 8px !important;
   }
+  .md-content__inner {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  .md-content__inner > h1 {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  [data-md-component="content"] .md-content__inner {
+    padding-left: 0 !important;
+  }
