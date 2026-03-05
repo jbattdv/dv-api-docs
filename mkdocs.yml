@@ -1,4 +1,4 @@
-site_name: DataVertex API Documentation
+site_name: DataVertex's Candidate API Documentation
 site_url: https://docs.data-vertex.com
 site_description: Official API documentation for the DataVertex Candidate API
 site_author: DataVertex
@@ -24,8 +24,8 @@ extra_css:
   - stylesheets/extra.css
 
 nav:
-- Search API: API_SEARCH_ENDPOINT.md
-- Lookup API: API_LOOKUP_ENDPOINT.md
+- Search Endpoint: API_SEARCH_ENDPOINT.md
+- Lookup Endpoint: API_LOOKUP_ENDPOINT.md
 
 extra:
   social:
@@ -34,4 +34,4 @@ extra:
     - icon: fontawesome/solid/globe
       link: https://www.data-vertex.com
 
-copyright: © 2025 DataVertex. All rights reserved.
+copyright: © 2026 DataVertex. All rights reserved.

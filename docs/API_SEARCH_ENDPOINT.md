@@ -1,4 +1,4 @@
-# DataVertex Search API
+# DataVertex's Search Endpoint
 
 ## Overview
 

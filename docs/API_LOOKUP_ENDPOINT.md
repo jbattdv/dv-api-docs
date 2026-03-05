@@ -1,4 +1,4 @@
-# DataVertex Lookup API
+# DataVertex's Lookup Endpoint
 
 ## Overview
 

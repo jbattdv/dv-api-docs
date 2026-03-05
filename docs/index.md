@@ -1,4 +1,4 @@
-# DataVertex API Documentation
+# DataVertex's API Documentation
 
 The DataVertex Candidate API — the single API for comprehensive, compliant access to rich candidate data from a global network of aggregated data sources. With one integration, you unlock access to over 800+ million professional candidate profiles, including verified contacts , skills, employment history, and industry specific information — all designed to power sourcing, matching, outreach, and enrichment features in recruiting platforms.
 
