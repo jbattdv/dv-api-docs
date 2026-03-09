@@ -188,7 +188,6 @@ The `search_criteria` object supports 80+ parameters organized into logical cate
 | `news_timestamp` | array of strings | News timestamp filters | `["one_month"]` |
 | `update_time` | array of strings | Profile update time | `["2025-01-01"]` |
 | `is_primary` | array of strings | Primary profile flag | `["true"]` |
-| `veteran_status` | array of strings | Veteran status (only 'True' accepted) | `["True"]` |
 
 ---
 
