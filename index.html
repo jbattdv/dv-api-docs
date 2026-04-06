@@ -16,6 +16,8 @@
       
       
       
+        <link rel="next" href="API_SEARCH_ENDPOINT/">
+      
       
         
       
@@ -111,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              DataVertex's API Documentation
+              Introduction
             
           </span>
         </div>
@@ -180,6 +182,7 @@
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
           
+  
             
               
               <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
@@ -200,6 +203,91 @@
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-can-do-with-the-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Can Do with the API
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
     
       
       
@@ -300,6 +388,7 @@
               </div>
             
           
+
           
             <div class="md-content" data-md-component="content">
               
@@ -409,8 +498,34 @@
       <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
+  
       <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
+  <script>
+    // Redirect the logo/site-name link to the main marketing site
+    document.addEventListener("DOMContentLoaded", function () {
+      var logoLinks = document.querySelectorAll(
+        ".md-header__button.md-logo, .md-header__topic a, a.md-header__button[href]"
+      );
+      logoLinks.forEach(function (el) {
+        el.href = "https://www.data-vertex.com/candidate-api";
+        el.target = "_blank";
+        el.rel = "noopener noreferrer";
+      });
+ 
+      // Also catch the site title link in the header
+      var titleLinks = document.querySelectorAll(".md-header__topic .md-ellipsis");
+      titleLinks.forEach(function (el) {
+        var parent = el.closest("a");
+        if (parent) {
+          parent.href = "https://www.data-vertex.com/candidate-api";
+          parent.target = "_blank";
+          parent.rel = "noopener noreferrer";
+        }
+      });
+    });
+  </script>
+
   </body>
 </html>
