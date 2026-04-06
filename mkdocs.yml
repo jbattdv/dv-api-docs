@@ -2,7 +2,7 @@ site_name: DataVertex's Candidate API Documentation
 site_url: https://docs.data-vertex.com
 site_description: Official API documentation for the DataVertex Candidate API
 site_author: DataVertex
-
+ 
 theme:
   name: material
   logo: assets/logo.png
@@ -19,19 +19,21 @@ theme:
     - search.highlight
     - search.suggest
     - content.code.copy
-
+  custom_dir: overrides
+ 
 extra_css:
   - stylesheets/extra.css
-
+ 
 nav:
-- Search Endpoint: API_SEARCH_ENDPOINT.md
-- Lookup Endpoint: API_LOOKUP_ENDPOINT.md
-
+  - Introduction: index.md
+  - Search Endpoint: API_SEARCH_ENDPOINT.md
+  - Lookup Endpoint: API_LOOKUP_ENDPOINT.md
+ 
 extra:
   social:
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/company/data-vertex/
     - icon: fontawesome/solid/globe
       link: https://www.data-vertex.com
-
+ 
 copyright: © 2026 DataVertex. All rights reserved.

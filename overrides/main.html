@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+ 
+{% block site_nav %}
+  {{ super() }}
+{% endblock %}
+ 
+{% block scripts %}
+  {{ super() }}
+  <script>
+    // Redirect the logo/site-name link to the main marketing site
+    document.addEventListener("DOMContentLoaded", function () {
+      var logoLinks = document.querySelectorAll(
+        ".md-header__button.md-logo, .md-header__topic a, a.md-header__button[href]"
+      );
+      logoLinks.forEach(function (el) {
+        el.href = "https://www.data-vertex.com/candidate-api";
+        el.target = "_blank";
+        el.rel = "noopener noreferrer";
+      });
+ 
+      // Also catch the site title link in the header
+      var titleLinks = document.querySelectorAll(".md-header__topic .md-ellipsis");
+      titleLinks.forEach(function (el) {
+        var parent = el.closest("a");
+        if (parent) {
+          parent.href = "https://www.data-vertex.com/candidate-api";
+          parent.target = "_blank";
+          parent.rel = "noopener noreferrer";
+        }
+      });
+    });
+  </script>
+{% endblock %}
+ 
