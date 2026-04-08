@@ -1,4 +1,4 @@
-# DataVertex's Search Endpoint
+# DataVertex Search API
 
 ## Overview
 
@@ -45,7 +45,7 @@ You can obtain your API key from DataVertex directly.
 
 ## Search Criteria Parameters
 
-The `search_criteria` object supports 80+ parameters organized into logical categories:
+The `search_criteria` object supports 60+ parameters organized into logical categories:
 
 ### Profile Identification
 
@@ -68,22 +68,16 @@ The `search_criteria` object supports 80+ parameters organized into logical cate
 | `department` | array of strings | Company departments | `["Product Management", "Engineering"]` |
 | `management_levels` | array of strings | Management levels | `["Director", "VP", "C-Level"]` |
 
-### Current Employer
+### Employer
 
 | Parameter | Type | Description | Example |
 |-----------|------|-------------|---------|
 | `current_employer` | array of strings | Current company names | `["DataVertex"]` |
-| `employer` | array of strings | Company names (current) | `["DataVertex"]` |
+| `previous_employer` | array of strings | Previous company names | `["Google", "Microsoft"]` |
 | `company_name` | array of strings | Company names | `["DataVertex"]` |
 | `company_domain` | array of strings | Company domains | `["data-vertex.com"]` |
 | `company_email` | array of strings | Company email addresses | `["info@data-vertex.com"]` |
 | `company_website_url` | array of strings | Company website URLs | `["data-vertex.com"]` |
-
-### Previous Employer
-
-| Parameter | Type | Description | Example |
-|-----------|------|-------------|---------|
-| `previous_employer` | array of strings | Previous company names | `["Google", "Microsoft"]` |
 
 ### Company Attributes
 
@@ -92,12 +86,10 @@ The `search_criteria` object supports 80+ parameters organized into logical cate
 | `company_size` | array of strings | Company size ranges | `["51-200", "201-500"]` |
 | `employees` | array of strings | Employee count ranges | `["100-500"]` |
 | `company_revenue` | array of strings | Revenue ranges | `["10000000-50000000"]` |
-| `revenue` | array of strings | Revenue values | `["10000000-50000000"]` |
 | `company_funding_min` | array of strings | Minimum funding amount | `["1000000"]` |
 | `company_funding_max` | array of strings | Maximum funding amount | `["50000000"]` |
 | `total_funding` | array of strings | Total capital raised | `["10000000"]` |
 | `company_publicly_traded` | array of strings | Public trading status | `["true"]` |
-| `publicly_traded` | array of strings | Public trading status | `["true"]` |
 
 ### Company Location
 
@@ -118,16 +110,10 @@ The `search_criteria` object supports 80+ parameters organized into logical cate
 | Parameter | Type | Description | Example |
 |-----------|------|-------------|---------|
 | `company_industry` | array of strings | Company industries | `["Software Engineering"]` |
-| `industry` | array of strings | Industries | `["Software"]` |
-| `primary_industry` | array of strings | Primary industries | `["Software"]` |
 | `company_industry_keywords` | array of strings | Industry keywords | `["SaaS", "B2B"]` |
 | `industry_keywords` | array of strings | Industry keywords | `["AI", "Machine Learning"]` |
 | `company_naics_code` | array of strings | NAICS codes | `["541330", "541512"]` |
-| `naics_code` | array of strings | NAICS codes | `["541330"]` |
-| `naics_codes` | array of strings | NAICS codes | `["541330", "541340"]` |
 | `company_sic_code` | array of strings | SIC codes | `["7372"]` |
-| `sic_code` | array of strings | SIC codes | `["7372"]` |
-| `sic_codes` | array of strings | SIC codes | `["7372", "7373"]` |
 
 ### Company Intelligence
 
@@ -135,16 +121,8 @@ The `search_criteria` object supports 80+ parameters organized into logical cate
 |-----------|------|-------------|---------|
 | `company_competitors` | array of strings | Competitor domains | `["competitor.com"]` |
 | `competitors` | array of strings | Competitor domains | `["competitor.com"]` |
-| `company_tag` | array of strings | Company tags | `["unicorn", "startup"]` |
-| `company_intent` | array of strings | Company intent signals | `["hiring"]` |
-| `company_news_timestamp` | array of strings | News event filters | `["mergers & acquisitions::one_month"]` |
 | `company_list` | array of strings | Company list names | `["Fortune 500"]` |
 | `company_list_id` | array of strings | Company list IDs | `["12345"]` |
-
-**Company News Timestamp Format:** Use `"category::time_period"`:
-- Categories: `mergers & acquisitions`, `executive changes`, `funding`
-- Time periods: `one_week`, `one_month`, `three_months`, `six_months`, `all_time`
-- Example: `["funding::three_months", "executive changes::one_month"]`
 
 ### Education
 
@@ -161,7 +139,6 @@ The `search_criteria` object supports 80+ parameters organized into logical cate
 | `skills` | array of strings | Listed skills (any match) | `["Python", "SQL", "Machine Learning"]` |
 | `all_skills` | array of strings | Required skills (must match all) | `["python", "sql", "machine learning"]` |
 | `years_experience` | array of strings | Years of experience | `["10", "15"]` |
-| `description` | array of strings | Profile descriptions | `["Experienced software engineer..."]` |
 
 ### Social & Connections
 
@@ -182,12 +159,7 @@ The `search_criteria` object supports 80+ parameters organized into logical cate
 
 | Parameter | Type | Description | Example |
 |-----------|------|-------------|---------|
-| `keyword` | string or null | General keyword search | `"data enrichment"` |
-| `keywords` | string or null | Multiple keywords (comma-separated) | `"sales prospecting, data enrichment"` |
-| `insight` | array of strings | Insight filters | `["funding"]` |
-| `news_timestamp` | array of strings | News timestamp filters | `["one_month"]` |
-| `update_time` | array of strings | Profile update time | `["2025-01-01"]` |
-| `is_primary` | array of strings | Primary profile flag | `["true"]` |
+| `keywords` | array of strings | Multiple keywords (comma-separated) | `["Consulting", "Staffing"]` |
 
 ---
 
@@ -629,5 +601,4 @@ if response['credits']['remaining'] < 100:
 
 ---
 
-*Last Updated: February 2, 2026*
-
+*Last Updated: April 7, 2026*
