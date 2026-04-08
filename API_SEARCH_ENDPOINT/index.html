@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#datavertexs-search-endpoint" class="md-skip">
+        <a href="#datavertex-search-api" class="md-skip">
           Skip to content
         </a>
       
@@ -395,21 +395,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#current-employer" class="md-nav__link">
+  <a href="#employer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Current Employer
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#previous-employer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Previous Employer
+        Employer
       
     </span>
   </a>
@@ -1032,21 +1021,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#current-employer" class="md-nav__link">
+  <a href="#employer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Current Employer
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#previous-employer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Previous Employer
+        Employer
       
     </span>
   </a>
@@ -1530,7 +1508,7 @@
 
 
 
-<h1 id="datavertexs-search-endpoint">DataVertex's Search Endpoint</h1>
+<h1 id="datavertex-search-api">DataVertex Search API</h1>
 <h2 id="overview">Overview</h2>
 <p>The DataVertex Search API allows you to discover and filter professional profiles by criteria such as job title, company, location, skills, and more. Search across 800M+ professional profiles to find candidates that match your specific requirements.</p>
 <p><strong>Endpoint:</strong> <code>POST https://api.data-vertex.com/v1/search</code></p>
@@ -1599,7 +1577,7 @@
 </table>
 <hr />
 <h2 id="search-criteria-parameters">Search Criteria Parameters</h2>
-<p>The <code>search_criteria</code> object supports 80+ parameters organized into logical categories:</p>
+<p>The <code>search_criteria</code> object supports 60+ parameters organized into logical categories:</p>
 <h3 id="profile-identification">Profile Identification</h3>
 <table>
 <thead>
@@ -1692,7 +1670,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="current-employer">Current Employer</h3>
+<h3 id="employer">Employer</h3>
 <table>
 <thead>
 <tr>
@@ -1710,10 +1688,10 @@
 <td><code>["DataVertex"]</code></td>
 </tr>
 <tr>
-<td><code>employer</code></td>
+<td><code>previous_employer</code></td>
 <td>array of strings</td>
-<td>Company names (current)</td>
-<td><code>["DataVertex"]</code></td>
+<td>Previous company names</td>
+<td><code>["Google", "Microsoft"]</code></td>
 </tr>
 <tr>
 <td><code>company_name</code></td>
@@ -1738,25 +1716,6 @@
 <td>array of strings</td>
 <td>Company website URLs</td>
 <td><code>["data-vertex.com"]</code></td>
-</tr>
-</tbody>
-</table>
-<h3 id="previous-employer">Previous Employer</h3>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>previous_employer</code></td>
-<td>array of strings</td>
-<td>Previous company names</td>
-<td><code>["Google", "Microsoft"]</code></td>
 </tr>
 </tbody>
 </table>
@@ -1790,12 +1749,6 @@
 <td><code>["10000000-50000000"]</code></td>
 </tr>
 <tr>
-<td><code>revenue</code></td>
-<td>array of strings</td>
-<td>Revenue values</td>
-<td><code>["10000000-50000000"]</code></td>
-</tr>
-<tr>
 <td><code>company_funding_min</code></td>
 <td>array of strings</td>
 <td>Minimum funding amount</td>
@@ -1815,12 +1768,6 @@
 </tr>
 <tr>
 <td><code>company_publicly_traded</code></td>
-<td>array of strings</td>
-<td>Public trading status</td>
-<td><code>["true"]</code></td>
-</tr>
-<tr>
-<td><code>publicly_traded</code></td>
 <td>array of strings</td>
 <td>Public trading status</td>
 <td><code>["true"]</code></td>
@@ -1891,18 +1838,6 @@
 <td><code>["Software Engineering"]</code></td>
 </tr>
 <tr>
-<td><code>industry</code></td>
-<td>array of strings</td>
-<td>Industries</td>
-<td><code>["Software"]</code></td>
-</tr>
-<tr>
-<td><code>primary_industry</code></td>
-<td>array of strings</td>
-<td>Primary industries</td>
-<td><code>["Software"]</code></td>
-</tr>
-<tr>
 <td><code>company_industry_keywords</code></td>
 <td>array of strings</td>
 <td>Industry keywords</td>
@@ -1921,34 +1856,10 @@
 <td><code>["541330", "541512"]</code></td>
 </tr>
 <tr>
-<td><code>naics_code</code></td>
-<td>array of strings</td>
-<td>NAICS codes</td>
-<td><code>["541330"]</code></td>
-</tr>
-<tr>
-<td><code>naics_codes</code></td>
-<td>array of strings</td>
-<td>NAICS codes</td>
-<td><code>["541330", "541340"]</code></td>
-</tr>
-<tr>
 <td><code>company_sic_code</code></td>
 <td>array of strings</td>
 <td>SIC codes</td>
 <td><code>["7372"]</code></td>
-</tr>
-<tr>
-<td><code>sic_code</code></td>
-<td>array of strings</td>
-<td>SIC codes</td>
-<td><code>["7372"]</code></td>
-</tr>
-<tr>
-<td><code>sic_codes</code></td>
-<td>array of strings</td>
-<td>SIC codes</td>
-<td><code>["7372", "7373"]</code></td>
 </tr>
 </tbody>
 </table>
@@ -1976,24 +1887,6 @@
 <td><code>["competitor.com"]</code></td>
 </tr>
 <tr>
-<td><code>company_tag</code></td>
-<td>array of strings</td>
-<td>Company tags</td>
-<td><code>["unicorn", "startup"]</code></td>
-</tr>
-<tr>
-<td><code>company_intent</code></td>
-<td>array of strings</td>
-<td>Company intent signals</td>
-<td><code>["hiring"]</code></td>
-</tr>
-<tr>
-<td><code>company_news_timestamp</code></td>
-<td>array of strings</td>
-<td>News event filters</td>
-<td><code>["mergers &amp; acquisitions::one_month"]</code></td>
-</tr>
-<tr>
 <td><code>company_list</code></td>
 <td>array of strings</td>
 <td>Company list names</td>
@@ -2007,10 +1900,6 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Company News Timestamp Format:</strong> Use <code>"category::time_period"</code>:
-- Categories: <code>mergers &amp; acquisitions</code>, <code>executive changes</code>, <code>funding</code>
-- Time periods: <code>one_week</code>, <code>one_month</code>, <code>three_months</code>, <code>six_months</code>, <code>all_time</code>
-- Example: <code>["funding::three_months", "executive changes::one_month"]</code></p>
 <h3 id="education">Education</h3>
 <table>
 <thead>
@@ -2070,12 +1959,6 @@
 <td>array of strings</td>
 <td>Years of experience</td>
 <td><code>["10", "15"]</code></td>
-</tr>
-<tr>
-<td><code>description</code></td>
-<td>array of strings</td>
-<td>Profile descriptions</td>
-<td><code>["Experienced software engineer..."]</code></td>
 </tr>
 </tbody>
 </table>
@@ -2147,40 +2030,10 @@
 </thead>
 <tbody>
 <tr>
-<td><code>keyword</code></td>
-<td>string or null</td>
-<td>General keyword search</td>
-<td><code>"data enrichment"</code></td>
-</tr>
-<tr>
 <td><code>keywords</code></td>
-<td>string or null</td>
+<td>array of strings</td>
 <td>Multiple keywords (comma-separated)</td>
-<td><code>"sales prospecting, data enrichment"</code></td>
-</tr>
-<tr>
-<td><code>insight</code></td>
-<td>array of strings</td>
-<td>Insight filters</td>
-<td><code>["funding"]</code></td>
-</tr>
-<tr>
-<td><code>news_timestamp</code></td>
-<td>array of strings</td>
-<td>News timestamp filters</td>
-<td><code>["one_month"]</code></td>
-</tr>
-<tr>
-<td><code>update_time</code></td>
-<td>array of strings</td>
-<td>Profile update time</td>
-<td><code>["2025-01-01"]</code></td>
-</tr>
-<tr>
-<td><code>is_primary</code></td>
-<td>array of strings</td>
-<td>Primary profile flag</td>
-<td><code>["true"]</code></td>
+<td><code>["Consulting", "Staffing"]</code></td>
 </tr>
 </tbody>
 </table>
@@ -2632,7 +2485,7 @@ while True:
 <li><strong>Website:</strong> https://www.data-vertex.com</li>
 </ul>
 <hr />
-<p><em>Last Updated: February 2, 2026</em></p>
+<p><em>Last Updated: April 7, 2026</em></p>
 
 
 
