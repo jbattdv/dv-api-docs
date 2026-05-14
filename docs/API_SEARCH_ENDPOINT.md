@@ -40,6 +40,28 @@ You can obtain your API key from DataVertex directly.
 | `search_criteria` | object | Search filters and criteria | Yes |
 | `page_size` | integer | Number of profiles per page (1-100) | No (default: 50) |
 | `start` | integer | Starting position for pagination | No (default: 1) |
+| `include_similar_titles` | boolean | Automatically expand `current_title` with similar titles | No (default: false) |
+
+#### include_similar_titles
+
+When set to `true` at the top level of the request, the API automatically expands your `current_title` array with similar, titles before executing the search. This broadens your candidate pool without requiring you to manually list every relevant title variation.
+
+- Only applies when `current_title` is provided with fewer than 10 titles
+- Titles are added up to a maximum of 10 total
+- If `current_title` is not present in your request, this parameter has no effect
+- Default: `false`
+
+```json
+{
+  "search_criteria": {
+    "current_title": ["software engineer"],
+    "location": ["Austin::~30mi"]
+  },
+  "page_size": 50,
+  "start": 1,
+  "include_similar_titles": true
+}
+```
 
 ---
 
@@ -299,7 +321,8 @@ curl -X POST https://api.data-vertex.com/v1/search \
       "skills": ["Python", "React"]
     },
     "page_size": 50,
-    "start": 1
+    "start": 1,
+    "include_similar_titles": false
   }'
 ```
 
@@ -323,7 +346,8 @@ payload = {
         "skills": ["Python", "React"]
     },
     "page_size": 50,
-    "start": 1
+    "start": 1,
+    "include_similar_titles": False
 }
 
 response = requests.post(url, headers=headers, json=payload)
@@ -354,7 +378,8 @@ const searchCandidates = async () => {
           skills: ['Python', 'React']
         },
         page_size: 50,
-        start: 1
+        start: 1,
+        include_similar_titles: false
       },
       {
         headers: {
@@ -398,7 +423,8 @@ payload = {
         "current_title": ["Software Engineer"]
     },
     "page_size": 100,
-    "start": 1
+    "start": 1,
+    "include_similar_titles": False
 }
 
 response = requests.post(url, headers=headers, json=payload)
@@ -490,7 +516,8 @@ The more specific your search criteria, the better your results:
     "location": ["San Francisco::~25mi"],
     "skills": ["Python", "Django"],
     "years_experience": ["5"]
-  }
+  },
+  "include_similar_titles": false
 }
 ```
 
@@ -547,7 +574,8 @@ if response['credits']['remaining'] < 100:
     "location": ["San Francisco::~50mi"],
     "skills": ["Python", "JavaScript", "React"]
   },
-  "page_size": 100
+  "page_size": 100,
+  "include_similar_titles": false
 }
 ```
 
@@ -561,7 +589,8 @@ if response['credits']['remaining'] < 100:
     "location": ["Boston::~30mi"],
     "years_experience": ["3"]
   },
-  "page_size": 50
+  "page_size": 50,
+  "include_similar_titles": false
 }
 ```
 
@@ -575,7 +604,8 @@ if response['credits']['remaining'] < 100:
     "company_size": ["51-200", "201-500"],
     "management_levels": ["Director", "VP"]
   },
-  "page_size": 100
+  "page_size": 100,
+  "include_similar_titles": false
 }
 ```
 
@@ -588,9 +618,28 @@ if response['credits']['remaining'] < 100:
     "location": ["New York::~40mi"],
     "job_change_range_days": ["30"]
   },
-  "page_size": 50
+  "page_size": 50,
+  "include_similar_titles": false
 }
 ```
+
+### Example 5: Expand a Single Title with include_similar_titles
+
+When you only have one or a few titles in mind, use `include_similar_titles` to automatically broaden your search to related roles. The API will add up to 10 total titles before executing the search.
+
+```json
+{
+  "search_criteria": {
+    "current_title": ["data engineer"],
+    "location": ["Chicago::~40mi"]
+  },
+  "page_size": 100,
+  "start": 1,
+  "include_similar_titles": true
+}
+```
+
+In this example, the API may expand `current_title` to include roles such as "Data Architect", "Analytics Engineer", "ETL Developer", and others before running the search, returning a broader set of relevant candidates.
 
 ---
 
@@ -601,4 +650,5 @@ if response['credits']['remaining'] < 100:
 
 ---
 
-*Last Updated: April 7, 2026*
+*Last Updated: May 13, 2026*
+
