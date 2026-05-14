@@ -1602,41 +1602,42 @@
 </table>
 <h3 id="body-parameters">Body Parameters</h3>
 <table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>search_criteria</code></td>
-<td>object</td>
-<td>Search filters and criteria</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><code>page_size</code></td>
-<td>integer</td>
-<td>Number of profiles per page (1-100)</td>
-<td>No (default: 50)</td>
-</tr>
-<tr>
-<td><code>start</code></td>
-<td>integer</td>
-<td>Starting position for pagination</td>
-<td>No (default: 1)</td>
-</tr>
-<tr>
-<td><code>include_similar_titles</code></td>
-<td>boolean</td>
-<td>Automatically expand <code>current_title</code> with similar titles</td>
-<td>No (default: false)</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>search_criteria</code></td>
+      <td>object</td>
+      <td>Search filters and criteria</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code>page_size</code></td>
+      <td>integer</td>
+      <td>Number of profiles per page (1-100)</td>
+      <td>No (default: 50)</td>
+    </tr>
+    <tr>
+      <td><code>start</code></td>
+      <td>integer</td>
+      <td>Starting position for pagination</td>
+      <td>No (default: 1)</td>
+    </tr>
+    <tr>
+      <td><code>include_similar_titles</code></td>
+      <td>boolean</td>
+      <td>Automatically expand <code>current_title</code> with similar titles</td>
+      <td>No (default: false)</td>
+    </tr>
+  </tbody>
 </table>
+
 <h4 id="include_similar_titles">include_similar_titles</h4>
 <p>When set to <code>true</code> at the top level of the request, the API automatically expands your <code>current_title</code> array with similar, titles before executing the search. This broadens your candidate pool without requiring you to manually list every relevant title variation.</p>
 <ul>

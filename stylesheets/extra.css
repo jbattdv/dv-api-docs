@@ -33,3 +33,7 @@
   [data-md-component="content"] .md-content__inner {
     padding-left: 0 !important;
   }
+
+  .md-typeset table code {
+    white-space: nowrap;
+  }
