@@ -295,7 +295,8 @@ Valid operators: `+`, `<`, `>=`, `<=`, `-` (range)
   "credits": {
     "used": 1,
     "remaining": 999
-  }
+  },
+  "similar_titles": null
 }
 ```
 
@@ -657,6 +658,8 @@ if response['credits']['remaining'] < 100:
 
 When you only have one or a few titles in mind, use `include_similar_titles` to automatically broaden your search to related roles. The API will add up to 10 total titles before executing the search.
 
+**Page 1 — send your title and let the API expand it:**
+
 ```json
 {
   "search_criteria": {
@@ -669,7 +672,61 @@ When you only have one or a few titles in mind, use `include_similar_titles` to 
 }
 ```
 
-In this example, the API may expand `current_title` to include roles such as "Data Architect", "Analytics Engineer", "ETL Developer", and others before running the search, returning a broader set of relevant candidates.
+The response includes a `similar_titles` field containing the exact titles that were searched. Save this array — you will need it for all subsequent pages:
+
+```json
+{
+  "success": true,
+  "data": {
+    "profiles": [...],
+    "pagination": {
+      "current_page": 1,
+      "page_size": 100,
+      "start": 1,
+      "total": 4800,
+      "has_next": true,
+      "next_start": 101
+    }
+  },
+  "credits": {
+    "used": 1,
+    "remaining": 997
+  },
+  "similar_titles": [
+    "data engineer",
+    "analytics engineer",
+    "data architect",
+    "etl developer",
+    "data pipeline engineer",
+    "big data engineer",
+    "data infrastructure engineer"
+  ]
+}
+```
+
+**Page 2 onward — pass `similar_titles` back as `current_title` and set `include_similar_titles` to `false`:**
+
+```json
+{
+  "search_criteria": {
+    "current_title": [
+      "data engineer",
+      "analytics engineer",
+      "data architect",
+      "etl developer",
+      "data pipeline engineer",
+      "big data engineer",
+      "data infrastructure engineer"
+    ],
+    "location": ["Chicago::~40mi"]
+  },
+  "page_size": 100,
+  "start": 101,
+  "include_similar_titles": false
+}
+```
+
+This ensures every page is searched against the same set of titles, giving you consistent and complete results across your entire pagination sequence.
 
 ---
 
