@@ -35,12 +35,42 @@ You can obtain your API key from DataVertex directly.
 
 ### Body Parameters
 
-| Parameter | Type | Description | Required |
-|-----------|------|-------------|----------|
-| `search_criteria` | object | Search filters and criteria | Yes |
-| `page_size` | integer | Number of profiles per page (1-100) | No (default: 50) |
-| `start` | integer | Starting position for pagination | No (default: 1) |
-| `include_similar_titles` | boolean | Automatically expand `current_title` with similar titles | No (default: false) |
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>search_criteria</code></td>
+      <td>object</td>
+      <td>Search filters and criteria</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code>page_size</code></td>
+      <td>integer</td>
+      <td>Number of profiles per page (1-100)</td>
+      <td>No (default: 50)</td>
+    </tr>
+    <tr>
+      <td><code>start</code></td>
+      <td>integer</td>
+      <td>Starting position for pagination</td>
+      <td>No (default: 1)</td>
+    </tr>
+    <tr>
+      <td><code>include_similar_titles</code></td>
+      <td>boolean</td>
+      <td>Automatically expand <code>current_title</code> with similar titles</td>
+      <td>No (default: false)</td>
+    </tr>
+  </tbody>
+</table>
 
 #### include_similar_titles
 
