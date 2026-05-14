@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -353,6 +353,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Body Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#include_similar_titles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        include_similar_titles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -842,6 +859,17 @@
     <span class="md-ellipsis">
       
         Example 4: Find Recent Job Changers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-5-expand-a-single-title-with-include_similar_titles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 5: Expand a Single Title with include_similar_titles
       
     </span>
   </a>
@@ -979,6 +1007,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Body Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#include_similar_titles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        include_similar_titles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1474,6 +1519,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#example-5-expand-a-single-title-with-include_similar_titles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 5: Expand a Single Title with include_similar_titles
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1573,8 +1629,32 @@
 <td>Starting position for pagination</td>
 <td>No (default: 1)</td>
 </tr>
+<tr>
+<td><code>include_similar_titles</code></td>
+<td>boolean</td>
+<td>Automatically expand <code>current_title</code> with similar titles</td>
+<td>No (default: false)</td>
+</tr>
 </tbody>
 </table>
+<h4 id="include_similar_titles">include_similar_titles</h4>
+<p>When set to <code>true</code> at the top level of the request, the API automatically expands your <code>current_title</code> array with similar, titles before executing the search. This broadens your candidate pool without requiring you to manually list every relevant title variation.</p>
+<ul>
+<li>Only applies when <code>current_title</code> is provided with fewer than 10 titles</li>
+<li>Titles are added up to a maximum of 10 total</li>
+<li>If <code>current_title</code> is not present in your request, this parameter has no effect</li>
+<li>Default: <code>false</code></li>
+</ul>
+<pre><code class="language-json">{
+  &quot;search_criteria&quot;: {
+    &quot;current_title&quot;: [&quot;software engineer&quot;],
+    &quot;location&quot;: [&quot;Austin::~30mi&quot;]
+  },
+  &quot;page_size&quot;: 50,
+  &quot;start&quot;: 1,
+  &quot;include_similar_titles&quot;: true
+}
+</code></pre>
 <hr />
 <h2 id="search-criteria-parameters">Search Criteria Parameters</h2>
 <p>The <code>search_criteria</code> object supports 60+ parameters organized into logical categories:</p>
@@ -2223,7 +2303,8 @@ With quotes, only exact matches are returned.</p>
       &quot;skills&quot;: [&quot;Python&quot;, &quot;React&quot;]
     },
     &quot;page_size&quot;: 50,
-    &quot;start&quot;: 1
+    &quot;start&quot;: 1,
+    &quot;include_similar_titles&quot;: false
   }'
 </code></pre>
 <h3 id="python">Python</h3>
@@ -2244,7 +2325,8 @@ payload = {
         &quot;skills&quot;: [&quot;Python&quot;, &quot;React&quot;]
     },
     &quot;page_size&quot;: 50,
-    &quot;start&quot;: 1
+    &quot;start&quot;: 1,
+    &quot;include_similar_titles&quot;: False
 }
 
 response = requests.post(url, headers=headers, json=payload)
@@ -2272,7 +2354,8 @@ const searchCandidates = async () =&gt; {
           skills: ['Python', 'React']
         },
         page_size: 50,
-        start: 1
+        start: 1,
+        include_similar_titles: false
       },
       {
         headers: {
@@ -2311,7 +2394,8 @@ payload = {
         &quot;current_title&quot;: [&quot;Software Engineer&quot;]
     },
     &quot;page_size&quot;: 100,
-    &quot;start&quot;: 1
+    &quot;start&quot;: 1,
+    &quot;include_similar_titles&quot;: False
 }
 
 response = requests.post(url, headers=headers, json=payload)
@@ -2402,7 +2486,8 @@ if data['data']['pagination']['has_next']:
     &quot;location&quot;: [&quot;San Francisco::~25mi&quot;],
     &quot;skills&quot;: [&quot;Python&quot;, &quot;Django&quot;],
     &quot;years_experience&quot;: [&quot;5&quot;]
-  }
+  },
+  &quot;include_similar_titles&quot;: false
 }
 </code></pre>
 <h3 id="2-optimize-page-size">2. Optimize Page Size</h3>
@@ -2443,7 +2528,8 @@ while True:
     &quot;location&quot;: [&quot;San Francisco::~50mi&quot;],
     &quot;skills&quot;: [&quot;Python&quot;, &quot;JavaScript&quot;, &quot;React&quot;]
   },
-  &quot;page_size&quot;: 100
+  &quot;page_size&quot;: 100,
+  &quot;include_similar_titles&quot;: false
 }
 </code></pre>
 <h3 id="example-2-find-healthcare-professionals">Example 2: Find Healthcare Professionals</h3>
@@ -2454,7 +2540,8 @@ while True:
     &quot;location&quot;: [&quot;Boston::~30mi&quot;],
     &quot;years_experience&quot;: [&quot;3&quot;]
   },
-  &quot;page_size&quot;: 50
+  &quot;page_size&quot;: 50,
+  &quot;include_similar_titles&quot;: false
 }
 </code></pre>
 <h3 id="example-3-find-sales-leaders-at-tech-companies">Example 3: Find Sales Leaders at Tech Companies</h3>
@@ -2465,7 +2552,8 @@ while True:
     &quot;company_size&quot;: [&quot;51-200&quot;, &quot;201-500&quot;],
     &quot;management_levels&quot;: [&quot;Director&quot;, &quot;VP&quot;]
   },
-  &quot;page_size&quot;: 100
+  &quot;page_size&quot;: 100,
+  &quot;include_similar_titles&quot;: false
 }
 </code></pre>
 <h3 id="example-4-find-recent-job-changers">Example 4: Find Recent Job Changers</h3>
@@ -2475,9 +2563,23 @@ while True:
     &quot;location&quot;: [&quot;New York::~40mi&quot;],
     &quot;job_change_range_days&quot;: [&quot;30&quot;]
   },
-  &quot;page_size&quot;: 50
+  &quot;page_size&quot;: 50,
+  &quot;include_similar_titles&quot;: false
 }
 </code></pre>
+<h3 id="example-5-expand-a-single-title-with-include_similar_titles">Example 5: Expand a Single Title with include_similar_titles</h3>
+<p>When you only have one or a few titles in mind, use <code>include_similar_titles</code> to automatically broaden your search to related roles. The API will add up to 10 total titles before executing the search.</p>
+<pre><code class="language-json">{
+  &quot;search_criteria&quot;: {
+    &quot;current_title&quot;: [&quot;data engineer&quot;],
+    &quot;location&quot;: [&quot;Chicago::~40mi&quot;]
+  },
+  &quot;page_size&quot;: 100,
+  &quot;start&quot;: 1,
+  &quot;include_similar_titles&quot;: true
+}
+</code></pre>
+<p>In this example, the API may expand <code>current_title</code> to include roles such as "Data Architect", "Analytics Engineer", "ETL Developer", and others before running the search, returning a broader set of relevant candidates.</p>
 <hr />
 <h2 id="need-help">Need Help?</h2>
 <ul>
@@ -2485,7 +2587,7 @@ while True:
 <li><strong>Website:</strong> https://www.data-vertex.com</li>
 </ul>
 <hr />
-<p><em>Last Updated: April 7, 2026</em></p>
+<p><em>Last Updated: May 13, 2026</em></p>
 
 
 
