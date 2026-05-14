@@ -2179,7 +2179,8 @@ With quotes, only exact matches are returned.</p>
   &quot;credits&quot;: {
     &quot;used&quot;: 1,
     &quot;remaining&quot;: 999
-  }
+  },
+  &quot;similar_titles&quot;: null
 }
 </code></pre>
 <h3 id="response-fields">Response Fields</h3>
@@ -2570,6 +2571,7 @@ while True:
 </code></pre>
 <h3 id="example-5-expand-a-single-title-with-include_similar_titles">Example 5: Expand a Single Title with include_similar_titles</h3>
 <p>When you only have one or a few titles in mind, use <code>include_similar_titles</code> to automatically broaden your search to related roles. The API will add up to 10 total titles before executing the search.</p>
+<p><strong>Page 1 — send your title and let the API expand it:</strong></p>
 <pre><code class="language-json">{
   &quot;search_criteria&quot;: {
     &quot;current_title&quot;: [&quot;data engineer&quot;],
@@ -2580,7 +2582,55 @@ while True:
   &quot;include_similar_titles&quot;: true
 }
 </code></pre>
-<p>In this example, the API may expand <code>current_title</code> to include roles such as "Data Architect", "Analytics Engineer", "ETL Developer", and others before running the search, returning a broader set of relevant candidates.</p>
+<p>The response includes a <code>similar_titles</code> field containing the exact titles that were searched. Save this array — you will need it for all subsequent pages:</p>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;data&quot;: {
+    &quot;profiles&quot;: [...],
+    &quot;pagination&quot;: {
+      &quot;current_page&quot;: 1,
+      &quot;page_size&quot;: 100,
+      &quot;start&quot;: 1,
+      &quot;total&quot;: 4800,
+      &quot;has_next&quot;: true,
+      &quot;next_start&quot;: 101
+    }
+  },
+  &quot;credits&quot;: {
+    &quot;used&quot;: 1,
+    &quot;remaining&quot;: 997
+  },
+  &quot;similar_titles&quot;: [
+    &quot;data engineer&quot;,
+    &quot;analytics engineer&quot;,
+    &quot;data architect&quot;,
+    &quot;etl developer&quot;,
+    &quot;data pipeline engineer&quot;,
+    &quot;big data engineer&quot;,
+    &quot;data infrastructure engineer&quot;
+  ]
+}
+</code></pre>
+<p><strong>Page 2 onward — pass <code>similar_titles</code> back as <code>current_title</code> and set <code>include_similar_titles</code> to <code>false</code>:</strong></p>
+<pre><code class="language-json">{
+  &quot;search_criteria&quot;: {
+    &quot;current_title&quot;: [
+      &quot;data engineer&quot;,
+      &quot;analytics engineer&quot;,
+      &quot;data architect&quot;,
+      &quot;etl developer&quot;,
+      &quot;data pipeline engineer&quot;,
+      &quot;big data engineer&quot;,
+      &quot;data infrastructure engineer&quot;
+    ],
+    &quot;location&quot;: [&quot;Chicago::~40mi&quot;]
+  },
+  &quot;page_size&quot;: 100,
+  &quot;start&quot;: 101,
+  &quot;include_similar_titles&quot;: false
+}
+</code></pre>
+<p>This ensures every page is searched against the same set of titles, giving you consistent and complete results across your entire pagination sequence.</p>
 <hr />
 <h2 id="need-help">Need Help?</h2>
 <ul>
