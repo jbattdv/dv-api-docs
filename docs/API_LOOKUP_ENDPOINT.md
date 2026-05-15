@@ -1,4 +1,4 @@
-# DataVertex's Lookup Endpoint
+# DataVertex Lookup API
 
 ## Overview
 
@@ -75,6 +75,7 @@ You're **never charged** for:
 
 **Important:** 
 - Provide exactly one identifier: either `candidate_id` OR `linkedin_url`
+- We recommend `linkedin_url` for the best results
 - At least one enrichment parameter must be set to `true`
 - For multiple candidates, make concurrent API calls
 
@@ -857,5 +858,5 @@ with ThreadPoolExecutor(max_workers=15) as executor:
 
 ---
 
-*Last Updated: February 20, 2026*
+*Last Updated: May 15, 2026*
 

@@ -115,7 +115,7 @@ The `search_criteria` object supports 60+ parameters organized into logical cate
 | Parameter | Type | Description | Example |
 |-----------|------|-------------|---------|
 | `current_title` | array of strings | Current job titles | `["Product Manager", "VP of Product"]` |
-| `previous_title` | array of strings | Previous job titles | `["Software Engineer"]` |
+| `previous_title` | array of strings | Previous job titles | `["Software Engineer", "Software Developer"]` |
 | `current_or_previous_title` | array of strings | Current or previous titles | `["VP of Sales", "Director of Sales"]` |
 | `department` | array of strings | Company departments | `["Product Management", "Engineering"]` |
 | `management_levels` | array of strings | Management levels | `["Director", "VP", "C-Level"]` |
@@ -190,7 +190,7 @@ The `search_criteria` object supports 60+ parameters organized into logical cate
 |-----------|------|-------------|---------|
 | `skills` | array of strings | Listed skills (any match) | `["Python", "SQL", "Machine Learning"]` |
 | `all_skills` | array of strings | Required skills (must match all) | `["python", "sql", "machine learning"]` |
-| `years_experience` | array of strings | Years of experience | `["10", "15"]` |
+| `years_experience` | array of strings | Years of experience | `["1","2,","3"]` or ["1-3"]|
 
 ### Social & Connections
 
@@ -249,7 +249,7 @@ This matches Software Engineers and Software Developers that don't have "Senior"
 
 ### Numeric Operators
 
-Some fields support mathematical operators:
+company_funding_min, company_funding_max, employees, and company_size support mathematical operators:
 
 ```json
 {
@@ -482,7 +482,7 @@ Missing or invalid parameters:
 ```json
 {
   "success": false,
-  "message": "search_criteria is required."
+  "message": "search criteria was not provided or not formed correctly."
 }
 ```
 
@@ -737,5 +737,5 @@ This ensures every page is searched against the same set of titles, giving you c
 
 ---
 
-*Last Updated: May 13, 2026*
+*Last Updated: May 15, 2026*
 
