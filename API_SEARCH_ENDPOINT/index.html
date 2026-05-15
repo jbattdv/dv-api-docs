@@ -1729,7 +1729,7 @@
 <td><code>previous_title</code></td>
 <td>array of strings</td>
 <td>Previous job titles</td>
-<td><code>["Software Engineer"]</code></td>
+<td><code>["Software Engineer", "Software Developer"]</code></td>
 </tr>
 <tr>
 <td><code>current_or_previous_title</code></td>
@@ -2039,7 +2039,7 @@
 <td><code>years_experience</code></td>
 <td>array of strings</td>
 <td>Years of experience</td>
-<td><code>["10", "15"]</code></td>
+<td><code>["1","2,","3"]</code> or ["1-3"]</td>
 </tr>
 </tbody>
 </table>
@@ -2141,7 +2141,7 @@ With quotes, only exact matches are returned.</p>
 </code></pre>
 <p>This matches Software Engineers and Software Developers that don't have "Senior" or "Sr" in their title.</p>
 <h3 id="numeric-operators">Numeric Operators</h3>
-<p>Some fields support mathematical operators:</p>
+<p>company_funding_min, company_funding_max, employees, and company_size support mathematical operators:</p>
 <pre><code class="language-json">{
   &quot;search_criteria&quot;: {
     &quot;company_funding_min&quot;: [&quot;1000000+&quot;],
@@ -2418,7 +2418,7 @@ if data['data']['pagination']['has_next']:
 <p>Missing or invalid parameters:</p>
 <pre><code class="language-json">{
   &quot;success&quot;: false,
-  &quot;message&quot;: &quot;search_criteria is required.&quot;
+  &quot;message&quot;: &quot;search criteria was not provided or not formed correctly.&quot;
 }
 </code></pre>
 <h3 id="403-forbidden">403 Forbidden</h3>
@@ -2638,7 +2638,7 @@ while True:
 <li><strong>Website:</strong> https://www.data-vertex.com</li>
 </ul>
 <hr />
-<p><em>Last Updated: May 13, 2026</em></p>
+<p><em>Last Updated: May 15, 2026</em></p>
 
 
 
