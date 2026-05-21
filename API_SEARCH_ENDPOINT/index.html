@@ -367,6 +367,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#free_text_search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        free_text_search
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -866,10 +877,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-5-expand-a-single-title-with-include_similar_titles" class="md-nav__link">
+  <a href="#example-5-free-text-search" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example 5: Expand a Single Title with include_similar_titles
+        Example 5: Free Text Search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-6-expand-a-single-title-with-include_similar_titles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 6: Expand a Single Title with include_similar_titles
       
     </span>
   </a>
@@ -1021,6 +1043,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#free_text_search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        free_text_search
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1520,10 +1553,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-5-expand-a-single-title-with-include_similar_titles" class="md-nav__link">
+  <a href="#example-5-free-text-search" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example 5: Expand a Single Title with include_similar_titles
+        Example 5: Free Text Search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-6-expand-a-single-title-with-include_similar_titles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 6: Expand a Single Title with include_similar_titles
       
     </span>
   </a>
@@ -1614,8 +1658,14 @@
     <tr>
       <td><code>search_criteria</code></td>
       <td>object</td>
-      <td>Search filters and criteria</td>
-      <td>Yes</td>
+      <td>Search filters and criteria. Required unless <code>free_text_search</code> is provided.</td>
+      <td>Conditional</td>
+    </tr>
+    <tr>
+      <td><code>free_text_search</code></td>
+      <td>string</td>
+      <td>Natural language search request (max 300 characters). The API parses this into structured search criteria automatically. Required unless <code>search_criteria</code> is provided.</td>
+      <td>Conditional</td>
     </tr>
     <tr>
       <td><code>page_size</code></td>
@@ -1638,6 +1688,9 @@
   </tbody>
 </table>
 
+<blockquote>
+<p><strong>Note:</strong> At least one of <code>search_criteria</code> or <code>free_text_search</code> must be provided. Both can be used together — see the <a href="#free_text_search"><code>free_text_search</code></a> section below for merge behavior.</p>
+</blockquote>
 <h4 id="include_similar_titles">include_similar_titles</h4>
 <p>When set to <code>true</code> at the top level of the request, the API automatically expands your <code>current_title</code> array with similar, titles before executing the search. This broadens your candidate pool without requiring you to manually list every relevant title variation.</p>
 <ul>
@@ -1654,6 +1707,69 @@
   &quot;page_size&quot;: 50,
   &quot;start&quot;: 1,
   &quot;include_similar_titles&quot;: true
+}
+</code></pre>
+<h4 id="free_text_search">free_text_search</h4>
+<p>Write a natural language description of the candidates you are looking for — up to 300 characters. The API will parse your request into structured search criteria.</p>
+<p><strong>Supported fields parsed from free text:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Free Text Concept</th>
+<th>Mapped To</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Job titles</td>
+<td><code>current_title</code></td>
+</tr>
+<tr>
+<td>Skills</td>
+<td><code>skills</code></td>
+</tr>
+<tr>
+<td>Location</td>
+<td><code>location</code></td>
+</tr>
+<tr>
+<td>Years of experience</td>
+<td><code>years_experience</code></td>
+</tr>
+<tr>
+<td>Current or previous employer</td>
+<td><code>current_employer</code> / <code>previous_employer</code></td>
+</tr>
+<tr>
+<td>School, degree, major</td>
+<td><code>school</code> / <code>degree</code> / <code>major</code></td>
+</tr>
+<tr>
+<td>Industry / sector / domain / market</td>
+<td><code>company_industry</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Behavior when combined with <code>search_criteria</code>:</strong>
+- Fields parsed from <code>free_text_search</code> are <strong>merged</strong> into any existing <code>search_criteria</code> — array values are combined
+- Exception: <code>years_experience</code> always <strong>overrides</strong> any value already in <code>search_criteria</code> rather than merging
+- <code>free_text_search</code> can be used as the sole input — <code>search_criteria</code> is not required when it is provided</p>
+<p><strong>Compatibility with <code>include_similar_titles</code>:</strong> Fully supported. The <code>current_title</code> values parsed from <code>free_text_search</code> are populated first, and then <code>include_similar_titles</code> expands them as normal.</p>
+<p><strong>Limit:</strong> 300 characters. Requests exceeding this return a 400 error.</p>
+<pre><code class="language-json">{
+  &quot;free_text_search&quot;: &quot;Software engineers with 5+ years of Python experience in Chicago&quot;,
+  &quot;page_size&quot;: 50,
+  &quot;start&quot;: 1
+}
+</code></pre>
+<p>The response includes a <code>free_text_searched</code> field showing exactly what is mapped:</p>
+<pre><code class="language-json">{
+  &quot;free_text_searched&quot;: {
+    &quot;current_title&quot;: [&quot;Software Engineer&quot;],
+    &quot;skills&quot;: [&quot;Python&quot;],
+    &quot;location&quot;: [&quot;Chicago&quot;],
+    &quot;years_experience&quot;: [&quot;5+&quot;]
+  }
 }
 </code></pre>
 <hr />
@@ -2183,6 +2299,23 @@ With quotes, only exact matches are returned.</p>
   &quot;similar_titles&quot;: null
 }
 </code></pre>
+<p>When <code>free_text_search</code> is used, the response also includes a <code>free_text_searched</code> field:</p>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;data&quot;: { &quot;...&quot; },
+  &quot;credits&quot;: {
+    &quot;used&quot;: 1,
+    &quot;remaining&quot;: 999
+  },
+  &quot;similar_titles&quot;: null,
+  &quot;free_text_searched&quot;: {
+    &quot;current_title&quot;: [&quot;Software Engineer&quot;],
+    &quot;skills&quot;: [&quot;Python&quot;],
+    &quot;location&quot;: [&quot;Chicago&quot;],
+    &quot;years_experience&quot;: [&quot;5+&quot;]
+  }
+}
+</code></pre>
 <h3 id="response-fields">Response Fields</h3>
 <p>Profile Object</p>
 <p>Each profile in the <code>profiles</code> array contains:</p>
@@ -2289,6 +2422,28 @@ With quotes, only exact matches are returned.</p>
 <td><code>remaining</code></td>
 <td>integer</td>
 <td>Your remaining credit balance</td>
+</tr>
+</tbody>
+</table>
+<p>Top-level Fields</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>similar_titles</code></td>
+<td>array or null</td>
+<td>Expanded titles used for the search (only present when <code>include_similar_titles: true</code> and <code>current_title</code> was provided)</td>
+</tr>
+<tr>
+<td><code>free_text_searched</code></td>
+<td>object</td>
+<td>The structured criteria the AI parsed from your <code>free_text_search</code> input (only present when <code>free_text_search</code> was used)</td>
 </tr>
 </tbody>
 </table>
@@ -2569,7 +2724,35 @@ while True:
   &quot;include_similar_titles&quot;: false
 }
 </code></pre>
-<h3 id="example-5-expand-a-single-title-with-include_similar_titles">Example 5: Expand a Single Title with include_similar_titles</h3>
+<h3 id="example-5-free-text-search">Example 5: Free Text Search</h3>
+<p>Use <code>free_text_search</code> to describe candidates in plain English instead of building structured criteria manually. The API maps your input to the appropriate fields and executes the search.</p>
+<pre><code class="language-json">{
+  &quot;free_text_search&quot;: &quot;Nurses with at least 3 years of experience in Boston&quot;,
+  &quot;page_size&quot;: 50,
+  &quot;start&quot;: 1
+}
+</code></pre>
+<p>You can also combine <code>free_text_search</code> with explicit <code>search_criteria</code> — the parsed fields are merged in. The exception is <code>years_experience</code>, which is always overridden by the free text value rather than merged:</p>
+<pre><code class="language-json">{
+  &quot;free_text_search&quot;: &quot;Python engineers with 5+ years experience&quot;,
+  &quot;search_criteria&quot;: {
+    &quot;location&quot;: [&quot;Austin::~30mi&quot;],
+    &quot;company_size&quot;: [&quot;51-200&quot;]
+  },
+  &quot;page_size&quot;: 50,
+  &quot;start&quot;: 1
+}
+</code></pre>
+<p>Use <code>free_text_search</code> with <code>include_similar_titles</code> to both describe your candidates naturally and broaden the title match:</p>
+<pre><code class="language-json">{
+  &quot;free_text_search&quot;: &quot;Data engineers with Spark experience in Seattle&quot;,
+  &quot;include_similar_titles&quot;: true,
+  &quot;page_size&quot;: 100,
+  &quot;start&quot;: 1
+}
+</code></pre>
+<hr />
+<h3 id="example-6-expand-a-single-title-with-include_similar_titles">Example 6: Expand a Single Title with include_similar_titles</h3>
 <p>When you only have one or a few titles in mind, use <code>include_similar_titles</code> to automatically broaden your search to related roles. The API will add up to 10 total titles before executing the search.</p>
 <p><strong>Page 1 — send your title and let the API expand it:</strong></p>
 <pre><code class="language-json">{
@@ -2638,7 +2821,7 @@ while True:
 <li><strong>Website:</strong> https://www.data-vertex.com</li>
 </ul>
 <hr />
-<p><em>Last Updated: May 15, 2026</em></p>
+<p><em>Last Updated: May 21, 2026</em></p>
 
 
 
