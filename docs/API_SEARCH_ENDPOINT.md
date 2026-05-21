@@ -48,8 +48,14 @@ You can obtain your API key from DataVertex directly.
     <tr>
       <td><code>search_criteria</code></td>
       <td>object</td>
-      <td>Search filters and criteria</td>
-      <td>Yes</td>
+      <td>Search filters and criteria. Required unless <code>free_text_search</code> is provided.</td>
+      <td>Conditional</td>
+    </tr>
+    <tr>
+      <td><code>free_text_search</code></td>
+      <td>string</td>
+      <td>Natural language search request (max 300 characters). The API parses this into structured search criteria automatically. Required unless <code>search_criteria</code> is provided.</td>
+      <td>Conditional</td>
     </tr>
     <tr>
       <td><code>page_size</code></td>
@@ -72,6 +78,8 @@ You can obtain your API key from DataVertex directly.
   </tbody>
 </table>
 
+> **Note:** At least one of `search_criteria` or `free_text_search` must be provided. Both can be used together — see the [`free_text_search`](#free_text_search) section below for merge behavior.
+
 #### include_similar_titles
 
 When set to `true` at the top level of the request, the API automatically expands your `current_title` array with similar, titles before executing the search. This broadens your candidate pool without requiring you to manually list every relevant title variation.
@@ -90,6 +98,52 @@ When set to `true` at the top level of the request, the API automatically expand
   "page_size": 50,
   "start": 1,
   "include_similar_titles": true
+}
+```
+
+#### free_text_search
+
+Write a natural language description of the candidates you are looking for — up to 300 characters. The API will parse your request into structured search criteria.
+
+**Supported fields parsed from free text:**
+
+| Free Text Concept | Mapped To |
+|-------------------|-----------|
+| Job titles | `current_title` |
+| Skills | `skills` |
+| Location | `location` |
+| Years of experience | `years_experience` |
+| Current or previous employer | `current_employer` / `previous_employer` |
+| School, degree, major | `school` / `degree` / `major` |
+| Industry / sector / domain / market | `company_industry` |
+
+**Behavior when combined with `search_criteria`:**
+- Fields parsed from `free_text_search` are **merged** into any existing `search_criteria` — array values are combined
+- Exception: `years_experience` always **overrides** any value already in `search_criteria` rather than merging
+- `free_text_search` can be used as the sole input — `search_criteria` is not required when it is provided
+
+**Compatibility with `include_similar_titles`:** Fully supported. The `current_title` values parsed from `free_text_search` are populated first, and then `include_similar_titles` expands them as normal.
+
+**Limit:** 300 characters. Requests exceeding this return a 400 error.
+
+```json
+{
+  "free_text_search": "Software engineers with 5+ years of Python experience in Chicago",
+  "page_size": 50,
+  "start": 1
+}
+```
+
+The response includes a `free_text_searched` field showing exactly what is mapped:
+
+```json
+{
+  "free_text_searched": {
+    "current_title": ["Software Engineer"],
+    "skills": ["Python"],
+    "location": ["Chicago"],
+    "years_experience": ["5+"]
+  }
 }
 ```
 
@@ -300,6 +354,26 @@ Valid operators: `+`, `<`, `>=`, `<=`, `-` (range)
 }
 ```
 
+When `free_text_search` is used, the response also includes a `free_text_searched` field:
+
+```json
+{
+  "success": true,
+  "data": { "..." },
+  "credits": {
+    "used": 1,
+    "remaining": 999
+  },
+  "similar_titles": null,
+  "free_text_searched": {
+    "current_title": ["Software Engineer"],
+    "skills": ["Python"],
+    "location": ["Chicago"],
+    "years_experience": ["5+"]
+  }
+}
+```
+
 ### Response Fields
 
 Profile Object
@@ -334,6 +408,13 @@ Credits Object
 |-------|------|-------------|
 | `used` | integer | Credits charged for this request |
 | `remaining` | integer | Your remaining credit balance |
+
+Top-level Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `similar_titles` | array or null | Expanded titles used for the search (only present when `include_similar_titles: true` and `current_title` was provided) |
+| `free_text_searched` | object | The structured criteria the AI parsed from your `free_text_search` input (only present when `free_text_search` was used) |
 
 ---
 
@@ -654,7 +735,46 @@ if response['credits']['remaining'] < 100:
 }
 ```
 
-### Example 5: Expand a Single Title with include_similar_titles
+### Example 5: Free Text Search
+
+Use `free_text_search` to describe candidates in plain English instead of building structured criteria manually. The API maps your input to the appropriate fields and executes the search.
+
+```json
+{
+  "free_text_search": "Nurses with at least 3 years of experience in Boston",
+  "page_size": 50,
+  "start": 1
+}
+```
+
+You can also combine `free_text_search` with explicit `search_criteria` — the parsed fields are merged in. The exception is `years_experience`, which is always overridden by the free text value rather than merged:
+
+```json
+{
+  "free_text_search": "Python engineers with 5+ years experience",
+  "search_criteria": {
+    "location": ["Austin::~30mi"],
+    "company_size": ["51-200"]
+  },
+  "page_size": 50,
+  "start": 1
+}
+```
+
+Use `free_text_search` with `include_similar_titles` to both describe your candidates naturally and broaden the title match:
+
+```json
+{
+  "free_text_search": "Data engineers with Spark experience in Seattle",
+  "include_similar_titles": true,
+  "page_size": 100,
+  "start": 1
+}
+```
+
+---
+
+### Example 6: Expand a Single Title with include_similar_titles
 
 When you only have one or a few titles in mind, use `include_similar_titles` to automatically broaden your search to related roles. The API will add up to 10 total titles before executing the search.
 
@@ -737,5 +857,5 @@ This ensures every page is searched against the same set of titles, giving you c
 
 ---
 
-*Last Updated: May 15, 2026*
+*Last Updated: May 21, 2026*
 
