@@ -349,8 +349,7 @@ Valid operators: `+`, `<`, `>=`, `<=`, `-` (range)
   "credits": {
     "used": 1,
     "remaining": 999
-  },
-  "similar_titles": null
+  }
 }
 ```
 
@@ -364,7 +363,6 @@ When `free_text_search` is used, the response also includes a `free_text_searche
     "used": 1,
     "remaining": 999
   },
-  "similar_titles": null,
   "free_text_searched": {
     "current_title": ["Software Engineer"],
     "skills": ["Python"],
