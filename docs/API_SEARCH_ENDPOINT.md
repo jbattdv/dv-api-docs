@@ -226,9 +226,6 @@ The `search_criteria` object supports 60+ parameters organized into logical cate
 | Parameter | Type | Description | Example |
 |-----------|------|-------------|---------|
 | `company_competitors` | array of strings | Competitor domains | `["competitor.com"]` |
-| `competitors` | array of strings | Competitor domains | `["competitor.com"]` |
-| `company_list` | array of strings | Company list names | `["Fortune 500"]` |
-| `company_list_id` | array of strings | Company list IDs | `["12345"]` |
 
 ### Education
 

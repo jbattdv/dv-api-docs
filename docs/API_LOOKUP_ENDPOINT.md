@@ -66,16 +66,16 @@ You're **never charged** for:
 
 | Parameter | Type | Description | Required |
 |-----------|------|-------------|----------|
-| `candidate_id` | string | Candidate ID from search results | One identifier required |
-| `linkedin_url` | string | LinkedIn profile URL | One identifier required |
+| `linkedin_url` | string | LinkedIn profile URL | Required |
 | `reveal_personal_email` | boolean | Retrieve personal email address | No (default: false) |
 | `reveal_phone` | boolean | Retrieve mobile phone number | No (default: false) |
 | `reveal_detailed_person_enrichment` | boolean | Retrieve skills, experience, education | No (default: false) |
 | `reveal_healthcare_enrichment` | boolean | Retrieve NPI, medical license, specialty | No (default: false) |
+| `candidate_id` | string | For candidates outside LinkedIn | Only if the candidate has no linkedIn_url |
 
 **Important:** 
-- Provide exactly one identifier: either `candidate_id` OR `linkedin_url`
-- We recommend `linkedin_url` for the best results
+- Provide exactly one identifier: `linkedin_url`
+- Only use `candidate_id` if you do not have a `linkedin_url`
 - At least one enrichment parameter must be set to `true`
 - For multiple candidates, make concurrent API calls
 
