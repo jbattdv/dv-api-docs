@@ -1557,16 +1557,10 @@
 </thead>
 <tbody>
 <tr>
-<td><code>candidate_id</code></td>
-<td>string</td>
-<td>Candidate ID from search results</td>
-<td>One identifier required</td>
-</tr>
-<tr>
 <td><code>linkedin_url</code></td>
 <td>string</td>
 <td>LinkedIn profile URL</td>
-<td>One identifier required</td>
+<td>Required</td>
 </tr>
 <tr>
 <td><code>reveal_personal_email</code></td>
@@ -1592,11 +1586,17 @@
 <td>Retrieve NPI, medical license, specialty</td>
 <td>No (default: false)</td>
 </tr>
+<tr>
+<td><code>candidate_id</code></td>
+<td>string</td>
+<td>For candidates outside LinkedIn</td>
+<td>Only if the candidate has no linkedIn_url</td>
+</tr>
 </tbody>
 </table>
 <p><strong>Important:</strong> 
-- Provide exactly one identifier: either <code>candidate_id</code> OR <code>linkedin_url</code>
-- We recommend <code>linkedin_url</code> for the best results
+- Provide exactly one identifier: <code>linkedin_url</code>
+- Only use <code>candidate_id</code> if you do not have a <code>linkedin_url</code>
 - At least one enrichment parameter must be set to <code>true</code>
 - For multiple candidates, make concurrent API calls</p>
 <hr />
