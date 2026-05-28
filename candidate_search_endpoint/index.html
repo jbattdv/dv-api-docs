@@ -6,19 +6,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Official API documentation for the DataVertex Candidate API">
+        <meta name="description" content="Official API documentation for the DataVertex Candidate Sourcing API">
       
       
         <meta name="author" content="DataVertex">
       
       
-        <link rel="canonical" href="https://docs.data-vertex.com/API_SEARCH_ENDPOINT/">
+        <link rel="canonical" href="https://docs.data-vertex.com/candidate_search_endpoint/">
       
       
         <link rel="prev" href="..">
       
       
-        <link rel="next" href="../API_LOOKUP_ENDPOINT/">
+        <link rel="next" href="../candidate_lookup_endpoint/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Search Endpoint - DataVertex's Candidate API Documentation</title>
+        <title>Candidate Search Endpoint - DataVertex's Candidate Sourcing API Documentation</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#datavertex-search-api" class="md-skip">
+        <a href="#datavertex-candidate-search-api" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="DataVertex&#39;s Candidate API Documentation" class="md-header__button md-logo" aria-label="DataVertex's Candidate API Documentation" data-md-component="logo">
+    <a href=".." title="DataVertex&#39;s Candidate Sourcing API Documentation" class="md-header__button md-logo" aria-label="DataVertex's Candidate Sourcing API Documentation" data-md-component="logo">
       
   <img src="../assets/logo.png" alt="logo">
 
@@ -109,13 +109,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            DataVertex's Candidate API Documentation
+            DataVertex's Candidate Sourcing API Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Search Endpoint
+              Candidate Search Endpoint
             
           </span>
         </div>
@@ -196,12 +196,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="DataVertex&#39;s Candidate API Documentation" class="md-nav__button md-logo" aria-label="DataVertex's Candidate API Documentation" data-md-component="logo">
+    <a href=".." title="DataVertex&#39;s Candidate Sourcing API Documentation" class="md-nav__button md-logo" aria-label="DataVertex's Candidate Sourcing API Documentation" data-md-component="logo">
       
   <img src="../assets/logo.png" alt="logo">
 
     </a>
-    DataVertex's Candidate API Documentation
+    DataVertex's Candidate Sourcing API Documentation
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -256,7 +256,7 @@
   <span class="md-ellipsis">
     
   
-    Search Endpoint
+    Candidate Search Endpoint
   
 
     
@@ -274,7 +274,7 @@
   <span class="md-ellipsis">
     
   
-    Search Endpoint
+    Candidate Search Endpoint
   
 
     
@@ -357,10 +357,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#include_similar_titles" class="md-nav__link">
+  <a href="#extended-title-search-include_similar_titles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        include_similar_titles
+        Extended Title Search - include_similar_titles
       
     </span>
   </a>
@@ -368,10 +368,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#free_text_search" class="md-nav__link">
+  <a href="#semantic-candidate-search-free_text_search" class="md-nav__link">
     <span class="md-ellipsis">
       
-        free_text_search
+        Semantic Candidate Search - free_text_search
       
     </span>
   </a>
@@ -929,14 +929,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../API_LOOKUP_ENDPOINT/" class="md-nav__link">
+      <a href="../candidate_lookup_endpoint/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Lookup Endpoint
+    Candidate Lookup Endpoint
   
 
     
@@ -1033,10 +1033,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#include_similar_titles" class="md-nav__link">
+  <a href="#extended-title-search-include_similar_titles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        include_similar_titles
+        Extended Title Search - include_similar_titles
       
     </span>
   </a>
@@ -1044,10 +1044,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#free_text_search" class="md-nav__link">
+  <a href="#semantic-candidate-search-free_text_search" class="md-nav__link">
     <span class="md-ellipsis">
       
-        free_text_search
+        Semantic Candidate Search - free_text_search
       
     </span>
   </a>
@@ -1608,9 +1608,10 @@
 
 
 
-<h1 id="datavertex-search-api">DataVertex Search API</h1>
+<h1 id="datavertex-candidate-search-api">DataVertex Candidate Search API</h1>
 <h2 id="overview">Overview</h2>
-<p>The DataVertex Search API allows you to discover and filter professional profiles by criteria such as job title, company, location, skills, and more. Search across 800M+ professional profiles to find candidates that match your specific requirements.</p>
+<p>The DataVertex Candidate Search API allows you to discover and filter professional profiles by criteria such as job title, company, location, skills, and more. Search across 800M+ professional profiles to find candidates that match your specific requirements.</p>
+<p>“<a href="https://calendar.notion.so/meet/claire-liao/datavertex">Schedule a quick call</a> to get API access and explore how DataVertex can support your recruiting product development.”</p>
 <p><strong>Endpoint:</strong> <code>POST https://api.data-vertex.com/v1/search</code></p>
 <p><strong>Credit Cost:</strong> 1 credit per search (up to 100 profiles per page)</p>
 <p><strong>Billing:</strong> Success-based - you're only charged if results are returned</p>
@@ -1689,9 +1690,9 @@
 </table>
 
 <blockquote>
-<p><strong>Note:</strong> At least one of <code>search_criteria</code> or <code>free_text_search</code> must be provided. Both can be used together — see the <a href="#free_text_search"><code>free_text_search</code></a> section below for merge behavior.</p>
+<p><strong>Note:</strong> At least one of <code>search_criteria</code> or <code>free_text_search</code> must be provided. Both can be used together — see the <a href="#Semantic Candidate Search - free_text_search"><code>free_text_search</code></a> section below for merge behavior.</p>
 </blockquote>
-<h4 id="include_similar_titles">include_similar_titles</h4>
+<h4 id="extended-title-search-include_similar_titles">Extended Title Search - include_similar_titles</h4>
 <p>When set to <code>true</code> at the top level of the request, the API automatically expands your <code>current_title</code> array with similar, titles before executing the search. This broadens your candidate pool without requiring you to manually list every relevant title variation.</p>
 <ul>
 <li>Only applies when <code>current_title</code> is provided with fewer than 10 titles</li>
@@ -1709,7 +1710,7 @@
   &quot;include_similar_titles&quot;: true
 }
 </code></pre>
-<h4 id="free_text_search">free_text_search</h4>
+<h4 id="semantic-candidate-search-free_text_search">Semantic Candidate Search - free_text_search</h4>
 <p>Write a natural language description of the candidates you are looking for — up to 300 characters. The API will parse your request into structured search criteria.</p>
 <p><strong>Supported fields parsed from free text:</strong></p>
 <table>
@@ -2340,7 +2341,7 @@ With quotes, only exact matches are returned.</p>
 </tr>
 </tbody>
 </table>
-<p>Note: Search results do <strong>not</strong> include contact information (email/phone). Use the <a href="../API_LOOKUP_ENDPOINT/">Lookup API</a> with the candidate <code>id</code> to retrieve contact details.</p>
+<p>Note: Search results do <strong>not</strong> include contact information (email/phone). Use the <a href="../candidate_lookup_endpoint/">Lookup API</a> with the candidate <code>id</code> to retrieve contact details.</p>
 <p>Pagination Object</p>
 <table>
 <thead>
@@ -2648,7 +2649,7 @@ while True:
     start = response['data']['pagination']['next_start']
 </code></pre>
 <h3 id="4-store-candidate-ids">4. Store Candidate IDs</h3>
-<p>Search results don't include contact information. Store the <code>id</code> field from each profile to use with the <a href="../API_LOOKUP_ENDPOINT/">Lookup API</a>:</p>
+<p>Search results don't include contact information. Store the <code>id</code> field from each profile to use with the <a href="../candidate_lookup_endpoint/">Lookup API</a>:</p>
 <pre><code class="language-python">candidate_ids = [profile['id'] for profile in response['data']['profiles']]
 </code></pre>
 <h3 id="5-monitor-your-credits">5. Monitor Your Credits</h3>
@@ -2800,8 +2801,9 @@ while True:
 <li><strong>Support:</strong> dev@data-vertex.com</li>
 <li><strong>Website:</strong> https://www.data-vertex.com</li>
 </ul>
+<p>“<a href="https://calendar.notion.so/meet/claire-liao/datavertex">Schedule a quick call</a> to get API access and explore how DataVertex can support your recruiting product development.”</p>
 <hr />
-<p><em>Last Updated: May 21, 2026</em></p>
+<p><em>Last Updated: May 27, 2026</em></p>
 
 
 
