@@ -1,8 +1,10 @@
-# DataVertex Search API
+# DataVertex Candidate Search API
 
 ## Overview
 
-The DataVertex Search API allows you to discover and filter professional profiles by criteria such as job title, company, location, skills, and more. Search across 800M+ professional profiles to find candidates that match your specific requirements.
+The DataVertex Candidate Search API allows you to discover and filter professional profiles by criteria such as job title, company, location, skills, and more. Search across 800M+ professional profiles to find candidates that match your specific requirements.
+
+“[Schedule a quick call](https://calendar.notion.so/meet/claire-liao/datavertex) to get API access and explore how DataVertex can support your recruiting product development.”
 
 **Endpoint:** `POST https://api.data-vertex.com/v1/search`
 
@@ -78,9 +80,9 @@ You can obtain your API key from DataVertex directly.
   </tbody>
 </table>
 
-> **Note:** At least one of `search_criteria` or `free_text_search` must be provided. Both can be used together — see the [`free_text_search`](#free_text_search) section below for merge behavior.
+> **Note:** At least one of `search_criteria` or `free_text_search` must be provided. Both can be used together — see the [`free_text_search`](#Semantic Candidate Search - free_text_search) section below for merge behavior.
 
-#### include_similar_titles
+#### Extended Title Search - include_similar_titles
 
 When set to `true` at the top level of the request, the API automatically expands your `current_title` array with similar, titles before executing the search. This broadens your candidate pool without requiring you to manually list every relevant title variation.
 
@@ -101,7 +103,7 @@ When set to `true` at the top level of the request, the API automatically expand
 }
 ```
 
-#### free_text_search
+#### Semantic Candidate Search - free_text_search
 
 Write a natural language description of the candidates you are looking for — up to 300 characters. The API will parse your request into structured search criteria.
 
@@ -384,7 +386,7 @@ Each profile in the `profiles` array contains:
 | `location` | string | Current location |
 | `linkedin_url` | string | LinkedIn profile URL |
 
-Note: Search results do **not** include contact information (email/phone). Use the [Lookup API](./API_LOOKUP_ENDPOINT.md) with the candidate `id` to retrieve contact details.
+Note: Search results do **not** include contact information (email/phone). Use the [Lookup API](./candidate_lookup_endpoint.md) with the candidate `id` to retrieve contact details.
 
 Pagination Object
 
@@ -653,7 +655,7 @@ while True:
 
 ### 4. Store Candidate IDs
 
-Search results don't include contact information. Store the `id` field from each profile to use with the [Lookup API](./API_LOOKUP_ENDPOINT.md):
+Search results don't include contact information. Store the `id` field from each profile to use with the [Lookup API](./candidate_lookup_endpoint.md):
 
 ```python
 candidate_ids = [profile['id'] for profile in response['data']['profiles']]
@@ -850,7 +852,9 @@ This ensures every page is searched against the same set of titles, giving you c
 - **Support:** dev@data-vertex.com
 - **Website:** https://www.data-vertex.com
 
+“[Schedule a quick call](https://calendar.notion.so/meet/claire-liao/datavertex) to get API access and explore how DataVertex can support your recruiting product development.”
+
 ---
 
-*Last Updated: May 21, 2026*
+*Last Updated: May 27, 2026*
 
