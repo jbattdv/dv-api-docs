@@ -2,14 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.data-vertex.com/</loc>
-         <lastmod>2026-05-28</lastmod>
+         <lastmod>2026-06-01</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.data-vertex.com/account_endpoint/</loc>
+         <lastmod>2026-06-01</lastmod>
     </url>
     <url>
          <loc>https://docs.data-vertex.com/candidate_lookup_endpoint/</loc>
-         <lastmod>2026-05-28</lastmod>
+         <lastmod>2026-06-01</lastmod>
     </url>
     <url>
          <loc>https://docs.data-vertex.com/candidate_search_endpoint/</loc>
-         <lastmod>2026-05-28</lastmod>
+         <lastmod>2026-06-01</lastmod>
     </url>
 </urlset>
