@@ -159,12 +159,12 @@ The `search_criteria` object supports 60+ parameters organized into logical cate
 
 | Parameter | Type | Description | Example |
 |-----------|------|-------------|---------|
-| `id` | array of strings | DataVertex Profile IDs | `["123456"]` |
+| `link` | array of strings | Profile URLs | `["https://linkedin.com/in/johndoe"]` |
 | `name` | array of strings | Profile names | `["John Doe"]` |
 | `email` | array of strings | Email addresses | `["john.doe@data-vertex.com"]` |
 | `phone` | array of strings | Phone numbers | `["+15555555555"]` |
 | `handle` | array of strings | Social media handles | `["johndoe"]` |
-| `link` | array of strings | Profile URLs | `["https://linkedin.com/in/johndoe"]` |
+| `id` | array of strings | DataVertex Profile IDs | `["123456"]` |
 
 ### Job Title & Role
 
@@ -379,14 +379,14 @@ Each profile in the `profiles` array contains:
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | string | Unique candidate ID (use for a lookup) |
+| `linkedin_url` | string | LinkedIn profile URL |
 | `name` | string | Full name |
 | `current_title` | string | Current job title |
 | `current_employer` | string | Current company name |
 | `location` | string | Current location |
-| `linkedin_url` | string | LinkedIn profile URL |
+| `id` | string | Only useful for profiles without a linkedin_url |
 
-Note: Search results do **not** include contact information (email/phone). Use the [Lookup API](./candidate_lookup_endpoint.md) with the candidate `id` to retrieve contact details.
+Note: Search results do **not** include contact information (email/phone). Use the [Lookup API](./candidate_lookup_endpoint.md) with the `linkedin_url` to retrieve contact details.
 
 Pagination Object
 
@@ -653,12 +653,12 @@ while True:
     start = response['data']['pagination']['next_start']
 ```
 
-### 4. Store Candidate IDs
+### 4. Store LinkedIn URL
 
-Search results don't include contact information. Store the `id` field from each profile to use with the [Lookup API](./candidate_lookup_endpoint.md):
+Search results don't include contact information. Store the `linkedin_url` field from each profile to use with the [Lookup API](./candidate_lookup_endpoint.md):
 
 ```python
-candidate_ids = [profile['id'] for profile in response['data']['profiles']]
+linkedin_url = [profile['linkedin_url'] for profile in response['data']['profiles']]
 ```
 
 ### 5. Monitor Your Credits
@@ -856,5 +856,5 @@ This ensures every page is searched against the same set of titles, giving you c
 
 ---
 
-*Last Updated: May 27, 2026*
+*Last Updated: June 1, 2026*
 
