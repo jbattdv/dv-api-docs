@@ -18,7 +18,7 @@ All API requests must include your API key in the request headers:
 x-api-key: YOUR_API_KEY
 ```
 
-“[Schedule a quick call](https://calendar.notion.so/meet/claire-liao/datavertex) to get API access and explore how DataVertex can support your recruiting product development.”
+[Schedule a quick call](https://calendar.notion.so/meet/claire-liao/datavertex) to get API access and explore how DataVertex can support your recruiting product development.
 
 ---
 
@@ -203,7 +203,7 @@ print(f"Usage:             {pct_used:.1f}%")
 - **Support:** dev@data-vertex.com
 - **Website:** https://www.data-vertex.com
 
-"[Schedule a quick call](https://calendar.notion.so/meet/claire-liao/datavertex) to get API access and explore how DataVertex can support your recruiting product development."
+[Schedule a quick call](https://calendar.notion.so/meet/claire-liao/datavertex) to get API access and explore how DataVertex can support your recruiting product development.
 
 ---
 

@@ -4,7 +4,7 @@
 
 The DataVertex Candidate Search API allows you to discover and filter professional profiles by criteria such as job title, company, location, skills, and more. Search across 800M+ professional profiles to find candidates that match your specific requirements.
 
-“[Schedule a quick call](https://calendar.notion.so/meet/claire-liao/datavertex) to get API access and explore how DataVertex can support your recruiting product development.”
+[Schedule a quick call](https://calendar.notion.so/meet/claire-liao/datavertex) to get API access and explore how DataVertex can support your recruiting product development.
 
 **Endpoint:** `POST https://api.data-vertex.com/v1/search`
 
@@ -852,7 +852,7 @@ This ensures every page is searched against the same set of titles, giving you c
 - **Support:** dev@data-vertex.com
 - **Website:** https://www.data-vertex.com
 
-“[Schedule a quick call](https://calendar.notion.so/meet/claire-liao/datavertex) to get API access and explore how DataVertex can support your recruiting product development.”
+[Schedule a quick call](https://calendar.notion.so/meet/claire-liao/datavertex) to get API access and explore how DataVertex can support your recruiting product development.
 
 ---
 

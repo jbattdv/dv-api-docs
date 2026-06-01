@@ -4,7 +4,7 @@
 
 The DataVertex Candidate Lookup API retrieves detailed information for specific candidates including personal emails, phone numbers, and enriched profile data. You can lookup contacts using **LinkedIn URLs**  (no search required)
 
-“[Schedule a quick call](https://calendar.notion.so/meet/claire-liao/datavertex) to get API access and explore how DataVertex can support your recruiting product development.”
+[Schedule a quick call](https://calendar.notion.so/meet/claire-liao/datavertex) to get API access and explore how DataVertex can support your recruiting product development.
 
 **Endpoint:** `POST https://api.data-vertex.com/v1/lookup`
 
@@ -858,7 +858,7 @@ with ThreadPoolExecutor(max_workers=15) as executor:
 - **Support:** dev@data-vertex.com
 - **Website:** https://www.data-vertex.com
 
-“[Schedule a quick call](https://calendar.notion.so/meet/claire-liao/datavertex) to get API access and explore how DataVertex can support your recruiting product development.”
+[Schedule a quick call](https://calendar.notion.so/meet/claire-liao/datavertex) to get API access and explore how DataVertex can support your recruiting product development.
 
 ---
 
