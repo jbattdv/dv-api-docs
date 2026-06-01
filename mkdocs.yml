@@ -26,6 +26,7 @@ extra_css:
  
 nav:
   - Introduction: index.md
+  - Account Endpoint: account_endpoint.md
   - Candidate Search Endpoint: candidate_search_endpoint.md
   - Candidate Lookup Endpoint: candidate_lookup_endpoint.md
  
