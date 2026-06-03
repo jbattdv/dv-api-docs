@@ -328,12 +328,12 @@ Valid operators: `+`, `<`, `>=`, `<=`, `-` (range)
   "data": {
     "profiles": [
       {
-        "id": "12345",
+        "linkedin_url": "https://linkedin.com/in/janesmith",
         "name": "Jane Smith",
         "current_title": "Software Engineer",
         "current_employer": "TechCorp",
         "location": "San Francisco, CA",
-        "linkedin_url": "https://linkedin.com/in/janesmith"
+        "id": "12345",
       }
     ],
     "pagination": {
@@ -856,5 +856,5 @@ This ensures every page is searched against the same set of titles, giving you c
 
 ---
 
-*Last Updated: June 1, 2026*
+*Last Updated: June 3, 2026*
 
