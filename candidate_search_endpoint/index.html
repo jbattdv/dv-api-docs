@@ -405,6 +405,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#job-description-search-jd_search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Job Description Search - jd_search
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -915,10 +926,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-6-expand-a-single-title-with-include_similar_titles" class="md-nav__link">
+  <a href="#example-6-job-description-search" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example 6: Expand a Single Title with include_similar_titles
+        Example 6: Job Description Search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-7-expand-a-single-title-with-include_similar_titles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 7: Expand a Single Title with include_similar_titles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-8-job-description-search-with-pagination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 8: Job Description Search with Pagination
       
     </span>
   </a>
@@ -1081,6 +1114,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#job-description-search-jd_search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Job Description Search - jd_search
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1591,10 +1635,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-6-expand-a-single-title-with-include_similar_titles" class="md-nav__link">
+  <a href="#example-6-job-description-search" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example 6: Expand a Single Title with include_similar_titles
+        Example 6: Job Description Search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-7-expand-a-single-title-with-include_similar_titles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 7: Expand a Single Title with include_similar_titles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-8-job-description-search-with-pagination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 8: Job Description Search with Pagination
       
     </span>
   </a>
@@ -1640,8 +1706,8 @@
 <p>The DataVertex Candidate Search API allows you to discover and filter professional profiles by criteria such as job title, company, location, skills, and more. Search across 800M+ professional profiles to find candidates that match your specific requirements.</p>
 <p><a href="https://calendar.notion.so/meet/claire-liao/datavertex">Schedule a quick call</a> to get API access and explore how DataVertex can support your recruiting product development.</p>
 <p><strong>Endpoint:</strong> <code>POST https://api.data-vertex.com/v1/search</code></p>
-<p><strong>Credit Cost:</strong> 1 credit per search (up to 100 profiles per page)</p>
-<p><strong>Billing:</strong> Success-based - you're only charged if results are returned</p>
+<p><strong>Credit Cost:</strong> 1 credit per standard search (up to 100 profiles per page). Job description searches using <code>jd_search</code> cost <strong>2 credits</strong> per search.</p>
+<p><strong>Billing:</strong> Success-based — you are only charged when results are returned</p>
 <hr />
 <h2 id="authentication">Authentication</h2>
 <p>All API requests must include your API key in the request headers:</p>
@@ -1686,13 +1752,19 @@
     <tr>
       <td><code>search_criteria</code></td>
       <td>object</td>
-      <td>Search filters and criteria. Required unless <code>free_text_search</code> is provided.</td>
+      <td>Search filters and criteria. Required unless <code>free_text_search</code> or <code>jd_search</code> is provided.</td>
       <td>Conditional</td>
     </tr>
     <tr>
       <td><code>free_text_search</code></td>
       <td>string</td>
-      <td>Natural language search request (max 300 characters). The API parses this into structured search criteria automatically. Required unless <code>search_criteria</code> is provided.</td>
+      <td>Natural language search request (max 300 characters). The API parses this into structured search criteria automatically. Mutually exclusive with <code>jd_search</code>.</td>
+      <td>Conditional</td>
+    </tr>
+    <tr>
+      <td><code>jd_search</code></td>
+      <td>string</td>
+      <td>Full job description (max 8,500 characters). The API parses this into structured search criteria automatically. Costs 2 credits when results are returned. Mutually exclusive with <code>free_text_search</code>.</td>
       <td>Conditional</td>
     </tr>
     <tr>
@@ -1711,13 +1783,13 @@
       <td><code>include_similar_titles</code></td>
       <td>boolean</td>
       <td>Automatically expand <code>current_title</code> with similar titles</td>
-      <td>No (default: false)</td>
+      <td>No (default: <code>false</code>; default <code>true</code> when <code>jd_search</code> is used)</td>
     </tr>
   </tbody>
 </table>
 
 <blockquote>
-<p><strong>Note:</strong> At least one of <code>search_criteria</code> or <code>free_text_search</code> must be provided. Both can be used together — see the <a href="#Semantic Candidate Search - free_text_search"><code>free_text_search</code></a> section below for merge behavior.</p>
+<p><strong>Note:</strong> At least one of <code>search_criteria</code>, <code>free_text_search</code>, or <code>jd_search</code> must be provided. <code>free_text_search</code> and <code>jd_search</code> cannot be used in the same request. <code>search_criteria</code> can be combined with either AI input — see <a href="#semantic-candidate-search---free_text_search">free text search</a> and <a href="#job-description-search---jd_search">job description search</a> below for merge behavior.</p>
 </blockquote>
 <h4 id="extended-title-search-include_similar_titles">Extended Title Search - include_similar_titles</h4>
 <p>When set to <code>true</code> at the top level of the request, the API automatically expands your <code>current_title</code> array with similar, titles before executing the search. This broadens your candidate pool without requiring you to manually list every relevant title variation.</p>
@@ -1725,7 +1797,7 @@
 <li>Only applies when <code>current_title</code> is provided with fewer than 10 titles</li>
 <li>Titles are added up to a maximum of 10 total</li>
 <li>If <code>current_title</code> is not present in your request, this parameter has no effect</li>
-<li>Default: <code>false</code></li>
+<li>Default: <code>false</code> for standard and free-text searches; default <code>true</code> when <code>jd_search</code> is used (you may set it to <code>false</code> to disable)</li>
 </ul>
 <pre><code class="language-json">{
   &quot;search_criteria&quot;: {
@@ -1797,6 +1869,70 @@
     &quot;skills&quot;: [&quot;Python&quot;],
     &quot;location&quot;: [&quot;Chicago&quot;],
     &quot;years_experience&quot;: [&quot;5+&quot;]
+  }
+}
+</code></pre>
+<h4 id="job-description-search-jd_search">Job Description Search - jd_search</h4>
+<p>Submit a full job description — up to 8,500 characters — and the API parses it into structured search criteria to find candidates who fit the role. This is designed for recruiting workflows where you already have a job posting and want to translate it into a profile search without building filters manually.</p>
+<p><strong>Credit cost:</strong> 2 credits per search when results are returned (standard searches cost 1 credit).</p>
+<p><strong>Supported fields parsed from a job description:</strong></p>
+<table>
+<thead>
+<tr>
+<th>JD Concept</th>
+<th>Mapped To</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Job titles</td>
+<td><code>current_title</code></td>
+</tr>
+<tr>
+<td>Skills</td>
+<td><code>skills</code></td>
+</tr>
+<tr>
+<td>Location</td>
+<td><code>location</code></td>
+</tr>
+<tr>
+<td>Years of experience</td>
+<td><code>years_experience</code></td>
+</tr>
+<tr>
+<td>Major</td>
+<td><code>major</code></td>
+</tr>
+<tr>
+<td>Industry</td>
+<td><code>company_industry</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Behavior when combined with <code>search_criteria</code>:</strong>
+- Fields parsed from <code>jd_search</code> are <strong>merged</strong> into any existing <code>search_criteria</code> — array values are combined
+- Exception: <code>years_experience</code> always <strong>overrides</strong> any value already in <code>search_criteria</code> rather than merging
+- <code>jd_search</code> can be used as the sole input — <code>search_criteria</code> is not required when it is provided</p>
+<p><strong>Compatibility with <code>include_similar_titles</code>:</strong> Enabled by default for <code>jd_search</code>. After the job description is parsed, <code>current_title</code> values are expanded with similar titles (up to 10 total) before the search runs. Set <code>"include_similar_titles": false</code> to search only the parsed titles.</p>
+<p><strong>Mutual exclusivity:</strong> <code>jd_search</code> and <code>free_text_search</code> cannot be sent in the same request.</p>
+<p><strong>Limit:</strong> 8,500 characters. Requests exceeding this return a 400 error.</p>
+<pre><code class="language-json">{
+  &quot;jd_search&quot;: &quot;Acme Corp is hiring a Senior Software Engineer in Chicago. 5+ years of experience with Python and AWS required. Bachelor's in Computer Science preferred.&quot;,
+  &quot;page_size&quot;: 50,
+  &quot;start&quot;: 1
+}
+</code></pre>
+<p>The response includes a <code>jd_searched</code> field showing exactly what was mapped:</p>
+<pre><code class="language-json">{
+  &quot;jd_searched&quot;: {
+    &quot;current_title&quot;: [&quot;Senior Software Engineer&quot;],
+    &quot;skills&quot;: [&quot;Python&quot;, &quot;AWS&quot;],
+    &quot;location&quot;: [&quot;Chicago&quot;],
+    &quot;years_experience&quot;: [&quot;5+&quot;],
+    &quot;current_employer&quot;: [&quot;-Acme Corp&quot;],
+    &quot;major&quot;: [&quot;Computer Science&quot;],
+    &quot;company_industry&quot;: [&quot;IT &amp; Software&quot;]
   }
 }
 </code></pre>
@@ -2324,6 +2460,28 @@ With quotes, only exact matches are returned.</p>
   }
 }
 </code></pre>
+<p>When <code>jd_search</code> is used, the response includes <code>jd_searched</code> and charges 2 credits when profiles are returned:</p>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;data&quot;: { &quot;...&quot; },
+  &quot;credits&quot;: {
+    &quot;used&quot;: 2,
+    &quot;remaining&quot;: 998
+  },
+  &quot;jd_searched&quot;: {
+    &quot;current_title&quot;: [&quot;Senior Software Engineer&quot;],
+    &quot;skills&quot;: [&quot;Python&quot;, &quot;AWS&quot;],
+    &quot;location&quot;: [&quot;Chicago::~50mi&quot;],
+    &quot;years_experience&quot;: [&quot;5+&quot;],
+    &quot;current_employer&quot;: [&quot;-Acme Corp&quot;]
+  },
+  &quot;similar_titles&quot;: [
+    &quot;senior software engineer&quot;,
+    &quot;software engineer&quot;,
+    &quot;staff software engineer&quot;
+  ]
+}
+</code></pre>
 <h3 id="response-fields">Response Fields</h3>
 <p>Profile Object</p>
 <p>Each profile in the <code>profiles</code> array contains:</p>
@@ -2451,7 +2609,12 @@ With quotes, only exact matches are returned.</p>
 <tr>
 <td><code>free_text_searched</code></td>
 <td>object</td>
-<td>The structured criteria the AI parsed from your <code>free_text_search</code> input (only present when <code>free_text_search</code> was used)</td>
+<td>The structured criteria parsed from your <code>free_text_search</code> input (only present when <code>free_text_search</code> was used)</td>
+</tr>
+<tr>
+<td><code>jd_searched</code></td>
+<td>object</td>
+<td>The structured criteria parsed from your <code>jd_search</code> input (only present when <code>jd_search</code> was used)</td>
 </tr>
 </tbody>
 </table>
@@ -2598,6 +2761,16 @@ if data['data']['pagination']['has_next']:
   &quot;credits_info&quot;: {
     &quot;required&quot;: 1,
     &quot;available&quot;: 0
+  }
+}
+</code></pre>
+<p>For <code>jd_search</code> requests, the required credit amount is 2:</p>
+<pre><code class="language-json">{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Insufficient credits. Required: 2, Available: 1&quot;,
+  &quot;credits_info&quot;: {
+    &quot;required&quot;: 2,
+    &quot;available&quot;: 1
   }
 }
 </code></pre>
@@ -2759,8 +2932,27 @@ while True:
   &quot;start&quot;: 1
 }
 </code></pre>
+<h3 id="example-6-job-description-search">Example 6: Job Description Search</h3>
+<p>Paste a job posting and let the API extract search criteria. No <code>search_criteria</code> object is required. <code>include_similar_titles</code> defaults to <code>true</code>, so related titles are expanded automatically.</p>
+<pre><code class="language-json">{
+  &quot;jd_search&quot;: &quot;DataVertex is seeking a Product Manager in Austin, TX. 3+ years in B2B SaaS. Experience with roadmap planning and SQL required. MBA a plus.&quot;,
+  &quot;page_size&quot;: 50,
+  &quot;start&quot;: 1
+}
+</code></pre>
+<p>Review <code>jd_searched</code> in the response to see how the job description was interpreted before using results in your workflow. This request costs 2 credits when profiles are returned.</p>
+<p>You can combine <code>jd_search</code> with explicit <code>search_criteria</code> to layer additional filters on top of the parsed fields:</p>
+<pre><code class="language-json">{
+  &quot;jd_search&quot;: &quot;Senior Data Engineer role at TechCorp in Seattle. Python and Spark required.&quot;,
+  &quot;search_criteria&quot;: {
+    &quot;company_size&quot;: [&quot;201-500&quot;]
+  },
+  &quot;page_size&quot;: 50,
+  &quot;start&quot;: 1
+}
+</code></pre>
 <hr />
-<h3 id="example-6-expand-a-single-title-with-include_similar_titles">Example 6: Expand a Single Title with include_similar_titles</h3>
+<h3 id="example-7-expand-a-single-title-with-include_similar_titles">Example 7: Expand a Single Title with include_similar_titles</h3>
 <p>When you only have one or a few titles in mind, use <code>include_similar_titles</code> to automatically broaden your search to related roles. The API will add up to 10 total titles before executing the search.</p>
 <p><strong>Page 1 — send your title and let the API expand it:</strong></p>
 <pre><code class="language-json">{
@@ -2822,6 +3014,34 @@ while True:
 }
 </code></pre>
 <p>This ensures every page is searched against the same set of titles, giving you consistent and complete results across your entire pagination sequence.</p>
+<h3 id="example-8-job-description-search-with-pagination">Example 8: Job Description Search with Pagination</h3>
+<p><code>jd_search</code> enables <code>include_similar_titles</code> by default. Use the same pagination pattern as structured searches: capture <code>similar_titles</code> from page 1, then pass that array as <code>current_title</code> on subsequent pages.</p>
+<p><strong>Page 1 — send the job description:</strong></p>
+<pre><code class="language-json">{
+  &quot;jd_search&quot;: &quot;GrowthCo is hiring a Marketing Manager in Denver. 4+ years of digital marketing experience. HubSpot and Google Analytics required.&quot;,
+  &quot;page_size&quot;: 100,
+  &quot;start&quot;: 1
+}
+</code></pre>
+<p><strong>Page 2 onward — use <code>similar_titles</code> from the page 1 response as <code>current_title</code>, omit <code>jd_search</code>, and set <code>include_similar_titles</code> to <code>false</code>:</strong></p>
+<pre><code class="language-json">{
+  &quot;search_criteria&quot;: {
+    &quot;current_title&quot;: [
+      &quot;marketing manager&quot;,
+      &quot;digital marketing manager&quot;,
+      &quot;growth marketing manager&quot;
+    ],
+    &quot;skills&quot;: [&quot;HubSpot&quot;, &quot;Google Analytics&quot;],
+    &quot;location&quot;: [&quot;Denver::~50mi&quot;],
+    &quot;years_experience&quot;: [&quot;4+&quot;],
+    &quot;current_employer&quot;: [&quot;-GrowthCo&quot;]
+  },
+  &quot;page_size&quot;: 100,
+  &quot;start&quot;: 101,
+  &quot;include_similar_titles&quot;: false
+}
+</code></pre>
+<p>Use the full parsed criteria from <code>jd_searched</code> (not only titles) so every page applies the same filters. Re-running <code>jd_search</code> on later pages would parse the text again and may produce slightly different criteria.</p>
 <hr />
 <h2 id="need-help">Need Help?</h2>
 <ul>
@@ -2830,7 +3050,7 @@ while True:
 </ul>
 <p><a href="https://calendar.notion.so/meet/claire-liao/datavertex">Schedule a quick call</a> to get API access and explore how DataVertex can support your recruiting product development.</p>
 <hr />
-<p><em>Last Updated: June 3, 2026</em></p>
+<p><em>Last Updated: June 4, 2026</em></p>
 
 
 
