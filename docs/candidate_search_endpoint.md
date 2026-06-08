@@ -8,9 +8,9 @@ The DataVertex Candidate Search API allows you to discover and filter profession
 
 **Endpoint:** `POST https://api.data-vertex.com/v1/search`
 
-**Credit Cost:** 1 credit per search (up to 100 profiles per page)
+**Credit Cost:** 1 credit per standard search (up to 100 profiles per page). Job description searches using `jd_search` cost **2 credits** per search.
 
-**Billing:** Success-based - you're only charged if results are returned
+**Billing:** Success-based — you are only charged when results are returned
 
 ---
 
@@ -50,13 +50,19 @@ You can obtain your API key from DataVertex directly.
     <tr>
       <td><code>search_criteria</code></td>
       <td>object</td>
-      <td>Search filters and criteria. Required unless <code>free_text_search</code> is provided.</td>
+      <td>Search filters and criteria. Required unless <code>free_text_search</code> or <code>jd_search</code> is provided.</td>
       <td>Conditional</td>
     </tr>
     <tr>
       <td><code>free_text_search</code></td>
       <td>string</td>
-      <td>Natural language search request (max 300 characters). The API parses this into structured search criteria automatically. Required unless <code>search_criteria</code> is provided.</td>
+      <td>Natural language search request (max 300 characters). The API parses this into structured search criteria automatically. Mutually exclusive with <code>jd_search</code>.</td>
+      <td>Conditional</td>
+    </tr>
+    <tr>
+      <td><code>jd_search</code></td>
+      <td>string</td>
+      <td>Full job description (max 8,500 characters). The API parses this into structured search criteria automatically. Costs 2 credits when results are returned. Mutually exclusive with <code>free_text_search</code>.</td>
       <td>Conditional</td>
     </tr>
     <tr>
@@ -75,12 +81,12 @@ You can obtain your API key from DataVertex directly.
       <td><code>include_similar_titles</code></td>
       <td>boolean</td>
       <td>Automatically expand <code>current_title</code> with similar titles</td>
-      <td>No (default: false)</td>
+      <td>No (default: <code>false</code>; default <code>true</code> when <code>jd_search</code> is used)</td>
     </tr>
   </tbody>
 </table>
 
-> **Note:** At least one of `search_criteria` or `free_text_search` must be provided. Both can be used together — see the [`free_text_search`](#Semantic Candidate Search - free_text_search) section below for merge behavior.
+> **Note:** At least one of `search_criteria`, `free_text_search`, or `jd_search` must be provided. `free_text_search` and `jd_search` cannot be used in the same request. `search_criteria` can be combined with either AI input — see [free text search](#semantic-candidate-search---free_text_search) and [job description search](#job-description-search---jd_search) below for merge behavior.
 
 #### Extended Title Search - include_similar_titles
 
@@ -89,7 +95,7 @@ When set to `true` at the top level of the request, the API automatically expand
 - Only applies when `current_title` is provided with fewer than 10 titles
 - Titles are added up to a maximum of 10 total
 - If `current_title` is not present in your request, this parameter has no effect
-- Default: `false`
+- Default: `false` for standard and free-text searches; default `true` when `jd_search` is used (you may set it to `false` to disable)
 
 ```json
 {
@@ -145,6 +151,58 @@ The response includes a `free_text_searched` field showing exactly what is mappe
     "skills": ["Python"],
     "location": ["Chicago"],
     "years_experience": ["5+"]
+  }
+}
+```
+
+#### Job Description Search - jd_search
+
+Submit a full job description — up to 8,500 characters — and the API parses it into structured search criteria to find candidates who fit the role. This is designed for recruiting workflows where you already have a job posting and want to translate it into a profile search without building filters manually.
+
+**Credit cost:** 2 credits per search when results are returned (standard searches cost 1 credit).
+
+**Supported fields parsed from a job description:**
+
+| JD Concept | Mapped To |
+|------------|-----------|
+| Job titles | `current_title` |
+| Skills | `skills` |
+| Location | `location` |
+| Years of experience | `years_experience` |
+| Major | `major` |
+| Industry | `company_industry` |
+
+**Behavior when combined with `search_criteria`:**
+- Fields parsed from `jd_search` are **merged** into any existing `search_criteria` — array values are combined
+- Exception: `years_experience` always **overrides** any value already in `search_criteria` rather than merging
+- `jd_search` can be used as the sole input — `search_criteria` is not required when it is provided
+
+**Compatibility with `include_similar_titles`:** Enabled by default for `jd_search`. After the job description is parsed, `current_title` values are expanded with similar titles (up to 10 total) before the search runs. Set `"include_similar_titles": false` to search only the parsed titles.
+
+**Mutual exclusivity:** `jd_search` and `free_text_search` cannot be sent in the same request.
+
+**Limit:** 8,500 characters. Requests exceeding this return a 400 error.
+
+```json
+{
+  "jd_search": "Acme Corp is hiring a Senior Software Engineer in Chicago. 5+ years of experience with Python and AWS required. Bachelor's in Computer Science preferred.",
+  "page_size": 50,
+  "start": 1
+}
+```
+
+The response includes a `jd_searched` field showing exactly what was mapped:
+
+```json
+{
+  "jd_searched": {
+    "current_title": ["Senior Software Engineer"],
+    "skills": ["Python", "AWS"],
+    "location": ["Chicago"],
+    "years_experience": ["5+"],
+    "current_employer": ["-Acme Corp"],
+    "major": ["Computer Science"],
+    "company_industry": ["IT & Software"]
   }
 }
 ```
@@ -371,6 +429,31 @@ When `free_text_search` is used, the response also includes a `free_text_searche
 }
 ```
 
+When `jd_search` is used, the response includes `jd_searched` and charges 2 credits when profiles are returned:
+
+```json
+{
+  "success": true,
+  "data": { "..." },
+  "credits": {
+    "used": 2,
+    "remaining": 998
+  },
+  "jd_searched": {
+    "current_title": ["Senior Software Engineer"],
+    "skills": ["Python", "AWS"],
+    "location": ["Chicago::~50mi"],
+    "years_experience": ["5+"],
+    "current_employer": ["-Acme Corp"]
+  },
+  "similar_titles": [
+    "senior software engineer",
+    "software engineer",
+    "staff software engineer"
+  ]
+}
+```
+
 ### Response Fields
 
 Profile Object
@@ -411,7 +494,8 @@ Top-level Fields
 | Field | Type | Description |
 |-------|------|-------------|
 | `similar_titles` | array or null | Expanded titles used for the search (only present when `include_similar_titles: true` and `current_title` was provided) |
-| `free_text_searched` | object | The structured criteria the AI parsed from your `free_text_search` input (only present when `free_text_search` was used) |
+| `free_text_searched` | object | The structured criteria parsed from your `free_text_search` input (only present when `free_text_search` was used) |
+| `jd_searched` | object | The structured criteria parsed from your `jd_search` input (only present when `jd_search` was used) |
 
 ---
 
@@ -584,6 +668,19 @@ Or insufficient credits:
   "credits_info": {
     "required": 1,
     "available": 0
+  }
+}
+```
+
+For `jd_search` requests, the required credit amount is 2:
+
+```json
+{
+  "success": false,
+  "message": "Insufficient credits. Required: 2, Available: 1",
+  "credits_info": {
+    "required": 2,
+    "available": 1
   }
 }
 ```
@@ -769,9 +866,36 @@ Use `free_text_search` with `include_similar_titles` to both describe your candi
 }
 ```
 
+### Example 6: Job Description Search
+
+Paste a job posting and let the API extract search criteria. No `search_criteria` object is required. `include_similar_titles` defaults to `true`, so related titles are expanded automatically.
+
+```json
+{
+  "jd_search": "DataVertex is seeking a Product Manager in Austin, TX. 3+ years in B2B SaaS. Experience with roadmap planning and SQL required. MBA a plus.",
+  "page_size": 50,
+  "start": 1
+}
+```
+
+Review `jd_searched` in the response to see how the job description was interpreted before using results in your workflow. This request costs 2 credits when profiles are returned.
+
+You can combine `jd_search` with explicit `search_criteria` to layer additional filters on top of the parsed fields:
+
+```json
+{
+  "jd_search": "Senior Data Engineer role at TechCorp in Seattle. Python and Spark required.",
+  "search_criteria": {
+    "company_size": ["201-500"]
+  },
+  "page_size": 50,
+  "start": 1
+}
+```
+
 ---
 
-### Example 6: Expand a Single Title with include_similar_titles
+### Example 7: Expand a Single Title with include_similar_titles
 
 When you only have one or a few titles in mind, use `include_similar_titles` to automatically broaden your search to related roles. The API will add up to 10 total titles before executing the search.
 
@@ -845,6 +969,43 @@ The response includes a `similar_titles` field containing the exact titles that 
 
 This ensures every page is searched against the same set of titles, giving you consistent and complete results across your entire pagination sequence.
 
+### Example 8: Job Description Search with Pagination
+
+`jd_search` enables `include_similar_titles` by default. Use the same pagination pattern as structured searches: capture `similar_titles` from page 1, then pass that array as `current_title` on subsequent pages.
+
+**Page 1 — send the job description:**
+
+```json
+{
+  "jd_search": "GrowthCo is hiring a Marketing Manager in Denver. 4+ years of digital marketing experience. HubSpot and Google Analytics required.",
+  "page_size": 100,
+  "start": 1
+}
+```
+
+**Page 2 onward — use `similar_titles` from the page 1 response as `current_title`, omit `jd_search`, and set `include_similar_titles` to `false`:**
+
+```json
+{
+  "search_criteria": {
+    "current_title": [
+      "marketing manager",
+      "digital marketing manager",
+      "growth marketing manager"
+    ],
+    "skills": ["HubSpot", "Google Analytics"],
+    "location": ["Denver::~50mi"],
+    "years_experience": ["4+"],
+    "current_employer": ["-GrowthCo"]
+  },
+  "page_size": 100,
+  "start": 101,
+  "include_similar_titles": false
+}
+```
+
+Use the full parsed criteria from `jd_searched` (not only titles) so every page applies the same filters. Re-running `jd_search` on later pages would parse the text again and may produce slightly different criteria.
+
 ---
 
 ## Need Help?
@@ -856,5 +1017,5 @@ This ensures every page is searched against the same set of titles, giving you c
 
 ---
 
-*Last Updated: June 3, 2026*
+*Last Updated: June 4, 2026*
 
