@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Official API documentation for the DataVertex Candidate Sourcing API">
+        <meta name="description" content="Explore DataVertex's candidate sourcing API documentation for developers. Integrate candidate search, enrichment, matching, and recruiting data into your applications.">
       
       
         <meta name="author" content="DataVertex">
@@ -28,10 +28,14 @@
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
+  
+    
       
         <title>Candidate Search Endpoint - DataVertex's Candidate Sourcing API Documentation</title>
       
     
+  
+
     
       <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
@@ -63,6 +67,9 @@
 
     
     
+  
+  
+
   </head>
   
   
@@ -1697,6 +1704,8 @@
               
               <article class="md-content__inner md-typeset">
                 
+  
+  
                   
 
 
@@ -1789,7 +1798,7 @@
 </table>
 
 <blockquote>
-<p><strong>Note:</strong> At least one of <code>search_criteria</code>, <code>free_text_search</code>, or <code>jd_search</code> must be provided. <code>free_text_search</code> and <code>jd_search</code> cannot be used in the same request. <code>search_criteria</code> can be combined with either AI input — see <a href="#semantic-candidate-search---free_text_search">free text search</a> and <a href="#job-description-search---jd_search">job description search</a> below for merge behavior.</p>
+<p><strong>Note:</strong> At least one of <code>search_criteria</code>, <code>free_text_search</code>, or <code>jd_search</code> must be provided. <code>free_text_search</code> and <code>jd_search</code> cannot be used in the same request. <code>search_criteria</code> can be combined with either AI input — see free text search, and job description search below for merge behavior.</p>
 </blockquote>
 <h4 id="extended-title-search-include_similar_titles">Extended Title Search - include_similar_titles</h4>
 <p>When set to <code>true</code> at the top level of the request, the API automatically expands your <code>current_title</code> array with similar, titles before executing the search. This broadens your candidate pool without requiring you to manually list every relevant title variation.</p>
@@ -3064,6 +3073,7 @@ while True:
 
 
                 
+
               </article>
             </div>
           
