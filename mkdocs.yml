@@ -1,6 +1,6 @@
 site_name: DataVertex's Candidate Sourcing API Documentation
 site_url: https://docs.data-vertex.com
-site_description: Official API documentation for the DataVertex Candidate Sourcing API
+site_description: Explore DataVertex's candidate sourcing API documentation for developers. Integrate candidate search, enrichment, matching, and recruiting data into your applications.
 site_author: DataVertex
  
 theme:

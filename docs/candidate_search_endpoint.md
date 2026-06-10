@@ -86,7 +86,7 @@ You can obtain your API key from DataVertex directly.
   </tbody>
 </table>
 
-> **Note:** At least one of `search_criteria`, `free_text_search`, or `jd_search` must be provided. `free_text_search` and `jd_search` cannot be used in the same request. `search_criteria` can be combined with either AI input — see [free text search](#semantic-candidate-search---free_text_search) and [job description search](#job-description-search---jd_search) below for merge behavior.
+> **Note:** At least one of `search_criteria`, `free_text_search`, or `jd_search` must be provided. `free_text_search` and `jd_search` cannot be used in the same request. `search_criteria` can be combined with either AI input — see free text search, and job description search below for merge behavior.
 
 #### Extended Title Search - include_similar_titles
 
