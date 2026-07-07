@@ -86,7 +86,7 @@ You can obtain your API key from DataVertex directly.
   </tbody>
 </table>
 
-> **Note:** At least one of `search_criteria`, `free_text_search`, or `jd_search` must be provided. `free_text_search` and `jd_search` cannot be used in the same request. `search_criteria` can be combined with either AI input — see free text search, and job description search below for merge behavior.
+> **Note:** At least one of `search_criteria`, `free_text_search`, or `jd_search` must be provided. `free_text_search` and `jd_search` cannot be used in the same request. `search_criteria` can be combined with either AI input — see [free text search](#semantic-candidate-search---free_text_search) and [job description search](#job-description-search---jd_search) below for merge behavior.
 
 #### Extended Title Search - include_similar_titles
 
@@ -277,7 +277,6 @@ The `search_criteria` object supports 60+ parameters organized into logical cate
 |-----------|------|-------------|---------|
 | `company_industry` | array of strings | Company industries | `["Software Engineering"]` |
 | `company_industry_keywords` | array of strings | Industry keywords | `["SaaS", "B2B"]` |
-| `industry_keywords` | array of strings | Industry keywords | `["AI", "Machine Learning"]` |
 | `company_naics_code` | array of strings | NAICS codes | `["541330", "541512"]` |
 | `company_sic_code` | array of strings | SIC codes | `["7372"]` |
 
@@ -1017,5 +1016,5 @@ Use the full parsed criteria from `jd_searched` (not only titles) so every page 
 
 ---
 
-*Last Updated: June 4, 2026*
+*Last Updated: July 7, 2026*
 
