@@ -250,7 +250,6 @@ The `search_criteria` object supports 60+ parameters organized into logical cate
 | Parameter | Type | Description | Example |
 |-----------|------|-------------|---------|
 | `company_size` | array of strings | Company size ranges | `["51-200", "201-500"]` |
-| `employees` | array of strings | Employee count ranges | `["100-500"]` |
 | `company_revenue` | array of strings | Revenue ranges | `["10000000-50000000"]` |
 | `company_funding_min` | array of strings | Minimum funding amount | `["1000000"]` |
 | `company_funding_max` | array of strings | Maximum funding amount | `["50000000"]` |
@@ -359,7 +358,7 @@ This matches Software Engineers and Software Developers that don't have "Senior"
 
 ### Numeric Operators
 
-company_funding_min, company_funding_max, employees, and company_size support mathematical operators:
+company_funding_min, company_funding_max, and company_size support mathematical operators:
 
 ```json
 {
@@ -1016,5 +1015,5 @@ Use the full parsed criteria from `jd_searched` (not only titles) so every page 
 
 ---
 
-*Last Updated: July 7, 2026*
+*Last Updated: July 27, 2026*
 
