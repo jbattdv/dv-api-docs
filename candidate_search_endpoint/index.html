@@ -911,10 +911,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-4-find-recent-job-changers" class="md-nav__link">
+  <a href="#example-4-free-text-search" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example 4: Find Recent Job Changers
+        Example 4: Free Text Search
       
     </span>
   </a>
@@ -922,10 +922,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-5-free-text-search" class="md-nav__link">
+  <a href="#example-5-job-description-search" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example 5: Free Text Search
+        Example 5: Job Description Search
       
     </span>
   </a>
@@ -933,10 +933,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-6-job-description-search" class="md-nav__link">
+  <a href="#example-6-expand-a-single-title-with-include_similar_titles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example 6: Job Description Search
+        Example 6: Expand a Single Title with include_similar_titles
       
     </span>
   </a>
@@ -944,21 +944,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-7-expand-a-single-title-with-include_similar_titles" class="md-nav__link">
+  <a href="#example-7-job-description-search-with-pagination" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example 7: Expand a Single Title with include_similar_titles
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-8-job-description-search-with-pagination" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example 8: Job Description Search with Pagination
+        Example 7: Job Description Search with Pagination
       
     </span>
   </a>
@@ -1620,10 +1609,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-4-find-recent-job-changers" class="md-nav__link">
+  <a href="#example-4-free-text-search" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example 4: Find Recent Job Changers
+        Example 4: Free Text Search
       
     </span>
   </a>
@@ -1631,10 +1620,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-5-free-text-search" class="md-nav__link">
+  <a href="#example-5-job-description-search" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example 5: Free Text Search
+        Example 5: Job Description Search
       
     </span>
   </a>
@@ -1642,10 +1631,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-6-job-description-search" class="md-nav__link">
+  <a href="#example-6-expand-a-single-title-with-include_similar_titles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example 6: Job Description Search
+        Example 6: Expand a Single Title with include_similar_titles
       
     </span>
   </a>
@@ -1653,21 +1642,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-7-expand-a-single-title-with-include_similar_titles" class="md-nav__link">
+  <a href="#example-7-job-description-search-with-pagination" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example 7: Expand a Single Title with include_similar_titles
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-8-job-description-search-with-pagination" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example 8: Job Description Search with Pagination
+        Example 7: Job Description Search with Pagination
       
     </span>
   </a>
@@ -2891,18 +2869,7 @@ while True:
   &quot;include_similar_titles&quot;: false
 }
 </code></pre>
-<h3 id="example-4-find-recent-job-changers">Example 4: Find Recent Job Changers</h3>
-<pre><code class="language-json">{
-  &quot;search_criteria&quot;: {
-    &quot;current_title&quot;: [&quot;Product Manager&quot;],
-    &quot;location&quot;: [&quot;New York::~40mi&quot;],
-    &quot;job_change_range_days&quot;: [&quot;30&quot;]
-  },
-  &quot;page_size&quot;: 50,
-  &quot;include_similar_titles&quot;: false
-}
-</code></pre>
-<h3 id="example-5-free-text-search">Example 5: Free Text Search</h3>
+<h3 id="example-4-free-text-search">Example 4: Free Text Search</h3>
 <p>Use <code>free_text_search</code> to describe candidates in plain English instead of building structured criteria manually. The API maps your input to the appropriate fields and executes the search.</p>
 <pre><code class="language-json">{
   &quot;free_text_search&quot;: &quot;Nurses with at least 3 years of experience in Boston&quot;,
@@ -2929,7 +2896,7 @@ while True:
   &quot;start&quot;: 1
 }
 </code></pre>
-<h3 id="example-6-job-description-search">Example 6: Job Description Search</h3>
+<h3 id="example-5-job-description-search">Example 5: Job Description Search</h3>
 <p>Paste a job posting and let the API extract search criteria. No <code>search_criteria</code> object is required. <code>include_similar_titles</code> defaults to <code>true</code>, so related titles are expanded automatically.</p>
 <pre><code class="language-json">{
   &quot;jd_search&quot;: &quot;DataVertex is seeking a Product Manager in Austin, TX. 3+ years in B2B SaaS. Experience with roadmap planning and SQL required. MBA a plus.&quot;,
@@ -2949,7 +2916,7 @@ while True:
 }
 </code></pre>
 <hr />
-<h3 id="example-7-expand-a-single-title-with-include_similar_titles">Example 7: Expand a Single Title with include_similar_titles</h3>
+<h3 id="example-6-expand-a-single-title-with-include_similar_titles">Example 6: Expand a Single Title with include_similar_titles</h3>
 <p>When you only have one or a few titles in mind, use <code>include_similar_titles</code> to automatically broaden your search to related roles. The API will add up to 10 total titles before executing the search.</p>
 <p><strong>Page 1 — send your title and let the API expand it:</strong></p>
 <pre><code class="language-json">{
@@ -3011,7 +2978,7 @@ while True:
 }
 </code></pre>
 <p>This ensures every page is searched against the same set of titles, giving you consistent and complete results across your entire pagination sequence.</p>
-<h3 id="example-8-job-description-search-with-pagination">Example 8: Job Description Search with Pagination</h3>
+<h3 id="example-7-job-description-search-with-pagination">Example 7: Job Description Search with Pagination</h3>
 <p><code>jd_search</code> enables <code>include_similar_titles</code> by default. Use the same pagination pattern as structured searches: capture <code>similar_titles</code> from page 1, then pass that array as <code>current_title</code> on subsequent pages.</p>
 <p><strong>Page 1 — send the job description:</strong></p>
 <pre><code class="language-json">{
@@ -3047,7 +3014,7 @@ while True:
 </ul>
 <p><a href="https://calendar.notion.so/meet/claire-liao/datavertex">Schedule a quick call</a> to get API access and explore how DataVertex can support your recruiting product development.</p>
 <hr />
-<p><em>Last Updated: July 27, 2026</em></p>
+<p><em>Last Updated: August 6, 2026</em></p>
 
 
 
