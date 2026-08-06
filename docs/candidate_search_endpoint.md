@@ -813,21 +813,7 @@ if response['credits']['remaining'] < 100:
 }
 ```
 
-### Example 4: Find Recent Job Changers
-
-```json
-{
-  "search_criteria": {
-    "current_title": ["Product Manager"],
-    "location": ["New York::~40mi"],
-    "job_change_range_days": ["30"]
-  },
-  "page_size": 50,
-  "include_similar_titles": false
-}
-```
-
-### Example 5: Free Text Search
+### Example 4: Free Text Search
 
 Use `free_text_search` to describe candidates in plain English instead of building structured criteria manually. The API maps your input to the appropriate fields and executes the search.
 
@@ -864,7 +850,7 @@ Use `free_text_search` with `include_similar_titles` to both describe your candi
 }
 ```
 
-### Example 6: Job Description Search
+### Example 5: Job Description Search
 
 Paste a job posting and let the API extract search criteria. No `search_criteria` object is required. `include_similar_titles` defaults to `true`, so related titles are expanded automatically.
 
@@ -893,7 +879,7 @@ You can combine `jd_search` with explicit `search_criteria` to layer additional 
 
 ---
 
-### Example 7: Expand a Single Title with include_similar_titles
+### Example 6: Expand a Single Title with include_similar_titles
 
 When you only have one or a few titles in mind, use `include_similar_titles` to automatically broaden your search to related roles. The API will add up to 10 total titles before executing the search.
 
@@ -967,7 +953,7 @@ The response includes a `similar_titles` field containing the exact titles that 
 
 This ensures every page is searched against the same set of titles, giving you consistent and complete results across your entire pagination sequence.
 
-### Example 8: Job Description Search with Pagination
+### Example 7: Job Description Search with Pagination
 
 `jd_search` enables `include_similar_titles` by default. Use the same pagination pattern as structured searches: capture `similar_titles` from page 1, then pass that array as `current_title` on subsequent pages.
 
@@ -1015,5 +1001,5 @@ Use the full parsed criteria from `jd_searched` (not only titles) so every page 
 
 ---
 
-*Last Updated: July 27, 2026*
+*Last Updated: August 6, 2026*
 
