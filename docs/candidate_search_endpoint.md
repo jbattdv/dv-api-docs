@@ -831,7 +831,7 @@ You can also combine `free_text_search` with explicit `search_criteria` — the 
 {
   "free_text_search": "Python engineers with 5+ years experience",
   "search_criteria": {
-    "location": ["Austin::~30mi"],
+    "location": ["Austin::~50mi"],
     "company_size": ["51-200"]
   },
   "page_size": 50,
