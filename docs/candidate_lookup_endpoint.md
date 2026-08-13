@@ -71,7 +71,7 @@ You're **never charged** for:
 | `linkedin_url` | string | LinkedIn profile URL | Required |
 | `reveal_personal_email` | boolean | Retrieve personal email address | No (default: false) |
 | `reveal_phone` | boolean | Retrieve mobile phone number | No (default: false) |
-| `reveal_detailed_person_enrichment` | boolean | Retrieve skills, experience, education | No (default: false) |
+| `reveal_detailed_person_enrichment` | boolean | Retrieve profile summary, headline, skills, job history, education, certifications, languages, projects, openness to job opportunities, and volunteering history | No (default: false) |
 | `reveal_healthcare_enrichment` | boolean | Retrieve NPI, medical license, specialty | No (default: false) |
 | `candidate_id` | string | For candidates outside LinkedIn | Only if the candidate has no linkedIn_url |
 
@@ -159,9 +159,17 @@ All Contact Information + Candidate's work history, education, and skills.
           "current_employer": "TechCorp",
           "personal_email": "jane.smith@gmail.com",
           "phone_number": "+14155551234",
+          "headline": "Software Engineer | Full-Stack Developer | Open Source Contributor",
+          "summary": "Experienced software engineer with a passion for building scalable web applications and mentoring junior developers...",
+          "open_to_job_opportunities": true,
           "skills": ["Python", "JavaScript", "React"],
           "education": [...],
           "experience": [...],
+          "job_history": [...],
+          "certifications": [...],
+          "languages": [...],
+          "projects": [...],
+          "volunteering": [...],
         },
         "contact_data_retrieved": ["email", "phone", "detailed_profile"],
         "retrieved_at": "2025-12-10T12:00:00Z"
@@ -241,10 +249,17 @@ Detailed Profile Fields (`reveal_detailed_person_enrichment: true`)
 
 | Field | Type | Description |
 |-------|------|-------------|
+| `headline` | string | Professional headline/tagline |
+| `summary` | string | Profile summary/bio |
+| `open_to_job_opportunities` | boolean | Whether the candidate has indicated they are open to new job opportunities |
 | `skills` | array | List of skills |
 | `experience` | array | Work experience/job history |
 | `education` | array | Educational background |
 | `job_history` | array | Complete employment history |
+| `certifications` | array | Professional certifications and licenses |
+| `languages` | array | Spoken languages and proficiency levels |
+| `projects` | array | Notable projects |
+| `volunteering` | array | Volunteer experience |
 
 Healthcare Fields (`reveal_healthcare_enrichment: true`)
 
@@ -862,5 +877,5 @@ with ThreadPoolExecutor(max_workers=15) as executor:
 
 ---
 
-*Last Updated: May 27, 2026*
+*Last Updated: August 13, 2026*
 
