@@ -1614,7 +1614,7 @@
 <tr>
 <td><code>reveal_detailed_person_enrichment</code></td>
 <td>boolean</td>
-<td>Retrieve skills, experience, education</td>
+<td>Retrieve profile summary, headline, skills, job history, education, certifications, languages, projects, openness to job opportunities, and volunteering history</td>
 <td>No (default: false)</td>
 </tr>
 <tr>
@@ -1694,9 +1694,17 @@
           &quot;current_employer&quot;: &quot;TechCorp&quot;,
           &quot;personal_email&quot;: &quot;jane.smith@gmail.com&quot;,
           &quot;phone_number&quot;: &quot;+14155551234&quot;,
+          &quot;headline&quot;: &quot;Software Engineer | Full-Stack Developer | Open Source Contributor&quot;,
+          &quot;summary&quot;: &quot;Experienced software engineer with a passion for building scalable web applications and mentoring junior developers...&quot;,
+          &quot;open_to_job_opportunities&quot;: true,
           &quot;skills&quot;: [&quot;Python&quot;, &quot;JavaScript&quot;, &quot;React&quot;],
           &quot;education&quot;: [...],
           &quot;experience&quot;: [...],
+          &quot;job_history&quot;: [...],
+          &quot;certifications&quot;: [...],
+          &quot;languages&quot;: [...],
+          &quot;projects&quot;: [...],
+          &quot;volunteering&quot;: [...],
         },
         &quot;contact_data_retrieved&quot;: [&quot;email&quot;, &quot;phone&quot;, &quot;detailed_profile&quot;],
         &quot;retrieved_at&quot;: &quot;2025-12-10T12:00:00Z&quot;
@@ -1878,6 +1886,21 @@
 </thead>
 <tbody>
 <tr>
+<td><code>headline</code></td>
+<td>string</td>
+<td>Professional headline/tagline</td>
+</tr>
+<tr>
+<td><code>summary</code></td>
+<td>string</td>
+<td>Profile summary/bio</td>
+</tr>
+<tr>
+<td><code>open_to_job_opportunities</code></td>
+<td>boolean</td>
+<td>Whether the candidate has indicated they are open to new job opportunities</td>
+</tr>
+<tr>
 <td><code>skills</code></td>
 <td>array</td>
 <td>List of skills</td>
@@ -1896,6 +1919,26 @@
 <td><code>job_history</code></td>
 <td>array</td>
 <td>Complete employment history</td>
+</tr>
+<tr>
+<td><code>certifications</code></td>
+<td>array</td>
+<td>Professional certifications and licenses</td>
+</tr>
+<tr>
+<td><code>languages</code></td>
+<td>array</td>
+<td>Spoken languages and proficiency levels</td>
+</tr>
+<tr>
+<td><code>projects</code></td>
+<td>array</td>
+<td>Notable projects</td>
+</tr>
+<tr>
+<td><code>volunteering</code></td>
+<td>array</td>
+<td>Volunteer experience</td>
 </tr>
 </tbody>
 </table>
@@ -2508,7 +2551,7 @@ with ThreadPoolExecutor(max_workers=15) as executor:
 </ul>
 <p><a href="https://calendar.notion.so/meet/claire-liao/datavertex">Schedule a quick call</a> to get API access and explore how DataVertex can support your recruiting product development.</p>
 <hr />
-<p><em>Last Updated: May 27, 2026</em></p>
+<p><em>Last Updated: August 13, 2026</em></p>
 
 
 
