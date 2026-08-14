@@ -149,8 +149,8 @@ All Contact Information + Candidate's work history, education, and skills.
   "data": {
     "contacts": [
       {
-        "lookup_identifier": "12345",
-        "lookup_type": "id",
+        "lookup_identifier": "https://www.linkedin.com/in/janesmith12345/",
+        "lookup_type": "linkedin_url",
         "success": true,
         "profile": {
           "id": "12345",
@@ -162,6 +162,7 @@ All Contact Information + Candidate's work history, education, and skills.
           "headline": "Software Engineer | Full-Stack Developer | Open Source Contributor",
           "summary": "Experienced software engineer with a passion for building scalable web applications and mentoring junior developers...",
           "open_to_job_opportunities": true,
+          "linkedin_url": "https://www.linkedin.com/in/janesmith12345/",
           "skills": ["Python", "JavaScript", "React"],
           "education": [...],
           "experience": [...],
