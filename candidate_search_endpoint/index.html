@@ -534,10 +534,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#skills-experience" class="md-nav__link">
+  <a href="#experience" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Skills &amp; Experience
+        Experience
       
     </span>
   </a>
@@ -1232,10 +1232,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#skills-experience" class="md-nav__link">
+  <a href="#experience" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Skills &amp; Experience
+        Experience
       
     </span>
   </a>
@@ -1690,7 +1690,7 @@
 
 <h1 id="datavertex-candidate-search-api">DataVertex Candidate Search API</h1>
 <h2 id="overview">Overview</h2>
-<p>The DataVertex Candidate Search API allows you to discover and filter professional profiles by criteria such as job title, company, location, skills, and more. Search across 800M+ professional profiles to find candidates that match your specific requirements.</p>
+<p>The DataVertex Candidate Search API allows you to discover and filter professional profiles by criteria such as job title, company, location, and more. Search across 800M+ professional profiles to find candidates that match your specific requirements.</p>
 <p><a href="https://calendar.notion.so/meet/claire-liao/datavertex">Schedule a quick call</a> to get API access and explore how DataVertex can support your recruiting product development.</p>
 <p><strong>Endpoint:</strong> <code>POST https://api.data-vertex.com/v1/search</code></p>
 <p><strong>Credit Cost:</strong> 1 credit per standard search (up to 100 profiles per page). Job description searches using <code>jd_search</code> cost <strong>2 credits</strong> per search.</p>
@@ -1812,10 +1812,6 @@
 <td><code>current_title</code></td>
 </tr>
 <tr>
-<td>Skills</td>
-<td><code>skills</code></td>
-</tr>
-<tr>
 <td>Location</td>
 <td><code>location</code></td>
 </tr>
@@ -1844,7 +1840,7 @@
 <p><strong>Compatibility with <code>include_similar_titles</code>:</strong> Fully supported. The <code>current_title</code> values parsed from <code>free_text_search</code> are populated first, and then <code>include_similar_titles</code> expands them as normal.</p>
 <p><strong>Limit:</strong> 300 characters. Requests exceeding this return a 400 error.</p>
 <pre><code class="language-json">{
-  &quot;free_text_search&quot;: &quot;Software engineers with 5+ years of Python experience in Chicago&quot;,
+  &quot;free_text_search&quot;: &quot;Software engineers with 5+ years experience in Chicago&quot;,
   &quot;page_size&quot;: 50,
   &quot;start&quot;: 1
 }
@@ -1853,7 +1849,6 @@
 <pre><code class="language-json">{
   &quot;free_text_searched&quot;: {
     &quot;current_title&quot;: [&quot;Software Engineer&quot;],
-    &quot;skills&quot;: [&quot;Python&quot;],
     &quot;location&quot;: [&quot;Chicago&quot;],
     &quot;years_experience&quot;: [&quot;5+&quot;]
   }
@@ -1874,10 +1869,6 @@
 <tr>
 <td>Job titles</td>
 <td><code>current_title</code></td>
-</tr>
-<tr>
-<td>Skills</td>
-<td><code>skills</code></td>
 </tr>
 <tr>
 <td>Location</td>
@@ -1905,7 +1896,7 @@
 <p><strong>Mutual exclusivity:</strong> <code>jd_search</code> and <code>free_text_search</code> cannot be sent in the same request.</p>
 <p><strong>Limit:</strong> 8,500 characters. Requests exceeding this return a 400 error.</p>
 <pre><code class="language-json">{
-  &quot;jd_search&quot;: &quot;Acme Corp is hiring a Senior Software Engineer in Chicago. 5+ years of experience with Python and AWS required. Bachelor's in Computer Science preferred.&quot;,
+  &quot;jd_search&quot;: &quot;Acme Corp is hiring a Senior Software Engineer in Chicago. 5+ years of experience. Bachelor's in Computer Science preferred.&quot;,
   &quot;page_size&quot;: 50,
   &quot;start&quot;: 1
 }
@@ -1914,7 +1905,6 @@
 <pre><code class="language-json">{
   &quot;jd_searched&quot;: {
     &quot;current_title&quot;: [&quot;Senior Software Engineer&quot;],
-    &quot;skills&quot;: [&quot;Python&quot;, &quot;AWS&quot;],
     &quot;location&quot;: [&quot;Chicago&quot;],
     &quot;years_experience&quot;: [&quot;5+&quot;],
     &quot;current_employer&quot;: [&quot;-Acme Corp&quot;],
@@ -2249,7 +2239,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="skills-experience">Skills &amp; Experience</h3>
+<h3 id="experience">Experience</h3>
 <table>
 <thead>
 <tr>
@@ -2260,18 +2250,6 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><code>skills</code></td>
-<td>array of strings</td>
-<td>Listed skills (any match)</td>
-<td><code>["Python", "SQL", "Machine Learning"]</code></td>
-</tr>
-<tr>
-<td><code>all_skills</code></td>
-<td>array of strings</td>
-<td>Required skills (must match all)</td>
-<td><code>["python", "sql", "machine learning"]</code></td>
-</tr>
 <tr>
 <td><code>years_experience</code></td>
 <td>array of strings</td>
@@ -2429,7 +2407,6 @@ With quotes, only exact matches are returned.</p>
   },
   &quot;free_text_searched&quot;: {
     &quot;current_title&quot;: [&quot;Software Engineer&quot;],
-    &quot;skills&quot;: [&quot;Python&quot;],
     &quot;location&quot;: [&quot;Chicago&quot;],
     &quot;years_experience&quot;: [&quot;5+&quot;]
   }
@@ -2445,7 +2422,6 @@ With quotes, only exact matches are returned.</p>
   },
   &quot;jd_searched&quot;: {
     &quot;current_title&quot;: [&quot;Senior Software Engineer&quot;],
-    &quot;skills&quot;: [&quot;Python&quot;, &quot;AWS&quot;],
     &quot;location&quot;: [&quot;Chicago::~50mi&quot;],
     &quot;years_experience&quot;: [&quot;5+&quot;],
     &quot;current_employer&quot;: [&quot;-Acme Corp&quot;]
@@ -2603,7 +2579,6 @@ With quotes, only exact matches are returned.</p>
     &quot;search_criteria&quot;: {
       &quot;current_title&quot;: [&quot;Software Engineer&quot;, &quot;Senior Software Engineer&quot;],
       &quot;location&quot;: [&quot;San Francisco::~50mi&quot;],
-      &quot;skills&quot;: [&quot;Python&quot;, &quot;React&quot;]
     },
     &quot;page_size&quot;: 50,
     &quot;start&quot;: 1,
@@ -2625,7 +2600,6 @@ payload = {
     &quot;search_criteria&quot;: {
         &quot;current_title&quot;: [&quot;Software Engineer&quot;, &quot;Senior Software Engineer&quot;],
         &quot;location&quot;: [&quot;San Francisco::~50mi&quot;],
-        &quot;skills&quot;: [&quot;Python&quot;, &quot;React&quot;]
     },
     &quot;page_size&quot;: 50,
     &quot;start&quot;: 1,
@@ -2654,7 +2628,6 @@ const searchCandidates = async () =&gt; {
         search_criteria: {
           current_title: ['Software Engineer', 'Senior Software Engineer'],
           location: ['San Francisco::~50mi'],
-          skills: ['Python', 'React']
         },
         page_size: 50,
         start: 1,
@@ -2797,7 +2770,6 @@ if data['data']['pagination']['has_next']:
   &quot;search_criteria&quot;: {
     &quot;current_title&quot;: [&quot;Software Engineer&quot;],
     &quot;location&quot;: [&quot;San Francisco::~25mi&quot;],
-    &quot;skills&quot;: [&quot;Python&quot;, &quot;Django&quot;],
     &quot;years_experience&quot;: [&quot;5&quot;]
   },
   &quot;include_similar_titles&quot;: false
@@ -2839,7 +2811,6 @@ while True:
   &quot;search_criteria&quot;: {
     &quot;current_title&quot;: [&quot;Software Engineer&quot;, &quot;Senior Software Engineer&quot;, &quot;Staff Engineer&quot;],
     &quot;location&quot;: [&quot;San Francisco::~50mi&quot;],
-    &quot;skills&quot;: [&quot;Python&quot;, &quot;JavaScript&quot;, &quot;React&quot;]
   },
   &quot;page_size&quot;: 100,
   &quot;include_similar_titles&quot;: false
@@ -2881,7 +2852,7 @@ while True:
 <pre><code class="language-json">{
   &quot;free_text_search&quot;: &quot;Python engineers with 5+ years experience&quot;,
   &quot;search_criteria&quot;: {
-    &quot;location&quot;: [&quot;Austin::~50mi&quot;],
+    &quot;location&quot;: [&quot;Austin::~30mi&quot;],
     &quot;company_size&quot;: [&quot;51-200&quot;]
   },
   &quot;page_size&quot;: 50,
@@ -2995,7 +2966,6 @@ while True:
       &quot;digital marketing manager&quot;,
       &quot;growth marketing manager&quot;
     ],
-    &quot;skills&quot;: [&quot;HubSpot&quot;, &quot;Google Analytics&quot;],
     &quot;location&quot;: [&quot;Denver::~50mi&quot;],
     &quot;years_experience&quot;: [&quot;4+&quot;],
     &quot;current_employer&quot;: [&quot;-GrowthCo&quot;]
@@ -3014,7 +2984,7 @@ while True:
 </ul>
 <p><a href="https://calendar.notion.so/meet/claire-liao/datavertex">Schedule a quick call</a> to get API access and explore how DataVertex can support your recruiting product development.</p>
 <hr />
-<p><em>Last Updated: August 6, 2026</em></p>
+<p><em>Last Updated: August 18, 2026</em></p>
 
 
 
