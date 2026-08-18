@@ -2,7 +2,7 @@
 
 ## Overview
 
-The DataVertex Candidate Search API allows you to discover and filter professional profiles by criteria such as job title, company, location, skills, and more. Search across 800M+ professional profiles to find candidates that match your specific requirements.
+The DataVertex Candidate Search API allows you to discover and filter professional profiles by criteria such as job title, company, location, and more. Search across 800M+ professional profiles to find candidates that match your specific requirements.
 
 [Schedule a quick call](https://calendar.notion.so/meet/claire-liao/datavertex) to get API access and explore how DataVertex can support your recruiting product development.
 
@@ -118,7 +118,6 @@ Write a natural language description of the candidates you are looking for — u
 | Free Text Concept | Mapped To |
 |-------------------|-----------|
 | Job titles | `current_title` |
-| Skills | `skills` |
 | Location | `location` |
 | Years of experience | `years_experience` |
 | Current or previous employer | `current_employer` / `previous_employer` |
@@ -136,7 +135,7 @@ Write a natural language description of the candidates you are looking for — u
 
 ```json
 {
-  "free_text_search": "Software engineers with 5+ years of Python experience in Chicago",
+  "free_text_search": "Software engineers with 5+ years experience in Chicago",
   "page_size": 50,
   "start": 1
 }
@@ -148,7 +147,6 @@ The response includes a `free_text_searched` field showing exactly what is mappe
 {
   "free_text_searched": {
     "current_title": ["Software Engineer"],
-    "skills": ["Python"],
     "location": ["Chicago"],
     "years_experience": ["5+"]
   }
@@ -166,7 +164,6 @@ Submit a full job description — up to 8,500 characters — and the API parses 
 | JD Concept | Mapped To |
 |------------|-----------|
 | Job titles | `current_title` |
-| Skills | `skills` |
 | Location | `location` |
 | Years of experience | `years_experience` |
 | Major | `major` |
@@ -185,7 +182,7 @@ Submit a full job description — up to 8,500 characters — and the API parses 
 
 ```json
 {
-  "jd_search": "Acme Corp is hiring a Senior Software Engineer in Chicago. 5+ years of experience with Python and AWS required. Bachelor's in Computer Science preferred.",
+  "jd_search": "Acme Corp is hiring a Senior Software Engineer in Chicago. 5+ years of experience. Bachelor's in Computer Science preferred.",
   "page_size": 50,
   "start": 1
 }
@@ -197,7 +194,6 @@ The response includes a `jd_searched` field showing exactly what was mapped:
 {
   "jd_searched": {
     "current_title": ["Senior Software Engineer"],
-    "skills": ["Python", "AWS"],
     "location": ["Chicago"],
     "years_experience": ["5+"],
     "current_employer": ["-Acme Corp"],
@@ -293,12 +289,10 @@ The `search_criteria` object supports 60+ parameters organized into logical cate
 | `degree` | array of strings | Degree types | `["Bachelors", "Masters", "PhD"]` |
 | `major` | array of strings | Academic majors | `["Computer Science", "Biology"]` |
 
-### Skills & Experience
+### Experience
 
 | Parameter | Type | Description | Example |
 |-----------|------|-------------|---------|
-| `skills` | array of strings | Listed skills (any match) | `["Python", "SQL", "Machine Learning"]` |
-| `all_skills` | array of strings | Required skills (must match all) | `["python", "sql", "machine learning"]` |
 | `years_experience` | array of strings | Years of experience | `["1","2,","3"]` or ["1-3"]|
 
 ### Social & Connections
@@ -420,7 +414,6 @@ When `free_text_search` is used, the response also includes a `free_text_searche
   },
   "free_text_searched": {
     "current_title": ["Software Engineer"],
-    "skills": ["Python"],
     "location": ["Chicago"],
     "years_experience": ["5+"]
   }
@@ -439,7 +432,6 @@ When `jd_search` is used, the response includes `jd_searched` and charges 2 cred
   },
   "jd_searched": {
     "current_title": ["Senior Software Engineer"],
-    "skills": ["Python", "AWS"],
     "location": ["Chicago::~50mi"],
     "years_experience": ["5+"],
     "current_employer": ["-Acme Corp"]
@@ -509,7 +501,6 @@ curl -X POST https://api.data-vertex.com/v1/search \
     "search_criteria": {
       "current_title": ["Software Engineer", "Senior Software Engineer"],
       "location": ["San Francisco::~50mi"],
-      "skills": ["Python", "React"]
     },
     "page_size": 50,
     "start": 1,
@@ -534,7 +525,6 @@ payload = {
     "search_criteria": {
         "current_title": ["Software Engineer", "Senior Software Engineer"],
         "location": ["San Francisco::~50mi"],
-        "skills": ["Python", "React"]
     },
     "page_size": 50,
     "start": 1,
@@ -566,7 +556,6 @@ const searchCandidates = async () => {
         search_criteria: {
           current_title: ['Software Engineer', 'Senior Software Engineer'],
           location: ['San Francisco::~50mi'],
-          skills: ['Python', 'React']
         },
         page_size: 50,
         start: 1,
@@ -718,7 +707,6 @@ The more specific your search criteria, the better your results:
   "search_criteria": {
     "current_title": ["Software Engineer"],
     "location": ["San Francisco::~25mi"],
-    "skills": ["Python", "Django"],
     "years_experience": ["5"]
   },
   "include_similar_titles": false
@@ -776,7 +764,6 @@ if response['credits']['remaining'] < 100:
   "search_criteria": {
     "current_title": ["Software Engineer", "Senior Software Engineer", "Staff Engineer"],
     "location": ["San Francisco::~50mi"],
-    "skills": ["Python", "JavaScript", "React"]
   },
   "page_size": 100,
   "include_similar_titles": false
@@ -831,7 +818,7 @@ You can also combine `free_text_search` with explicit `search_criteria` — the 
 {
   "free_text_search": "Python engineers with 5+ years experience",
   "search_criteria": {
-    "location": ["Austin::~50mi"],
+    "location": ["Austin::~30mi"],
     "company_size": ["51-200"]
   },
   "page_size": 50,
@@ -977,7 +964,6 @@ This ensures every page is searched against the same set of titles, giving you c
       "digital marketing manager",
       "growth marketing manager"
     ],
-    "skills": ["HubSpot", "Google Analytics"],
     "location": ["Denver::~50mi"],
     "years_experience": ["4+"],
     "current_employer": ["-GrowthCo"]
@@ -1001,5 +987,5 @@ Use the full parsed criteria from `jd_searched` (not only titles) so every page 
 
 ---
 
-*Last Updated: August 6, 2026*
+*Last Updated: August 18, 2026*
 
