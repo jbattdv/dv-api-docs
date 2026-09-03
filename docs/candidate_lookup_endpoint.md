@@ -71,7 +71,7 @@ You're **never charged** for:
 | `linkedin_url` | string | LinkedIn profile URL | Required |
 | `reveal_personal_email` | boolean | Retrieve personal email address | No (default: false) |
 | `reveal_phone` | boolean | Retrieve mobile phone number | No (default: false) |
-| `reveal_detailed_person_enrichment` | boolean | Retrieve profile summary, headline, skills, job history, education, certifications, languages, projects, openness to job opportunities, and volunteering history | No (default: false) |
+| `reveal_detailed_person_enrichment` | boolean | Retrieve name, location, profile summary, headline, skills, job history, education, certifications, languages, projects, openness to job opportunities, and volunteering history | No (default: false) |
 | `reveal_healthcare_enrichment` | boolean | Retrieve NPI, medical license, specialty | No (default: false) |
 | `candidate_id` | string | For candidates outside LinkedIn | Only if the candidate has no linkedIn_url |
 
@@ -159,6 +159,7 @@ All Contact Information + Candidate's work history, education, and skills.
           "current_employer": "TechCorp",
           "personal_email": "jane.smith@gmail.com",
           "phone_number": "+14155551234",
+          "candidate_location": "San Francisco, California, United States",
           "headline": "Software Engineer | Full-Stack Developer | Open Source Contributor",
           "summary": "Experienced software engineer with a passion for building scalable web applications and mentoring junior developers...",
           "open_to_job_opportunities": true,
@@ -250,6 +251,8 @@ Detailed Profile Fields (`reveal_detailed_person_enrichment: true`)
 
 | Field | Type | Description |
 |-------|------|-------------|
+| `name` | string | Candidate full name |
+| `candidate_location` | string | Candidate location |
 | `headline` | string | Professional headline/tagline |
 | `summary` | string | Profile summary/bio |
 | `open_to_job_opportunities` | boolean | Whether the candidate has indicated they are open to new job opportunities |
