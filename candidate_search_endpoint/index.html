@@ -1776,7 +1776,7 @@
 </table>
 
 <blockquote>
-<p><strong>Note:</strong> At least one of <code>search_criteria</code>, <code>free_text_search</code>, or <code>jd_search</code> must be provided. <code>free_text_search</code> and <code>jd_search</code> cannot be used in the same request. <code>search_criteria</code> can be combined with either AI input — see <a href="#semantic-candidate-search---free_text_search">free text search</a> and <a href="#job-description-search---jd_search">job description search</a> below for merge behavior.</p>
+<p><strong>Note:</strong> At least one of <code>search_criteria</code>, <code>free_text_search</code>, or <code>jd_search</code> must be provided. <code>free_text_search</code> and <code>jd_search</code> cannot be used in the same request. <code>search_criteria</code> can be combined with either AI input — see <a href="#semantic-candidate-search-free_text_search">free text search</a> and <a href="#job-description-search-jd_search">job description search</a> below for merge behavior.</p>
 </blockquote>
 <h4 id="extended-title-search-include_similar_titles">Extended Title Search - include_similar_titles</h4>
 <p>When set to <code>true</code> at the top level of the request, the API automatically expands your <code>current_title</code> array with similar, titles before executing the search. This broadens your candidate pool without requiring you to manually list every relevant title variation.</p>
@@ -3101,6 +3101,68 @@ while True:
           parent.rel = "noopener noreferrer";
         }
       });
+
+      // Tall custom header: Material's TOC scroll still uses the default header
+      // offset, so section titles sit under the sticky bar. Use one measured
+      // offset for TOC clicks, in-page # links, and initial hash URLs.
+      function anchorScrollOffsetPx() {
+        var header = document.querySelector(".md-header");
+        var headerHeight = header ? header.offsetHeight : 0;
+        var rootStyles = getComputedStyle(document.documentElement);
+        var marginRaw =
+          rootStyles.getPropertyValue("--md-scroll-margin").trim() || "0.75rem";
+        var marginPx = 12;
+        if (marginRaw.endsWith("rem")) {
+          marginPx =
+            parseFloat(marginRaw) * (parseFloat(rootStyles.fontSize) || 16);
+        } else if (marginRaw.endsWith("px")) {
+          marginPx = parseFloat(marginRaw);
+        } else {
+          marginPx = parseFloat(marginRaw) || 12;
+        }
+        return headerHeight + marginPx;
+      }
+
+      function scrollToAnchorId(id, updateHash) {
+        if (!id) return;
+        var target = document.getElementById(decodeURIComponent(id));
+        if (!target) return;
+        var offset = anchorScrollOffsetPx();
+        var top =
+          window.pageYOffset + target.getBoundingClientRect().top - offset;
+        window.scrollTo({ top: Math.max(0, top), behavior: "auto" });
+        if (updateHash !== false) {
+          history.pushState(null, "", "#" + id);
+        }
+      }
+
+      document.addEventListener(
+        "click",
+        function (event) {
+          var link = event.target.closest('a[href^="#"]');
+          if (!link) return;
+          var href = link.getAttribute("href");
+          if (!href || href === "#") return;
+          var id = decodeURIComponent(href.slice(1));
+          var target = document.getElementById(id);
+          if (!target || !target.closest(".md-typeset")) return;
+          if (
+            !link.closest(".md-nav--secondary") &&
+            !link.closest(".md-content")
+          ) {
+            return;
+          }
+          event.preventDefault();
+          scrollToAnchorId(id, true);
+        },
+        true
+      );
+
+      if (location.hash.length > 1) {
+        requestAnimationFrame(function () {
+          scrollToAnchorId(location.hash.slice(1), false);
+        });
+      }
     });
   </script>
 

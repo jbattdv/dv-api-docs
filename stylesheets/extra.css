@@ -4,6 +4,17 @@
     --md-primary-fg-color--dark: #2F50C8;
     --md-accent-fg-color: #2B4FD4;         /* deeper cobalt from the icon */
     --md-default-bg-color: #0D0D0D;        /* near-black from logo background */
+    /*
+     * Must match .md-header height. Pair with --md-scroll-margin and the inline
+     * scroll helper in overrides/main.html (do not add html scroll-padding — that breaks TOC).
+     */
+    --md-header-height: 140px;
+    --md-scroll-margin: 0.75rem;
+  }
+
+  /* Same offset as anchor-scroll.js — headings only (not html scroll-padding). */
+  .md-typeset :is(h1, h2, h3, h4, h5, h6)[id] {
+    scroll-margin-top: calc(var(--md-header-height) + var(--md-scroll-margin));
   }
 
   .md-header__button.md-logo img {
