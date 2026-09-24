@@ -202,23 +202,34 @@ The response includes a `jd_searched` field showing exactly what was mapped:
   }
 }
 ```
+---
 
+## Example Output
+Represents 1 of up to 100 candidates.
+
+```json
+    { 
+      "linkedin_url": "https://www.linkedin.com/in/John_Smith22",
+      "name": "John Smith",
+      "connections": 434,
+      "location": "New York City, NY, US",
+      "country": "United States",
+      "country_code": "US",
+      "current_title": "Sales Representative",
+      "current_employer": "The Telecom Company",
+      "current_employer_domain": "thetelecomcompany.com",
+      "current_employer_website": "http://www.thetelecomcompany.com",
+      "current_employer_linkedin_url": "https://www.linkedin.com/company/the-telecom-company",
+      "region_latitude": "40.7128",
+      "region_longitude": "74.0060",
+      "id": 555555555
+    }
+```
 ---
 
 ## Search Criteria Parameters
 
-The `search_criteria` object supports 60+ parameters organized into logical categories:
-
-### Profile Identification
-
-| Parameter | Type | Description | Example |
-|-----------|------|-------------|---------|
-| `link` | array of strings | Profile URLs | `["https://linkedin.com/in/johndoe"]` |
-| `name` | array of strings | Profile names | `["John Doe"]` |
-| `email` | array of strings | Email addresses | `["john.doe@data-vertex.com"]` |
-| `phone` | array of strings | Phone numbers | `["+15555555555"]` |
-| `handle` | array of strings | Social media handles | `["johndoe"]` |
-| `id` | array of strings | DataVertex Profile IDs | `["123456"]` |
+The `search_criteria` object supports 35+ parameters organized into logical categories:
 
 ### Job Title & Role
 
@@ -293,7 +304,7 @@ The `search_criteria` object supports 60+ parameters organized into logical cate
 
 | Parameter | Type | Description | Example |
 |-----------|------|-------------|---------|
-| `years_experience` | array of strings | Years of experience | `["1","2,","3"]` or ["1-3"]|
+| `years_experience` | array of strings | Years of experience | `["1","2,","3"]` or `["1-3"]`|
 
 ### Social & Connections
 
@@ -457,7 +468,7 @@ Each profile in the `profiles` array contains:
 | `current_title` | string | Current job title |
 | `current_employer` | string | Current company name |
 | `location` | string | Current location |
-| `id` | string | Only useful for profiles without a linkedin_url |
+| `id` | integer | Only useful for profiles without a linkedin_url |
 
 Note: Search results do **not** include contact information (email/phone). Use the [Lookup API](./candidate_lookup_endpoint.md) with the `linkedin_url` to retrieve contact details.
 
@@ -987,5 +998,5 @@ Use the full parsed criteria from `jd_searched` (not only titles) so every page 
 
 ---
 
-*Last Updated: August 18, 2026*
+*Last Updated: September 24, 2026*
 

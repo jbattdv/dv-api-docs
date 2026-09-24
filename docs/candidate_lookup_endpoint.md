@@ -444,7 +444,6 @@ search_response = requests.post(
         "search_criteria": {
             "current_title": ["Software Engineer"],
             "location": ["San Francisco::~50mi"],
-            "contact_method": ["personal email"]
         },
         "page_size": 10
     }
@@ -881,5 +880,5 @@ with ThreadPoolExecutor(max_workers=15) as executor:
 
 ---
 
-*Last Updated: August 13, 2026*
+*Last Updated: September 24, 2026*
 
