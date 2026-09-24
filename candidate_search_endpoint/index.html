@@ -434,6 +434,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#example-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Output
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#search-criteria-parameters" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -444,17 +455,6 @@
   
     <nav class="md-nav" aria-label="Search Criteria Parameters">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#profile-identification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Profile Identification
-      
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#job-title-role" class="md-nav__link">
@@ -1132,6 +1132,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#example-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Output
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#search-criteria-parameters" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1142,17 +1153,6 @@
   
     <nav class="md-nav" aria-label="Search Criteria Parameters">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#profile-identification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Profile Identification
-      
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#job-title-role" class="md-nav__link">
@@ -1914,57 +1914,28 @@
 }
 </code></pre>
 <hr />
+<h2 id="example-output">Example Output</h2>
+<p>Represents 1 of up to 100 candidates.</p>
+<pre><code class="language-json">    { 
+      &quot;linkedin_url&quot;: &quot;https://www.linkedin.com/in/John_Smith22&quot;,
+      &quot;name&quot;: &quot;John Smith&quot;,
+      &quot;connections&quot;: 434,
+      &quot;location&quot;: &quot;New York City, NY, US&quot;,
+      &quot;country&quot;: &quot;United States&quot;,
+      &quot;country_code&quot;: &quot;US&quot;,
+      &quot;current_title&quot;: &quot;Sales Representative&quot;,
+      &quot;current_employer&quot;: &quot;The Telecom Company&quot;,
+      &quot;current_employer_domain&quot;: &quot;thetelecomcompany.com&quot;,
+      &quot;current_employer_website&quot;: &quot;http://www.thetelecomcompany.com&quot;,
+      &quot;current_employer_linkedin_url&quot;: &quot;https://www.linkedin.com/company/the-telecom-company&quot;,
+      &quot;region_latitude&quot;: &quot;40.7128&quot;,
+      &quot;region_longitude&quot;: &quot;74.0060&quot;,
+      &quot;id&quot;: 555555555
+    }
+</code></pre>
+<hr />
 <h2 id="search-criteria-parameters">Search Criteria Parameters</h2>
-<p>The <code>search_criteria</code> object supports 60+ parameters organized into logical categories:</p>
-<h3 id="profile-identification">Profile Identification</h3>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>link</code></td>
-<td>array of strings</td>
-<td>Profile URLs</td>
-<td><code>["https://linkedin.com/in/johndoe"]</code></td>
-</tr>
-<tr>
-<td><code>name</code></td>
-<td>array of strings</td>
-<td>Profile names</td>
-<td><code>["John Doe"]</code></td>
-</tr>
-<tr>
-<td><code>email</code></td>
-<td>array of strings</td>
-<td>Email addresses</td>
-<td><code>["john.doe@data-vertex.com"]</code></td>
-</tr>
-<tr>
-<td><code>phone</code></td>
-<td>array of strings</td>
-<td>Phone numbers</td>
-<td><code>["+15555555555"]</code></td>
-</tr>
-<tr>
-<td><code>handle</code></td>
-<td>array of strings</td>
-<td>Social media handles</td>
-<td><code>["johndoe"]</code></td>
-</tr>
-<tr>
-<td><code>id</code></td>
-<td>array of strings</td>
-<td>DataVertex Profile IDs</td>
-<td><code>["123456"]</code></td>
-</tr>
-</tbody>
-</table>
+<p>The <code>search_criteria</code> object supports 35+ parameters organized into logical categories:</p>
 <h3 id="job-title-role">Job Title &amp; Role</h3>
 <table>
 <thead>
@@ -2254,7 +2225,7 @@
 <td><code>years_experience</code></td>
 <td>array of strings</td>
 <td>Years of experience</td>
-<td><code>["1","2,","3"]</code> or ["1-3"]</td>
+<td><code>["1","2,","3"]</code> or <code>["1-3"]</code></td>
 </tr>
 </tbody>
 </table>
@@ -2472,7 +2443,7 @@ With quotes, only exact matches are returned.</p>
 </tr>
 <tr>
 <td><code>id</code></td>
-<td>string</td>
+<td>integer</td>
 <td>Only useful for profiles without a linkedin_url</td>
 </tr>
 </tbody>
@@ -2984,7 +2955,7 @@ while True:
 </ul>
 <p><a href="https://calendar.notion.so/meet/claire-liao/datavertex">Schedule a quick call</a> to get API access and explore how DataVertex can support your recruiting product development.</p>
 <hr />
-<p><em>Last Updated: August 18, 2026</em></p>
+<p><em>Last Updated: September 24, 2026</em></p>
 
 
 
