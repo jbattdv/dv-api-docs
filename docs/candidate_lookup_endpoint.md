@@ -166,7 +166,6 @@ All Contact Information + Candidate's work history, education, and skills.
           "linkedin_url": "https://www.linkedin.com/in/janesmith12345/",
           "skills": ["Python", "JavaScript", "React"],
           "education": [...],
-          "experience": [...],
           "job_history": [...],
           "certifications": [...],
           "languages": [...],
@@ -257,7 +256,6 @@ Detailed Profile Fields (`reveal_detailed_person_enrichment: true`)
 | `summary` | string | Profile summary/bio |
 | `open_to_job_opportunities` | boolean | Whether the candidate has indicated they are open to new job opportunities |
 | `skills` | array | List of skills |
-| `experience` | array | Work experience/job history |
 | `education` | array | Educational background |
 | `job_history` | array | Complete employment history |
 | `certifications` | array | Professional certifications and licenses |
