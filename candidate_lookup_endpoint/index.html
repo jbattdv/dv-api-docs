@@ -6,16 +6,16 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Official API documentation for the DataVertex Candidate API">
+        <meta name="description" content="Explore DataVertex's candidate sourcing API documentation for developers. Integrate candidate search, enrichment, matching, and recruiting data into your applications.">
       
       
         <meta name="author" content="DataVertex">
       
       
-        <link rel="canonical" href="https://docs.data-vertex.com/API_LOOKUP_ENDPOINT/">
+        <link rel="canonical" href="https://docs.data-vertex.com/candidate_lookup_endpoint/">
       
       
-        <link rel="prev" href="../API_SEARCH_ENDPOINT/">
+        <link rel="prev" href="../candidate_search_endpoint/">
       
       
       
@@ -26,10 +26,14 @@
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
     
     
+  
+    
       
-        <title>Lookup Endpoint - DataVertex's Candidate API Documentation</title>
+        <title>Candidate Lookup Endpoint - DataVertex's Candidate Sourcing API Documentation</title>
       
     
+  
+
     
       <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
@@ -61,6 +65,9 @@
 
     
     
+  
+  
+
   </head>
   
   
@@ -78,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#datavertexs-lookup-endpoint" class="md-skip">
+        <a href="#datavertex-candidate-lookup-api" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +101,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="DataVertex&#39;s Candidate API Documentation" class="md-header__button md-logo" aria-label="DataVertex's Candidate API Documentation" data-md-component="logo">
+    <a href=".." title="DataVertex&#39;s Candidate Sourcing API Documentation" class="md-header__button md-logo" aria-label="DataVertex's Candidate Sourcing API Documentation" data-md-component="logo">
       
   <img src="../assets/logo.png" alt="logo">
 
@@ -107,13 +114,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            DataVertex's Candidate API Documentation
+            DataVertex's Candidate Sourcing API Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lookup Endpoint
+              Candidate Lookup Endpoint
             
           </span>
         </div>
@@ -194,12 +201,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="DataVertex&#39;s Candidate API Documentation" class="md-nav__button md-logo" aria-label="DataVertex's Candidate API Documentation" data-md-component="logo">
+    <a href=".." title="DataVertex&#39;s Candidate Sourcing API Documentation" class="md-nav__button md-logo" aria-label="DataVertex's Candidate Sourcing API Documentation" data-md-component="logo">
       
   <img src="../assets/logo.png" alt="logo">
 
     </a>
-    DataVertex's Candidate API Documentation
+    DataVertex's Candidate Sourcing API Documentation
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -238,14 +245,41 @@
   
   
     <li class="md-nav__item">
-      <a href="../API_SEARCH_ENDPOINT/" class="md-nav__link">
+      <a href="../account_endpoint/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Search Endpoint
+    Account Endpoint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../candidate_search_endpoint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Candidate Search Endpoint
   
 
     
@@ -281,7 +315,7 @@
   <span class="md-ellipsis">
     
   
-    Lookup Endpoint
+    Candidate Lookup Endpoint
   
 
     
@@ -299,7 +333,7 @@
   <span class="md-ellipsis">
     
   
-    Lookup Endpoint
+    Candidate Lookup Endpoint
   
 
     
@@ -1460,13 +1494,16 @@
               
               <article class="md-content__inner md-typeset">
                 
+  
+  
                   
 
 
 
-<h1 id="datavertexs-lookup-endpoint">DataVertex's Lookup Endpoint</h1>
+<h1 id="datavertex-candidate-lookup-api">DataVertex Candidate Lookup API</h1>
 <h2 id="overview">Overview</h2>
-<p>The DataVertex Lookup API retrieves detailed contact information for specific candidates, including personal emails, phone numbers, and enriched profile data. You can lookup contacts using <strong>Candidate IDs</strong> from search results or <strong>LinkedIn URLs</strong> directly (no search required)</p>
+<p>The DataVertex Candidate Lookup API retrieves detailed information for specific candidates including personal emails, phone numbers, and enriched profile data. You can lookup contacts using <strong>LinkedIn URLs</strong>  (no search required)</p>
+<p><a href="https://calendar.notion.so/meet/claire-liao/datavertex">Schedule a quick call</a> to get API access and explore how DataVertex can support your recruiting product development.</p>
 <p><strong>Endpoint:</strong> <code>POST https://api.data-vertex.com/v1/lookup</code></p>
 <p><strong>Credit Cost:</strong> Variable (3-11 credits per candidate based on enrichments requested)</p>
 <p><strong>Billing:</strong> Success-based - you're only charged for data actually retrieved</p>
@@ -1557,16 +1594,10 @@
 </thead>
 <tbody>
 <tr>
-<td><code>candidate_id</code></td>
-<td>string</td>
-<td>Candidate ID from search results</td>
-<td>One identifier required</td>
-</tr>
-<tr>
 <td><code>linkedin_url</code></td>
 <td>string</td>
 <td>LinkedIn profile URL</td>
-<td>One identifier required</td>
+<td>Required</td>
 </tr>
 <tr>
 <td><code>reveal_personal_email</code></td>
@@ -1583,7 +1614,7 @@
 <tr>
 <td><code>reveal_detailed_person_enrichment</code></td>
 <td>boolean</td>
-<td>Retrieve skills, experience, education</td>
+<td>Retrieve name, location, profile summary, headline, skills, job history, education, certifications, languages, projects, openness to job opportunities, and volunteering history</td>
 <td>No (default: false)</td>
 </tr>
 <tr>
@@ -1592,10 +1623,17 @@
 <td>Retrieve NPI, medical license, specialty</td>
 <td>No (default: false)</td>
 </tr>
+<tr>
+<td><code>candidate_id</code></td>
+<td>string</td>
+<td>For candidates outside LinkedIn</td>
+<td>Only if the candidate has no linkedIn_url</td>
+</tr>
 </tbody>
 </table>
 <p><strong>Important:</strong> 
-- Provide exactly one identifier: either <code>candidate_id</code> OR <code>linkedin_url</code>
+- Provide exactly one identifier: <code>linkedin_url</code>
+- Only use <code>candidate_id</code> if you do not have a <code>linkedin_url</code>
 - At least one enrichment parameter must be set to <code>true</code>
 - For multiple candidates, make concurrent API calls</p>
 <hr />
@@ -1646,8 +1684,8 @@
   &quot;data&quot;: {
     &quot;contacts&quot;: [
       {
-        &quot;lookup_identifier&quot;: &quot;12345&quot;,
-        &quot;lookup_type&quot;: &quot;id&quot;,
+        &quot;lookup_identifier&quot;: &quot;https://www.linkedin.com/in/janesmith12345/&quot;,
+        &quot;lookup_type&quot;: &quot;linkedin_url&quot;,
         &quot;success&quot;: true,
         &quot;profile&quot;: {
           &quot;id&quot;: &quot;12345&quot;,
@@ -1656,9 +1694,18 @@
           &quot;current_employer&quot;: &quot;TechCorp&quot;,
           &quot;personal_email&quot;: &quot;jane.smith@gmail.com&quot;,
           &quot;phone_number&quot;: &quot;+14155551234&quot;,
+          &quot;candidate_location&quot;: &quot;San Francisco, California, United States&quot;,
+          &quot;headline&quot;: &quot;Software Engineer | Full-Stack Developer | Open Source Contributor&quot;,
+          &quot;summary&quot;: &quot;Experienced software engineer with a passion for building scalable web applications and mentoring junior developers...&quot;,
+          &quot;open_to_job_opportunities&quot;: true,
+          &quot;linkedin_url&quot;: &quot;https://www.linkedin.com/in/janesmith12345/&quot;,
           &quot;skills&quot;: [&quot;Python&quot;, &quot;JavaScript&quot;, &quot;React&quot;],
           &quot;education&quot;: [...],
-          &quot;experience&quot;: [...],
+          &quot;job_history&quot;: [...],
+          &quot;certifications&quot;: [...],
+          &quot;languages&quot;: [...],
+          &quot;projects&quot;: [...],
+          &quot;volunteering&quot;: [...],
         },
         &quot;contact_data_retrieved&quot;: [&quot;email&quot;, &quot;phone&quot;, &quot;detailed_profile&quot;],
         &quot;retrieved_at&quot;: &quot;2025-12-10T12:00:00Z&quot;
@@ -1840,14 +1887,34 @@
 </thead>
 <tbody>
 <tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>Candidate full name</td>
+</tr>
+<tr>
+<td><code>candidate_location</code></td>
+<td>string</td>
+<td>Candidate location</td>
+</tr>
+<tr>
+<td><code>headline</code></td>
+<td>string</td>
+<td>Professional headline/tagline</td>
+</tr>
+<tr>
+<td><code>summary</code></td>
+<td>string</td>
+<td>Profile summary/bio</td>
+</tr>
+<tr>
+<td><code>open_to_job_opportunities</code></td>
+<td>boolean</td>
+<td>Whether the candidate has indicated they are open to new job opportunities</td>
+</tr>
+<tr>
 <td><code>skills</code></td>
 <td>array</td>
 <td>List of skills</td>
-</tr>
-<tr>
-<td><code>experience</code></td>
-<td>array</td>
-<td>Work experience/job history</td>
 </tr>
 <tr>
 <td><code>education</code></td>
@@ -1858,6 +1925,26 @@
 <td><code>job_history</code></td>
 <td>array</td>
 <td>Complete employment history</td>
+</tr>
+<tr>
+<td><code>certifications</code></td>
+<td>array</td>
+<td>Professional certifications and licenses</td>
+</tr>
+<tr>
+<td><code>languages</code></td>
+<td>array</td>
+<td>Spoken languages and proficiency levels</td>
+</tr>
+<tr>
+<td><code>projects</code></td>
+<td>array</td>
+<td>Notable projects</td>
+</tr>
+<tr>
+<td><code>volunteering</code></td>
+<td>array</td>
+<td>Volunteer experience</td>
 </tr>
 </tbody>
 </table>
@@ -2089,7 +2176,6 @@ search_response = requests.post(
         &quot;search_criteria&quot;: {
             &quot;current_title&quot;: [&quot;Software Engineer&quot;],
             &quot;location&quot;: [&quot;San Francisco::~50mi&quot;],
-            &quot;contact_method&quot;: [&quot;personal email&quot;]
         },
         &quot;page_size&quot;: 10
     }
@@ -2468,8 +2554,9 @@ with ThreadPoolExecutor(max_workers=15) as executor:
 <li><strong>Support:</strong> dev@data-vertex.com</li>
 <li><strong>Website:</strong> https://www.data-vertex.com</li>
 </ul>
+<p><a href="https://calendar.notion.so/meet/claire-liao/datavertex">Schedule a quick call</a> to get API access and explore how DataVertex can support your recruiting product development.</p>
 <hr />
-<p><em>Last Updated: February 20, 2026</em></p>
+<p><em>Last Updated: September 24, 2026</em></p>
 
 
 
@@ -2483,6 +2570,7 @@ with ThreadPoolExecutor(max_workers=15) as executor:
 
 
                 
+
               </article>
             </div>
           
@@ -2585,6 +2673,68 @@ with ThreadPoolExecutor(max_workers=15) as executor:
           parent.rel = "noopener noreferrer";
         }
       });
+
+      // Tall custom header: Material's TOC scroll still uses the default header
+      // offset, so section titles sit under the sticky bar. Use one measured
+      // offset for TOC clicks, in-page # links, and initial hash URLs.
+      function anchorScrollOffsetPx() {
+        var header = document.querySelector(".md-header");
+        var headerHeight = header ? header.offsetHeight : 0;
+        var rootStyles = getComputedStyle(document.documentElement);
+        var marginRaw =
+          rootStyles.getPropertyValue("--md-scroll-margin").trim() || "0.75rem";
+        var marginPx = 12;
+        if (marginRaw.endsWith("rem")) {
+          marginPx =
+            parseFloat(marginRaw) * (parseFloat(rootStyles.fontSize) || 16);
+        } else if (marginRaw.endsWith("px")) {
+          marginPx = parseFloat(marginRaw);
+        } else {
+          marginPx = parseFloat(marginRaw) || 12;
+        }
+        return headerHeight + marginPx;
+      }
+
+      function scrollToAnchorId(id, updateHash) {
+        if (!id) return;
+        var target = document.getElementById(decodeURIComponent(id));
+        if (!target) return;
+        var offset = anchorScrollOffsetPx();
+        var top =
+          window.pageYOffset + target.getBoundingClientRect().top - offset;
+        window.scrollTo({ top: Math.max(0, top), behavior: "auto" });
+        if (updateHash !== false) {
+          history.pushState(null, "", "#" + id);
+        }
+      }
+
+      document.addEventListener(
+        "click",
+        function (event) {
+          var link = event.target.closest('a[href^="#"]');
+          if (!link) return;
+          var href = link.getAttribute("href");
+          if (!href || href === "#") return;
+          var id = decodeURIComponent(href.slice(1));
+          var target = document.getElementById(id);
+          if (!target || !target.closest(".md-typeset")) return;
+          if (
+            !link.closest(".md-nav--secondary") &&
+            !link.closest(".md-content")
+          ) {
+            return;
+          }
+          event.preventDefault();
+          scrollToAnchorId(id, true);
+        },
+        true
+      );
+
+      if (location.hash.length > 1) {
+        requestAnimationFrame(function () {
+          scrollToAnchorId(location.hash.slice(1), false);
+        });
+      }
     });
   </script>
 

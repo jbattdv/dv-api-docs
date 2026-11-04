@@ -6,19 +6,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Official API documentation for the DataVertex Candidate API">
+        <meta name="description" content="Explore DataVertex's candidate sourcing API documentation for developers. Integrate candidate search, enrichment, matching, and recruiting data into your applications.">
       
       
         <meta name="author" content="DataVertex">
       
       
-        <link rel="canonical" href="https://docs.data-vertex.com/API_SEARCH_ENDPOINT/">
+        <link rel="canonical" href="https://docs.data-vertex.com/candidate_search_endpoint/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../account_endpoint/">
       
       
-        <link rel="next" href="../API_LOOKUP_ENDPOINT/">
+        <link rel="next" href="../candidate_lookup_endpoint/">
       
       
         
@@ -28,10 +28,14 @@
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
     
     
+  
+    
       
-        <title>Search Endpoint - DataVertex's Candidate API Documentation</title>
+        <title>Candidate Search Endpoint - DataVertex's Candidate Sourcing API Documentation</title>
       
     
+  
+
     
       <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
@@ -63,6 +67,9 @@
 
     
     
+  
+  
+
   </head>
   
   
@@ -80,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#datavertex-search-api" class="md-skip">
+        <a href="#datavertex-candidate-search-api" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +103,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="DataVertex&#39;s Candidate API Documentation" class="md-header__button md-logo" aria-label="DataVertex's Candidate API Documentation" data-md-component="logo">
+    <a href=".." title="DataVertex&#39;s Candidate Sourcing API Documentation" class="md-header__button md-logo" aria-label="DataVertex's Candidate Sourcing API Documentation" data-md-component="logo">
       
   <img src="../assets/logo.png" alt="logo">
 
@@ -109,13 +116,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            DataVertex's Candidate API Documentation
+            DataVertex's Candidate Sourcing API Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Search Endpoint
+              Candidate Search Endpoint
             
           </span>
         </div>
@@ -196,12 +203,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="DataVertex&#39;s Candidate API Documentation" class="md-nav__button md-logo" aria-label="DataVertex's Candidate API Documentation" data-md-component="logo">
+    <a href=".." title="DataVertex&#39;s Candidate Sourcing API Documentation" class="md-nav__button md-logo" aria-label="DataVertex's Candidate Sourcing API Documentation" data-md-component="logo">
       
   <img src="../assets/logo.png" alt="logo">
 
     </a>
-    DataVertex's Candidate API Documentation
+    DataVertex's Candidate Sourcing API Documentation
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -237,6 +244,33 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../account_endpoint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Account Endpoint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -256,7 +290,7 @@
   <span class="md-ellipsis">
     
   
-    Search Endpoint
+    Candidate Search Endpoint
   
 
     
@@ -274,7 +308,7 @@
   <span class="md-ellipsis">
     
   
-    Search Endpoint
+    Candidate Search Endpoint
   
 
     
@@ -353,10 +387,60 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Body Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extended-title-search-include_similar_titles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extended Title Search - include_similar_titles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#semantic-candidate-search-free_text_search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semantic Candidate Search - free_text_search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-description-search-jd_search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Job Description Search - jd_search
+      
+    </span>
+  </a>
+  
 </li>
         
       </ul>
     </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Output
+      
+    </span>
+  </a>
   
 </li>
       
@@ -371,17 +455,6 @@
   
     <nav class="md-nav" aria-label="Search Criteria Parameters">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#profile-identification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Profile Identification
-      
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#job-title-role" class="md-nav__link">
@@ -461,10 +534,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#skills-experience" class="md-nav__link">
+  <a href="#experience" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Skills &amp; Experience
+        Experience
       
     </span>
   </a>
@@ -766,10 +839,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-store-candidate-ids" class="md-nav__link">
+  <a href="#4-store-linkedin-url" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Store Candidate IDs
+        4. Store LinkedIn URL
       
     </span>
   </a>
@@ -838,10 +911,43 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-4-find-recent-job-changers" class="md-nav__link">
+  <a href="#example-4-free-text-search" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example 4: Find Recent Job Changers
+        Example 4: Free Text Search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-5-job-description-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 5: Job Description Search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-6-expand-a-single-title-with-include_similar_titles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 6: Expand a Single Title with include_similar_titles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-7-job-description-search-with-pagination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 7: Job Description Search with Pagination
       
     </span>
   </a>
@@ -879,14 +985,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../API_LOOKUP_ENDPOINT/" class="md-nav__link">
+      <a href="../candidate_lookup_endpoint/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Lookup Endpoint
+    Candidate Lookup Endpoint
   
 
     
@@ -979,10 +1085,60 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Body Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extended-title-search-include_similar_titles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extended Title Search - include_similar_titles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#semantic-candidate-search-free_text_search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semantic Candidate Search - free_text_search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-description-search-jd_search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Job Description Search - jd_search
+      
+    </span>
+  </a>
+  
 </li>
         
       </ul>
     </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Output
+      
+    </span>
+  </a>
   
 </li>
       
@@ -997,17 +1153,6 @@
   
     <nav class="md-nav" aria-label="Search Criteria Parameters">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#profile-identification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Profile Identification
-      
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#job-title-role" class="md-nav__link">
@@ -1087,10 +1232,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#skills-experience" class="md-nav__link">
+  <a href="#experience" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Skills &amp; Experience
+        Experience
       
     </span>
   </a>
@@ -1392,10 +1537,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-store-candidate-ids" class="md-nav__link">
+  <a href="#4-store-linkedin-url" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Store Candidate IDs
+        4. Store LinkedIn URL
       
     </span>
   </a>
@@ -1464,10 +1609,43 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-4-find-recent-job-changers" class="md-nav__link">
+  <a href="#example-4-free-text-search" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example 4: Find Recent Job Changers
+        Example 4: Free Text Search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-5-job-description-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 5: Job Description Search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-6-expand-a-single-title-with-include_similar_titles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 6: Expand a Single Title with include_similar_titles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-7-job-description-search-with-pagination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 7: Job Description Search with Pagination
       
     </span>
   </a>
@@ -1504,16 +1682,19 @@
               
               <article class="md-content__inner md-typeset">
                 
+  
+  
                   
 
 
 
-<h1 id="datavertex-search-api">DataVertex Search API</h1>
+<h1 id="datavertex-candidate-search-api">DataVertex Candidate Search API</h1>
 <h2 id="overview">Overview</h2>
-<p>The DataVertex Search API allows you to discover and filter professional profiles by criteria such as job title, company, location, skills, and more. Search across 800M+ professional profiles to find candidates that match your specific requirements.</p>
+<p>The DataVertex Candidate Search API allows you to discover and filter professional profiles by criteria such as job title, company, location, and more. Search across 800M+ professional profiles to find candidates that match your specific requirements.</p>
+<p><a href="https://calendar.notion.so/meet/claire-liao/datavertex">Schedule a quick call</a> to get API access and explore how DataVertex can support your recruiting product development.</p>
 <p><strong>Endpoint:</strong> <code>POST https://api.data-vertex.com/v1/search</code></p>
-<p><strong>Credit Cost:</strong> 1 credit per search (up to 100 profiles per page)</p>
-<p><strong>Billing:</strong> Success-based - you're only charged if results are returned</p>
+<p><strong>Credit Cost:</strong> 1 credit per standard search (up to 100 profiles per page). Job description searches using <code>jd_search</code> cost <strong>2 credits</strong> per search.</p>
+<p><strong>Billing:</strong> Success-based — you are only charged when results are returned</p>
 <hr />
 <h2 id="authentication">Authentication</h2>
 <p>All API requests must include your API key in the request headers:</p>
@@ -1546,87 +1727,215 @@
 </table>
 <h3 id="body-parameters">Body Parameters</h3>
 <table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>search_criteria</code></td>
-<td>object</td>
-<td>Search filters and criteria</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><code>page_size</code></td>
-<td>integer</td>
-<td>Number of profiles per page (1-100)</td>
-<td>No (default: 50)</td>
-</tr>
-<tr>
-<td><code>start</code></td>
-<td>integer</td>
-<td>Starting position for pagination</td>
-<td>No (default: 1)</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>search_criteria</code></td>
+      <td>object</td>
+      <td>Search filters and criteria. Required unless <code>free_text_search</code> or <code>jd_search</code> is provided.</td>
+      <td>Conditional</td>
+    </tr>
+    <tr>
+      <td><code>free_text_search</code></td>
+      <td>string</td>
+      <td>Natural language search request (max 300 characters). The API parses this into structured search criteria automatically. Mutually exclusive with <code>jd_search</code>.</td>
+      <td>Conditional</td>
+    </tr>
+    <tr>
+      <td><code>jd_search</code></td>
+      <td>string</td>
+      <td>Full job description (max 8,500 characters). The API parses this into structured search criteria automatically. Costs 2 credits when results are returned. Mutually exclusive with <code>free_text_search</code>.</td>
+      <td>Conditional</td>
+    </tr>
+    <tr>
+      <td><code>page_size</code></td>
+      <td>integer</td>
+      <td>Number of profiles per page (1-100)</td>
+      <td>No (default: 50)</td>
+    </tr>
+    <tr>
+      <td><code>start</code></td>
+      <td>integer</td>
+      <td>Starting position for pagination</td>
+      <td>No (default: 1)</td>
+    </tr>
+    <tr>
+      <td><code>include_similar_titles</code></td>
+      <td>boolean</td>
+      <td>Automatically expand <code>current_title</code> with similar titles</td>
+      <td>No (default: <code>false</code>; default <code>true</code> when <code>jd_search</code> is used)</td>
+    </tr>
+  </tbody>
 </table>
-<hr />
-<h2 id="search-criteria-parameters">Search Criteria Parameters</h2>
-<p>The <code>search_criteria</code> object supports 60+ parameters organized into logical categories:</p>
-<h3 id="profile-identification">Profile Identification</h3>
+
+<blockquote>
+<p><strong>Note:</strong> At least one of <code>search_criteria</code>, <code>free_text_search</code>, or <code>jd_search</code> must be provided. <code>free_text_search</code> and <code>jd_search</code> cannot be used in the same request. <code>search_criteria</code> can be combined with either AI input — see <a href="#semantic-candidate-search-free_text_search">free text search</a> and <a href="#job-description-search-jd_search">job description search</a> below for merge behavior.</p>
+</blockquote>
+<h4 id="extended-title-search-include_similar_titles">Extended Title Search - include_similar_titles</h4>
+<p>When set to <code>true</code> at the top level of the request, the API automatically expands your <code>current_title</code> array with similar, titles before executing the search. This broadens your candidate pool without requiring you to manually list every relevant title variation.</p>
+<ul>
+<li>Only applies when <code>current_title</code> is provided with fewer than 10 titles</li>
+<li>Titles are added up to a maximum of 10 total</li>
+<li>If <code>current_title</code> is not present in your request, this parameter has no effect</li>
+<li>Default: <code>false</code> for standard and free-text searches; default <code>true</code> when <code>jd_search</code> is used (you may set it to <code>false</code> to disable)</li>
+</ul>
+<pre><code class="language-json">{
+  &quot;search_criteria&quot;: {
+    &quot;current_title&quot;: [&quot;software engineer&quot;],
+    &quot;location&quot;: [&quot;Austin::~30mi&quot;]
+  },
+  &quot;page_size&quot;: 50,
+  &quot;start&quot;: 1,
+  &quot;include_similar_titles&quot;: true
+}
+</code></pre>
+<h4 id="semantic-candidate-search-free_text_search">Semantic Candidate Search - free_text_search</h4>
+<p>Write a natural language description of the candidates you are looking for — up to 300 characters. The API will parse your request into structured search criteria.</p>
+<p><strong>Supported fields parsed from free text:</strong></p>
 <table>
 <thead>
 <tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-<th>Example</th>
+<th>Free Text Concept</th>
+<th>Mapped To</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>id</code></td>
-<td>array of strings</td>
-<td>DataVertex Profile IDs</td>
-<td><code>["123456"]</code></td>
+<td>Job titles</td>
+<td><code>current_title</code></td>
 </tr>
 <tr>
-<td><code>name</code></td>
-<td>array of strings</td>
-<td>Profile names</td>
-<td><code>["John Doe"]</code></td>
+<td>Location</td>
+<td><code>location</code></td>
 </tr>
 <tr>
-<td><code>email</code></td>
-<td>array of strings</td>
-<td>Email addresses</td>
-<td><code>["john.doe@data-vertex.com"]</code></td>
+<td>Years of experience</td>
+<td><code>years_experience</code></td>
 </tr>
 <tr>
-<td><code>phone</code></td>
-<td>array of strings</td>
-<td>Phone numbers</td>
-<td><code>["+15555555555"]</code></td>
+<td>Current or previous employer</td>
+<td><code>current_employer</code> / <code>previous_employer</code></td>
 </tr>
 <tr>
-<td><code>handle</code></td>
-<td>array of strings</td>
-<td>Social media handles</td>
-<td><code>["johndoe"]</code></td>
+<td>School, degree, major</td>
+<td><code>school</code> / <code>degree</code> / <code>major</code></td>
 </tr>
 <tr>
-<td><code>link</code></td>
-<td>array of strings</td>
-<td>Profile URLs</td>
-<td><code>["https://linkedin.com/in/johndoe"]</code></td>
+<td>Industry / sector / domain / market</td>
+<td><code>company_industry</code></td>
 </tr>
 </tbody>
 </table>
+<p><strong>Behavior when combined with <code>search_criteria</code>:</strong>
+- Fields parsed from <code>free_text_search</code> are <strong>merged</strong> into any existing <code>search_criteria</code> — array values are combined
+- Exception: <code>years_experience</code> always <strong>overrides</strong> any value already in <code>search_criteria</code> rather than merging
+- <code>free_text_search</code> can be used as the sole input — <code>search_criteria</code> is not required when it is provided</p>
+<p><strong>Compatibility with <code>include_similar_titles</code>:</strong> Fully supported. The <code>current_title</code> values parsed from <code>free_text_search</code> are populated first, and then <code>include_similar_titles</code> expands them as normal.</p>
+<p><strong>Limit:</strong> 300 characters. Requests exceeding this return a 400 error.</p>
+<pre><code class="language-json">{
+  &quot;free_text_search&quot;: &quot;Software engineers with 5+ years experience in Chicago&quot;,
+  &quot;page_size&quot;: 50,
+  &quot;start&quot;: 1
+}
+</code></pre>
+<p>The response includes a <code>free_text_searched</code> field showing exactly what is mapped:</p>
+<pre><code class="language-json">{
+  &quot;free_text_searched&quot;: {
+    &quot;current_title&quot;: [&quot;Software Engineer&quot;],
+    &quot;location&quot;: [&quot;Chicago&quot;],
+    &quot;years_experience&quot;: [&quot;5+&quot;]
+  }
+}
+</code></pre>
+<h4 id="job-description-search-jd_search">Job Description Search - jd_search</h4>
+<p>Submit a full job description — up to 8,500 characters — and the API parses it into structured search criteria to find candidates who fit the role. This is designed for recruiting workflows where you already have a job posting and want to translate it into a profile search without building filters manually.</p>
+<p><strong>Credit cost:</strong> 2 credits per search when results are returned (standard searches cost 1 credit).</p>
+<p><strong>Supported fields parsed from a job description:</strong></p>
+<table>
+<thead>
+<tr>
+<th>JD Concept</th>
+<th>Mapped To</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Job titles</td>
+<td><code>current_title</code></td>
+</tr>
+<tr>
+<td>Location</td>
+<td><code>location</code></td>
+</tr>
+<tr>
+<td>Years of experience</td>
+<td><code>years_experience</code></td>
+</tr>
+<tr>
+<td>Major</td>
+<td><code>major</code></td>
+</tr>
+<tr>
+<td>Industry</td>
+<td><code>company_industry</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Behavior when combined with <code>search_criteria</code>:</strong>
+- Fields parsed from <code>jd_search</code> are <strong>merged</strong> into any existing <code>search_criteria</code> — array values are combined
+- Exception: <code>years_experience</code> always <strong>overrides</strong> any value already in <code>search_criteria</code> rather than merging
+- <code>jd_search</code> can be used as the sole input — <code>search_criteria</code> is not required when it is provided</p>
+<p><strong>Compatibility with <code>include_similar_titles</code>:</strong> Enabled by default for <code>jd_search</code>. After the job description is parsed, <code>current_title</code> values are expanded with similar titles (up to 10 total) before the search runs. Set <code>"include_similar_titles": false</code> to search only the parsed titles.</p>
+<p><strong>Mutual exclusivity:</strong> <code>jd_search</code> and <code>free_text_search</code> cannot be sent in the same request.</p>
+<p><strong>Limit:</strong> 8,500 characters. Requests exceeding this return a 400 error.</p>
+<pre><code class="language-json">{
+  &quot;jd_search&quot;: &quot;Acme Corp is hiring a Senior Software Engineer in Chicago. 5+ years of experience. Bachelor's in Computer Science preferred.&quot;,
+  &quot;page_size&quot;: 50,
+  &quot;start&quot;: 1
+}
+</code></pre>
+<p>The response includes a <code>jd_searched</code> field showing exactly what was mapped:</p>
+<pre><code class="language-json">{
+  &quot;jd_searched&quot;: {
+    &quot;current_title&quot;: [&quot;Senior Software Engineer&quot;],
+    &quot;location&quot;: [&quot;Chicago&quot;],
+    &quot;years_experience&quot;: [&quot;5+&quot;],
+    &quot;current_employer&quot;: [&quot;-Acme Corp&quot;],
+    &quot;major&quot;: [&quot;Computer Science&quot;],
+    &quot;company_industry&quot;: [&quot;IT &amp; Software&quot;]
+  }
+}
+</code></pre>
+<hr />
+<h2 id="example-output">Example Output</h2>
+<p>Represents 1 of up to 100 candidates.</p>
+<pre><code class="language-json">    { 
+      &quot;linkedin_url&quot;: &quot;https://www.linkedin.com/in/John_Smith22&quot;,
+      &quot;name&quot;: &quot;John Smith&quot;,
+      &quot;connections&quot;: 434,
+      &quot;location&quot;: &quot;New York City, NY, US&quot;,
+      &quot;country&quot;: &quot;United States&quot;,
+      &quot;country_code&quot;: &quot;US&quot;,
+      &quot;current_title&quot;: &quot;Sales Representative&quot;,
+      &quot;current_employer&quot;: &quot;The Telecom Company&quot;,
+      &quot;current_employer_domain&quot;: &quot;thetelecomcompany.com&quot;,
+      &quot;current_employer_website&quot;: &quot;http://www.thetelecomcompany.com&quot;,
+      &quot;current_employer_linkedin_url&quot;: &quot;https://www.linkedin.com/company/the-telecom-company&quot;,
+      &quot;region_latitude&quot;: &quot;40.7128&quot;,
+      &quot;region_longitude&quot;: &quot;74.0060&quot;,
+      &quot;id&quot;: 555555555
+    }
+</code></pre>
+<hr />
+<h2 id="search-criteria-parameters">Search Criteria Parameters</h2>
+<p>The <code>search_criteria</code> object supports 35+ parameters organized into logical categories:</p>
 <h3 id="job-title-role">Job Title &amp; Role</h3>
 <table>
 <thead>
@@ -1648,7 +1957,7 @@
 <td><code>previous_title</code></td>
 <td>array of strings</td>
 <td>Previous job titles</td>
-<td><code>["Software Engineer"]</code></td>
+<td><code>["Software Engineer", "Software Developer"]</code></td>
 </tr>
 <tr>
 <td><code>current_or_previous_title</code></td>
@@ -1735,12 +2044,6 @@
 <td>array of strings</td>
 <td>Company size ranges</td>
 <td><code>["51-200", "201-500"]</code></td>
-</tr>
-<tr>
-<td><code>employees</code></td>
-<td>array of strings</td>
-<td>Employee count ranges</td>
-<td><code>["100-500"]</code></td>
 </tr>
 <tr>
 <td><code>company_revenue</code></td>
@@ -1844,12 +2147,6 @@
 <td><code>["SaaS", "B2B"]</code></td>
 </tr>
 <tr>
-<td><code>industry_keywords</code></td>
-<td>array of strings</td>
-<td>Industry keywords</td>
-<td><code>["AI", "Machine Learning"]</code></td>
-</tr>
-<tr>
 <td><code>company_naics_code</code></td>
 <td>array of strings</td>
 <td>NAICS codes</td>
@@ -1879,24 +2176,6 @@
 <td>array of strings</td>
 <td>Competitor domains</td>
 <td><code>["competitor.com"]</code></td>
-</tr>
-<tr>
-<td><code>competitors</code></td>
-<td>array of strings</td>
-<td>Competitor domains</td>
-<td><code>["competitor.com"]</code></td>
-</tr>
-<tr>
-<td><code>company_list</code></td>
-<td>array of strings</td>
-<td>Company list names</td>
-<td><code>["Fortune 500"]</code></td>
-</tr>
-<tr>
-<td><code>company_list_id</code></td>
-<td>array of strings</td>
-<td>Company list IDs</td>
-<td><code>["12345"]</code></td>
 </tr>
 </tbody>
 </table>
@@ -1931,7 +2210,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="skills-experience">Skills &amp; Experience</h3>
+<h3 id="experience">Experience</h3>
 <table>
 <thead>
 <tr>
@@ -1943,22 +2222,10 @@
 </thead>
 <tbody>
 <tr>
-<td><code>skills</code></td>
-<td>array of strings</td>
-<td>Listed skills (any match)</td>
-<td><code>["Python", "SQL", "Machine Learning"]</code></td>
-</tr>
-<tr>
-<td><code>all_skills</code></td>
-<td>array of strings</td>
-<td>Required skills (must match all)</td>
-<td><code>["python", "sql", "machine learning"]</code></td>
-</tr>
-<tr>
 <td><code>years_experience</code></td>
 <td>array of strings</td>
 <td>Years of experience</td>
-<td><code>["10", "15"]</code></td>
+<td><code>["1","2,","3"]</code> or <code>["1-3"]</code></td>
 </tr>
 </tbody>
 </table>
@@ -2060,7 +2327,7 @@ With quotes, only exact matches are returned.</p>
 </code></pre>
 <p>This matches Software Engineers and Software Developers that don't have "Senior" or "Sr" in their title.</p>
 <h3 id="numeric-operators">Numeric Operators</h3>
-<p>Some fields support mathematical operators:</p>
+<p>company_funding_min, company_funding_max, and company_size support mathematical operators:</p>
 <pre><code class="language-json">{
   &quot;search_criteria&quot;: {
     &quot;company_funding_min&quot;: [&quot;1000000+&quot;],
@@ -2078,12 +2345,12 @@ With quotes, only exact matches are returned.</p>
   &quot;data&quot;: {
     &quot;profiles&quot;: [
       {
-        &quot;id&quot;: &quot;12345&quot;,
+        &quot;linkedin_url&quot;: &quot;https://linkedin.com/in/janesmith&quot;,
         &quot;name&quot;: &quot;Jane Smith&quot;,
         &quot;current_title&quot;: &quot;Software Engineer&quot;,
         &quot;current_employer&quot;: &quot;TechCorp&quot;,
         &quot;location&quot;: &quot;San Francisco, CA&quot;,
-        &quot;linkedin_url&quot;: &quot;https://linkedin.com/in/janesmith&quot;
+        &quot;id&quot;: &quot;12345&quot;,
       }
     ],
     &quot;pagination&quot;: {
@@ -2101,6 +2368,42 @@ With quotes, only exact matches are returned.</p>
   }
 }
 </code></pre>
+<p>When <code>free_text_search</code> is used, the response also includes a <code>free_text_searched</code> field:</p>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;data&quot;: { &quot;...&quot; },
+  &quot;credits&quot;: {
+    &quot;used&quot;: 1,
+    &quot;remaining&quot;: 999
+  },
+  &quot;free_text_searched&quot;: {
+    &quot;current_title&quot;: [&quot;Software Engineer&quot;],
+    &quot;location&quot;: [&quot;Chicago&quot;],
+    &quot;years_experience&quot;: [&quot;5+&quot;]
+  }
+}
+</code></pre>
+<p>When <code>jd_search</code> is used, the response includes <code>jd_searched</code> and charges 2 credits when profiles are returned:</p>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;data&quot;: { &quot;...&quot; },
+  &quot;credits&quot;: {
+    &quot;used&quot;: 2,
+    &quot;remaining&quot;: 998
+  },
+  &quot;jd_searched&quot;: {
+    &quot;current_title&quot;: [&quot;Senior Software Engineer&quot;],
+    &quot;location&quot;: [&quot;Chicago::~50mi&quot;],
+    &quot;years_experience&quot;: [&quot;5+&quot;],
+    &quot;current_employer&quot;: [&quot;-Acme Corp&quot;]
+  },
+  &quot;similar_titles&quot;: [
+    &quot;senior software engineer&quot;,
+    &quot;software engineer&quot;,
+    &quot;staff software engineer&quot;
+  ]
+}
+</code></pre>
 <h3 id="response-fields">Response Fields</h3>
 <p>Profile Object</p>
 <p>Each profile in the <code>profiles</code> array contains:</p>
@@ -2114,9 +2417,9 @@ With quotes, only exact matches are returned.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>id</code></td>
+<td><code>linkedin_url</code></td>
 <td>string</td>
-<td>Unique candidate ID (use for a lookup)</td>
+<td>LinkedIn profile URL</td>
 </tr>
 <tr>
 <td><code>name</code></td>
@@ -2139,13 +2442,13 @@ With quotes, only exact matches are returned.</p>
 <td>Current location</td>
 </tr>
 <tr>
-<td><code>linkedin_url</code></td>
-<td>string</td>
-<td>LinkedIn profile URL</td>
+<td><code>id</code></td>
+<td>integer</td>
+<td>Only useful for profiles without a linkedin_url</td>
 </tr>
 </tbody>
 </table>
-<p>Note: Search results do <strong>not</strong> include contact information (email/phone). Use the <a href="../API_LOOKUP_ENDPOINT/">Lookup API</a> with the candidate <code>id</code> to retrieve contact details.</p>
+<p>Note: Search results do <strong>not</strong> include contact information (email/phone). Use the <a href="../candidate_lookup_endpoint/">Lookup API</a> with the <code>linkedin_url</code> to retrieve contact details.</p>
 <p>Pagination Object</p>
 <table>
 <thead>
@@ -2210,6 +2513,33 @@ With quotes, only exact matches are returned.</p>
 </tr>
 </tbody>
 </table>
+<p>Top-level Fields</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>similar_titles</code></td>
+<td>array or null</td>
+<td>Expanded titles used for the search (only present when <code>include_similar_titles: true</code> and <code>current_title</code> was provided)</td>
+</tr>
+<tr>
+<td><code>free_text_searched</code></td>
+<td>object</td>
+<td>The structured criteria parsed from your <code>free_text_search</code> input (only present when <code>free_text_search</code> was used)</td>
+</tr>
+<tr>
+<td><code>jd_searched</code></td>
+<td>object</td>
+<td>The structured criteria parsed from your <code>jd_search</code> input (only present when <code>jd_search</code> was used)</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="code-examples">Code Examples</h2>
 <h3 id="curl">cURL</h3>
@@ -2220,10 +2550,10 @@ With quotes, only exact matches are returned.</p>
     &quot;search_criteria&quot;: {
       &quot;current_title&quot;: [&quot;Software Engineer&quot;, &quot;Senior Software Engineer&quot;],
       &quot;location&quot;: [&quot;San Francisco::~50mi&quot;],
-      &quot;skills&quot;: [&quot;Python&quot;, &quot;React&quot;]
     },
     &quot;page_size&quot;: 50,
-    &quot;start&quot;: 1
+    &quot;start&quot;: 1,
+    &quot;include_similar_titles&quot;: false
   }'
 </code></pre>
 <h3 id="python">Python</h3>
@@ -2241,10 +2571,10 @@ payload = {
     &quot;search_criteria&quot;: {
         &quot;current_title&quot;: [&quot;Software Engineer&quot;, &quot;Senior Software Engineer&quot;],
         &quot;location&quot;: [&quot;San Francisco::~50mi&quot;],
-        &quot;skills&quot;: [&quot;Python&quot;, &quot;React&quot;]
     },
     &quot;page_size&quot;: 50,
-    &quot;start&quot;: 1
+    &quot;start&quot;: 1,
+    &quot;include_similar_titles&quot;: False
 }
 
 response = requests.post(url, headers=headers, json=payload)
@@ -2269,10 +2599,10 @@ const searchCandidates = async () =&gt; {
         search_criteria: {
           current_title: ['Software Engineer', 'Senior Software Engineer'],
           location: ['San Francisco::~50mi'],
-          skills: ['Python', 'React']
         },
         page_size: 50,
-        start: 1
+        start: 1,
+        include_similar_titles: false
       },
       {
         headers: {
@@ -2311,7 +2641,8 @@ payload = {
         &quot;current_title&quot;: [&quot;Software Engineer&quot;]
     },
     &quot;page_size&quot;: 100,
-    &quot;start&quot;: 1
+    &quot;start&quot;: 1,
+    &quot;include_similar_titles&quot;: False
 }
 
 response = requests.post(url, headers=headers, json=payload)
@@ -2332,7 +2663,7 @@ if data['data']['pagination']['has_next']:
 <p>Missing or invalid parameters:</p>
 <pre><code class="language-json">{
   &quot;success&quot;: false,
-  &quot;message&quot;: &quot;search_criteria is required.&quot;
+  &quot;message&quot;: &quot;search criteria was not provided or not formed correctly.&quot;
 }
 </code></pre>
 <h3 id="403-forbidden">403 Forbidden</h3>
@@ -2349,6 +2680,16 @@ if data['data']['pagination']['has_next']:
   &quot;credits_info&quot;: {
     &quot;required&quot;: 1,
     &quot;available&quot;: 0
+  }
+}
+</code></pre>
+<p>For <code>jd_search</code> requests, the required credit amount is 2:</p>
+<pre><code class="language-json">{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Insufficient credits. Required: 2, Available: 1&quot;,
+  &quot;credits_info&quot;: {
+    &quot;required&quot;: 2,
+    &quot;available&quot;: 1
   }
 }
 </code></pre>
@@ -2400,9 +2741,9 @@ if data['data']['pagination']['has_next']:
   &quot;search_criteria&quot;: {
     &quot;current_title&quot;: [&quot;Software Engineer&quot;],
     &quot;location&quot;: [&quot;San Francisco::~25mi&quot;],
-    &quot;skills&quot;: [&quot;Python&quot;, &quot;Django&quot;],
     &quot;years_experience&quot;: [&quot;5&quot;]
-  }
+  },
+  &quot;include_similar_titles&quot;: false
 }
 </code></pre>
 <h3 id="2-optimize-page-size">2. Optimize Page Size</h3>
@@ -2425,9 +2766,9 @@ while True:
 
     start = response['data']['pagination']['next_start']
 </code></pre>
-<h3 id="4-store-candidate-ids">4. Store Candidate IDs</h3>
-<p>Search results don't include contact information. Store the <code>id</code> field from each profile to use with the <a href="../API_LOOKUP_ENDPOINT/">Lookup API</a>:</p>
-<pre><code class="language-python">candidate_ids = [profile['id'] for profile in response['data']['profiles']]
+<h3 id="4-store-linkedin-url">4. Store LinkedIn URL</h3>
+<p>Search results don't include contact information. Store the <code>linkedin_url</code> field from each profile to use with the <a href="../candidate_lookup_endpoint/">Lookup API</a>:</p>
+<pre><code class="language-python">linkedin_url = [profile['linkedin_url'] for profile in response['data']['profiles']]
 </code></pre>
 <h3 id="5-monitor-your-credits">5. Monitor Your Credits</h3>
 <p>Check your remaining credits in each response to avoid interruptions:</p>
@@ -2441,9 +2782,9 @@ while True:
   &quot;search_criteria&quot;: {
     &quot;current_title&quot;: [&quot;Software Engineer&quot;, &quot;Senior Software Engineer&quot;, &quot;Staff Engineer&quot;],
     &quot;location&quot;: [&quot;San Francisco::~50mi&quot;],
-    &quot;skills&quot;: [&quot;Python&quot;, &quot;JavaScript&quot;, &quot;React&quot;]
   },
-  &quot;page_size&quot;: 100
+  &quot;page_size&quot;: 100,
+  &quot;include_similar_titles&quot;: false
 }
 </code></pre>
 <h3 id="example-2-find-healthcare-professionals">Example 2: Find Healthcare Professionals</h3>
@@ -2454,7 +2795,8 @@ while True:
     &quot;location&quot;: [&quot;Boston::~30mi&quot;],
     &quot;years_experience&quot;: [&quot;3&quot;]
   },
-  &quot;page_size&quot;: 50
+  &quot;page_size&quot;: 50,
+  &quot;include_similar_titles&quot;: false
 }
 </code></pre>
 <h3 id="example-3-find-sales-leaders-at-tech-companies">Example 3: Find Sales Leaders at Tech Companies</h3>
@@ -2465,27 +2807,155 @@ while True:
     &quot;company_size&quot;: [&quot;51-200&quot;, &quot;201-500&quot;],
     &quot;management_levels&quot;: [&quot;Director&quot;, &quot;VP&quot;]
   },
-  &quot;page_size&quot;: 100
+  &quot;page_size&quot;: 100,
+  &quot;include_similar_titles&quot;: false
 }
 </code></pre>
-<h3 id="example-4-find-recent-job-changers">Example 4: Find Recent Job Changers</h3>
+<h3 id="example-4-free-text-search">Example 4: Free Text Search</h3>
+<p>Use <code>free_text_search</code> to describe candidates in plain English instead of building structured criteria manually. The API maps your input to the appropriate fields and executes the search.</p>
+<pre><code class="language-json">{
+  &quot;free_text_search&quot;: &quot;Nurses with at least 3 years of experience in Boston&quot;,
+  &quot;page_size&quot;: 50,
+  &quot;start&quot;: 1
+}
+</code></pre>
+<p>You can also combine <code>free_text_search</code> with explicit <code>search_criteria</code> — the parsed fields are merged in. The exception is <code>years_experience</code>, which is always overridden by the free text value rather than merged:</p>
+<pre><code class="language-json">{
+  &quot;free_text_search&quot;: &quot;Python engineers with 5+ years experience&quot;,
+  &quot;search_criteria&quot;: {
+    &quot;location&quot;: [&quot;Austin::~30mi&quot;],
+    &quot;company_size&quot;: [&quot;51-200&quot;]
+  },
+  &quot;page_size&quot;: 50,
+  &quot;start&quot;: 1
+}
+</code></pre>
+<p>Use <code>free_text_search</code> with <code>include_similar_titles</code> to both describe your candidates naturally and broaden the title match:</p>
+<pre><code class="language-json">{
+  &quot;free_text_search&quot;: &quot;Data engineers with Spark experience in Seattle&quot;,
+  &quot;include_similar_titles&quot;: true,
+  &quot;page_size&quot;: 100,
+  &quot;start&quot;: 1
+}
+</code></pre>
+<h3 id="example-5-job-description-search">Example 5: Job Description Search</h3>
+<p>Paste a job posting and let the API extract search criteria. No <code>search_criteria</code> object is required. <code>include_similar_titles</code> defaults to <code>true</code>, so related titles are expanded automatically.</p>
+<pre><code class="language-json">{
+  &quot;jd_search&quot;: &quot;DataVertex is seeking a Product Manager in Austin, TX. 3+ years in B2B SaaS. Experience with roadmap planning and SQL required. MBA a plus.&quot;,
+  &quot;page_size&quot;: 50,
+  &quot;start&quot;: 1
+}
+</code></pre>
+<p>Review <code>jd_searched</code> in the response to see how the job description was interpreted before using results in your workflow. This request costs 2 credits when profiles are returned.</p>
+<p>You can combine <code>jd_search</code> with explicit <code>search_criteria</code> to layer additional filters on top of the parsed fields:</p>
+<pre><code class="language-json">{
+  &quot;jd_search&quot;: &quot;Senior Data Engineer role at TechCorp in Seattle. Python and Spark required.&quot;,
+  &quot;search_criteria&quot;: {
+    &quot;company_size&quot;: [&quot;201-500&quot;]
+  },
+  &quot;page_size&quot;: 50,
+  &quot;start&quot;: 1
+}
+</code></pre>
+<hr />
+<h3 id="example-6-expand-a-single-title-with-include_similar_titles">Example 6: Expand a Single Title with include_similar_titles</h3>
+<p>When you only have one or a few titles in mind, use <code>include_similar_titles</code> to automatically broaden your search to related roles. The API will add up to 10 total titles before executing the search.</p>
+<p><strong>Page 1 — send your title and let the API expand it:</strong></p>
 <pre><code class="language-json">{
   &quot;search_criteria&quot;: {
-    &quot;current_title&quot;: [&quot;Product Manager&quot;],
-    &quot;location&quot;: [&quot;New York::~40mi&quot;],
-    &quot;job_change_range_days&quot;: [&quot;30&quot;]
+    &quot;current_title&quot;: [&quot;data engineer&quot;],
+    &quot;location&quot;: [&quot;Chicago::~40mi&quot;]
   },
-  &quot;page_size&quot;: 50
+  &quot;page_size&quot;: 100,
+  &quot;start&quot;: 1,
+  &quot;include_similar_titles&quot;: true
 }
 </code></pre>
+<p>The response includes a <code>similar_titles</code> field containing the exact titles that were searched. Save this array — you will need it for all subsequent pages:</p>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;data&quot;: {
+    &quot;profiles&quot;: [...],
+    &quot;pagination&quot;: {
+      &quot;current_page&quot;: 1,
+      &quot;page_size&quot;: 100,
+      &quot;start&quot;: 1,
+      &quot;total&quot;: 4800,
+      &quot;has_next&quot;: true,
+      &quot;next_start&quot;: 101
+    }
+  },
+  &quot;credits&quot;: {
+    &quot;used&quot;: 1,
+    &quot;remaining&quot;: 997
+  },
+  &quot;similar_titles&quot;: [
+    &quot;data engineer&quot;,
+    &quot;analytics engineer&quot;,
+    &quot;data architect&quot;,
+    &quot;etl developer&quot;,
+    &quot;data pipeline engineer&quot;,
+    &quot;big data engineer&quot;,
+    &quot;data infrastructure engineer&quot;
+  ]
+}
+</code></pre>
+<p><strong>Page 2 onward — pass <code>similar_titles</code> back as <code>current_title</code> and set <code>include_similar_titles</code> to <code>false</code>:</strong></p>
+<pre><code class="language-json">{
+  &quot;search_criteria&quot;: {
+    &quot;current_title&quot;: [
+      &quot;data engineer&quot;,
+      &quot;analytics engineer&quot;,
+      &quot;data architect&quot;,
+      &quot;etl developer&quot;,
+      &quot;data pipeline engineer&quot;,
+      &quot;big data engineer&quot;,
+      &quot;data infrastructure engineer&quot;
+    ],
+    &quot;location&quot;: [&quot;Chicago::~40mi&quot;]
+  },
+  &quot;page_size&quot;: 100,
+  &quot;start&quot;: 101,
+  &quot;include_similar_titles&quot;: false
+}
+</code></pre>
+<p>This ensures every page is searched against the same set of titles, giving you consistent and complete results across your entire pagination sequence.</p>
+<h3 id="example-7-job-description-search-with-pagination">Example 7: Job Description Search with Pagination</h3>
+<p><code>jd_search</code> enables <code>include_similar_titles</code> by default. Use the same pagination pattern as structured searches: capture <code>similar_titles</code> from page 1, then pass that array as <code>current_title</code> on subsequent pages.</p>
+<p><strong>Page 1 — send the job description:</strong></p>
+<pre><code class="language-json">{
+  &quot;jd_search&quot;: &quot;GrowthCo is hiring a Marketing Manager in Denver. 4+ years of digital marketing experience. HubSpot and Google Analytics required.&quot;,
+  &quot;page_size&quot;: 100,
+  &quot;start&quot;: 1
+}
+</code></pre>
+<p><strong>Page 2 onward — use <code>similar_titles</code> from the page 1 response as <code>current_title</code>, omit <code>jd_search</code>, and set <code>include_similar_titles</code> to <code>false</code>:</strong></p>
+<pre><code class="language-json">{
+  &quot;search_criteria&quot;: {
+    &quot;current_title&quot;: [
+      &quot;marketing manager&quot;,
+      &quot;digital marketing manager&quot;,
+      &quot;growth marketing manager&quot;
+    ],
+    &quot;location&quot;: [&quot;Denver::~50mi&quot;],
+    &quot;years_experience&quot;: [&quot;4+&quot;],
+    &quot;current_employer&quot;: [&quot;-GrowthCo&quot;]
+  },
+  &quot;page_size&quot;: 100,
+  &quot;start&quot;: 101,
+  &quot;include_similar_titles&quot;: false
+}
+</code></pre>
+<p>Use the full parsed criteria from <code>jd_searched</code> (not only titles) so every page applies the same filters. Re-running <code>jd_search</code> on later pages would parse the text again and may produce slightly different criteria.</p>
 <hr />
 <h2 id="need-help">Need Help?</h2>
 <ul>
 <li><strong>Support:</strong> dev@data-vertex.com</li>
 <li><strong>Website:</strong> https://www.data-vertex.com</li>
 </ul>
+<p><a href="https://calendar.notion.so/meet/claire-liao/datavertex">Schedule a quick call</a> to get API access and explore how DataVertex can support your recruiting product development.</p>
 <hr />
-<p><em>Last Updated: April 7, 2026</em></p>
+<p><em>Last Updated: September 24, 2026</em></p>
 
 
 
@@ -2499,6 +2969,7 @@ while True:
 
 
                 
+
               </article>
             </div>
           
@@ -2601,6 +3072,68 @@ while True:
           parent.rel = "noopener noreferrer";
         }
       });
+
+      // Tall custom header: Material's TOC scroll still uses the default header
+      // offset, so section titles sit under the sticky bar. Use one measured
+      // offset for TOC clicks, in-page # links, and initial hash URLs.
+      function anchorScrollOffsetPx() {
+        var header = document.querySelector(".md-header");
+        var headerHeight = header ? header.offsetHeight : 0;
+        var rootStyles = getComputedStyle(document.documentElement);
+        var marginRaw =
+          rootStyles.getPropertyValue("--md-scroll-margin").trim() || "0.75rem";
+        var marginPx = 12;
+        if (marginRaw.endsWith("rem")) {
+          marginPx =
+            parseFloat(marginRaw) * (parseFloat(rootStyles.fontSize) || 16);
+        } else if (marginRaw.endsWith("px")) {
+          marginPx = parseFloat(marginRaw);
+        } else {
+          marginPx = parseFloat(marginRaw) || 12;
+        }
+        return headerHeight + marginPx;
+      }
+
+      function scrollToAnchorId(id, updateHash) {
+        if (!id) return;
+        var target = document.getElementById(decodeURIComponent(id));
+        if (!target) return;
+        var offset = anchorScrollOffsetPx();
+        var top =
+          window.pageYOffset + target.getBoundingClientRect().top - offset;
+        window.scrollTo({ top: Math.max(0, top), behavior: "auto" });
+        if (updateHash !== false) {
+          history.pushState(null, "", "#" + id);
+        }
+      }
+
+      document.addEventListener(
+        "click",
+        function (event) {
+          var link = event.target.closest('a[href^="#"]');
+          if (!link) return;
+          var href = link.getAttribute("href");
+          if (!href || href === "#") return;
+          var id = decodeURIComponent(href.slice(1));
+          var target = document.getElementById(id);
+          if (!target || !target.closest(".md-typeset")) return;
+          if (
+            !link.closest(".md-nav--secondary") &&
+            !link.closest(".md-content")
+          ) {
+            return;
+          }
+          event.preventDefault();
+          scrollToAnchorId(id, true);
+        },
+        true
+      );
+
+      if (location.hash.length > 1) {
+        requestAnimationFrame(function () {
+          scrollToAnchorId(location.hash.slice(1), false);
+        });
+      }
     });
   </script>
 

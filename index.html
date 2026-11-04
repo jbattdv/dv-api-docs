@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Official API documentation for the DataVertex Candidate API">
+        <meta name="description" content="Explore DataVertex's candidate sourcing API documentation for developers. Integrate candidate search, enrichment, matching, and recruiting data into your applications.">
       
       
         <meta name="author" content="DataVertex">
@@ -16,7 +16,7 @@
       
       
       
-        <link rel="next" href="API_SEARCH_ENDPOINT/">
+        <link rel="next" href="account_endpoint/">
       
       
         
@@ -26,10 +26,10 @@
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
     
     
-      
-        <title>DataVertex's Candidate API Documentation</title>
-      
-    
+  
+    <title>Candidate Sourcing API Documentation for Developers | DataVertex Docs</title>
+  
+
     
       <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
       
@@ -61,6 +61,54 @@
 
     
     
+  
+    <meta name="keywords" content="candidate sourcing API documentation for developers, candidate sourcing API documentation, candidate search API documentation, recruiting API documentation, candidate API for developers, talent data API documentation, candidate database API, recruiting software API, candidate enrichment API, talent intelligence API">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Candidate Sourcing API Documentation for Developers | DataVertex Docs">
+    <meta property="og:description" content="Technical documentation for integrating candidate search, enrichment, matching, and recruiting data APIs.">
+    <meta property="og:url" content="https://docs.data-vertex.com/">
+    <meta property="og:site_name" content="DataVertex Docs">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Candidate Sourcing API Documentation for Developers | DataVertex Docs">
+    <meta name="twitter:description" content="Technical documentation for integrating candidate search, enrichment, matching, and recruiting data APIs.">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "DataVertex API Documentation",
+      "name": "Candidate Sourcing API Documentation for Developers",
+      "description": "Technical documentation for integrating DataVertex candidate sourcing, search, enrichment, and recruiting data APIs.",
+      "url": "https://docs.data-vertex.com/",
+      "author": {
+        "@type": "Organization",
+        "name": "DataVertex"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "DataVertex",
+        "url": "https://www.data-vertex.com"
+      },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Software Developers"
+      },
+      "keywords": [
+        "candidate sourcing API",
+        "candidate search API",
+        "recruiting API",
+        "candidate enrichment API",
+        "candidate database API",
+        "talent data API"
+      ]
+    }
+    </script>
+  
+  
+
   </head>
   
   
@@ -78,7 +126,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#datavertexs-api-documentation" class="md-skip">
+        <a href="#datavertexs-candidate-sourcing-api-developer-documentation" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +142,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="DataVertex&#39;s Candidate API Documentation" class="md-header__button md-logo" aria-label="DataVertex's Candidate API Documentation" data-md-component="logo">
+    <a href="." title="DataVertex&#39;s Candidate Sourcing API Documentation" class="md-header__button md-logo" aria-label="DataVertex's Candidate Sourcing API Documentation" data-md-component="logo">
       
   <img src="assets/logo.png" alt="logo">
 
@@ -107,7 +155,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            DataVertex's Candidate API Documentation
+            DataVertex's Candidate Sourcing API Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -194,12 +242,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="DataVertex&#39;s Candidate API Documentation" class="md-nav__button md-logo" aria-label="DataVertex's Candidate API Documentation" data-md-component="logo">
+    <a href="." title="DataVertex&#39;s Candidate Sourcing API Documentation" class="md-nav__button md-logo" aria-label="DataVertex's Candidate Sourcing API Documentation" data-md-component="logo">
       
   <img src="assets/logo.png" alt="logo">
 
     </a>
-    DataVertex's Candidate API Documentation
+    DataVertex's Candidate Sourcing API Documentation
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -271,13 +319,107 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-you-can-do-with-the-api" class="md-nav__link">
+  <a href="#what-you-can-build-with-the-api" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What You Can Do with the API
+        What You Can Build with the API
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="What You Can Build with the API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#candidate-sourcing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Candidate Sourcing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-powered-talent-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI-Powered Talent Search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#candidate-matching-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Candidate Matching &amp; Recommendations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verified-contact-lookup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verified Contact Lookup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#candidate-data-enrichment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Candidate Data Enrichment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#talent-pipeline-refresh-rediscovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Talent Pipeline Refresh &amp; Rediscovery
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outreach-engagement-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outreach &amp; Engagement Workflows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-recruiting-agents-copilots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI Recruiting Agents &amp; Copilots
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -296,14 +438,14 @@
   
   
     <li class="md-nav__item">
-      <a href="API_SEARCH_ENDPOINT/" class="md-nav__link">
+      <a href="account_endpoint/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Search Endpoint
+    Account Endpoint
   
 
     
@@ -323,14 +465,41 @@
   
   
     <li class="md-nav__item">
-      <a href="API_LOOKUP_ENDPOINT/" class="md-nav__link">
+      <a href="candidate_search_endpoint/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Lookup Endpoint
+    Candidate Search Endpoint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="candidate_lookup_endpoint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Candidate Lookup Endpoint
   
 
     
@@ -370,13 +539,107 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-you-can-do-with-the-api" class="md-nav__link">
+  <a href="#what-you-can-build-with-the-api" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What You Can Do with the API
+        What You Can Build with the API
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="What You Can Build with the API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#candidate-sourcing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Candidate Sourcing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-powered-talent-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI-Powered Talent Search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#candidate-matching-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Candidate Matching &amp; Recommendations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verified-contact-lookup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verified Contact Lookup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#candidate-data-enrichment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Candidate Data Enrichment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#talent-pipeline-refresh-rediscovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Talent Pipeline Refresh &amp; Rediscovery
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outreach-engagement-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outreach &amp; Engagement Workflows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-recruiting-agents-copilots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI Recruiting Agents &amp; Copilots
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -394,21 +657,42 @@
               
               <article class="md-content__inner md-typeset">
                 
+  
+    <div class="seo-headings" aria-hidden="true">
+      <h2><a href="candidate_search_endpoint/">Candidate Search API</a></h2>
+      <h2><a href="candidate_lookup_endpoint/">Candidate Enrichment API</a></h2>
+    </div>
+  
+  
                   
 
 
 
-<h1 id="datavertexs-api-documentation">DataVertex's API Documentation</h1>
-<p>The DataVertex Candidate API — the single API for comprehensive, compliant access to rich candidate data from a global network of aggregated data sources. With one integration, you unlock access to over 800+ million professional candidate profiles, including verified contacts , skills, employment history, and industry specific information — all designed to power sourcing, matching, outreach, and enrichment features in recruiting platforms.</p>
-<h3 id="what-you-can-do-with-the-api"><strong>What You Can Do with the API</strong></h3>
-<p>The DataVertex Candidate API empowers you to build features such as:</p>
-<ul>
-<li><strong>Candidate Sourcing</strong> — search by job titles, skills, seniority, location, education, industry, and more to surface relevant profiles.</li>
-<li><strong>Verified Contact Lookup</strong> — retrieve verified emails and phone numbers for outreach workflows.</li>
-<li><strong>Data Enrichment</strong> — enhance existing candidate databases with missing fields like skills, certifications, employment history, and contact updates.</li>
-<li><strong>Engagement Workflows</strong> — inject candidate information into your CRM, ATS, or outreach tools for multi-channel engagement.</li>
-</ul>
-<p>Use the navigation on the left to explore the available endpoints.</p>
+<h1 id="datavertexs-candidate-sourcing-api-developer-documentation">DataVertex's Candidate Sourcing API Developer Documentation</h1>
+<p>The DataVertex Candidate API is a unified API for comprehensive, compliant access to rich candidate data and AI-powered talent search capabilities.</p>
+<p>With a single integration, you gain access to 800M+ professional candidate profiles sourced from a global network of aggregated data providers, including verified contact information, work history, skills, education, certifications, and industry-specific data. The API is designed to help recruiting platforms, AI recruiting agents, staffing products, and internal talent systems build sourcing, matching, enrichment, and outreach workflows faster.</p>
+<p>In addition to structured candidate search, the DataVertex API supports AI-powered search experiences that enable users to discover talent using natural language queries, semantic search, contextual search, helping teams surface more relevant candidates beyond traditional keyword filtering.</p>
+<p><a href="https://calendar.notion.so/meet/claire-liao/datavertex">Schedule a quick call</a> to get API access and explore how DataVertex can support your product roadmap.</p>
+<h2 id="what-you-can-build-with-the-api">What You Can Build with the API</h2>
+<p>The DataVertex Candidate API enables teams to power workflows and product features such as:</p>
+<h3 id="candidate-sourcing">Candidate Sourcing</h3>
+<p>Search and discover candidates using structured filters including job title, skills, location, seniority, education, industry, employer, and more.</p>
+<h3 id="ai-powered-talent-search">AI-Powered Talent Search</h3>
+<p>Enable natural language and semantic candidate search experiences, allowing users to describe ideal candidates or share job descriptions instead of relying only on Boolean or keyword searches.</p>
+<h3 id="candidate-matching-recommendations">Candidate Matching &amp; Recommendations</h3>
+<p>Build AI-driven matching and recommendation systems that identify relevant candidates based on job descriptions, hiring intent, or contextual fit.</p>
+<h3 id="verified-contact-lookup">Verified Contact Lookup</h3>
+<p>Retrieve verified email addresses and phone numbers to support outreach and engagement workflows.</p>
+<h3 id="candidate-data-enrichment">Candidate Data Enrichment</h3>
+<p>Enhance existing candidate records with updated employment history, skills, certifications, social links, and contact data.</p>
+<h3 id="talent-pipeline-refresh-rediscovery">Talent Pipeline Refresh &amp; Rediscovery</h3>
+<p>Keep candidate databases up to date with refreshed profile data, job changes, and updated contact information. Rediscover and re-engage with candidates already in your recruiting system.</p>
+<h3 id="outreach-engagement-workflows">Outreach &amp; Engagement Workflows</h3>
+<p>Inject candidate data into ATS, CRM, sequencing, and outreach platforms to support multi-channel recruiting workflows, including emailing, texting, WhatsApp, calling, etc.</p>
+<h3 id="ai-recruiting-agents-copilots">AI Recruiting Agents &amp; Copilots</h3>
+<p>Power AI recruiting assistants and autonomous sourcing workflows with real-time candidate retrieval, enrichment, and search capabilities.</p>
+<p>Use the navigation on the left to explore the available endpoints, the api documentation for developers. For more product use cases supported and our data coverage, please visit <a href="https://www.data-vertex.com/">data-vertex.com</a></p>
+<p><a href="https://calendar.notion.so/meet/claire-liao/datavertex">Schedule a quick call</a> to get API access and explore how DataVertex can support your product roadmap.</p>
 
 
 
@@ -422,6 +706,7 @@
 
 
                 
+
               </article>
             </div>
           
@@ -524,6 +809,68 @@
           parent.rel = "noopener noreferrer";
         }
       });
+
+      // Tall custom header: Material's TOC scroll still uses the default header
+      // offset, so section titles sit under the sticky bar. Use one measured
+      // offset for TOC clicks, in-page # links, and initial hash URLs.
+      function anchorScrollOffsetPx() {
+        var header = document.querySelector(".md-header");
+        var headerHeight = header ? header.offsetHeight : 0;
+        var rootStyles = getComputedStyle(document.documentElement);
+        var marginRaw =
+          rootStyles.getPropertyValue("--md-scroll-margin").trim() || "0.75rem";
+        var marginPx = 12;
+        if (marginRaw.endsWith("rem")) {
+          marginPx =
+            parseFloat(marginRaw) * (parseFloat(rootStyles.fontSize) || 16);
+        } else if (marginRaw.endsWith("px")) {
+          marginPx = parseFloat(marginRaw);
+        } else {
+          marginPx = parseFloat(marginRaw) || 12;
+        }
+        return headerHeight + marginPx;
+      }
+
+      function scrollToAnchorId(id, updateHash) {
+        if (!id) return;
+        var target = document.getElementById(decodeURIComponent(id));
+        if (!target) return;
+        var offset = anchorScrollOffsetPx();
+        var top =
+          window.pageYOffset + target.getBoundingClientRect().top - offset;
+        window.scrollTo({ top: Math.max(0, top), behavior: "auto" });
+        if (updateHash !== false) {
+          history.pushState(null, "", "#" + id);
+        }
+      }
+
+      document.addEventListener(
+        "click",
+        function (event) {
+          var link = event.target.closest('a[href^="#"]');
+          if (!link) return;
+          var href = link.getAttribute("href");
+          if (!href || href === "#") return;
+          var id = decodeURIComponent(href.slice(1));
+          var target = document.getElementById(id);
+          if (!target || !target.closest(".md-typeset")) return;
+          if (
+            !link.closest(".md-nav--secondary") &&
+            !link.closest(".md-content")
+          ) {
+            return;
+          }
+          event.preventDefault();
+          scrollToAnchorId(id, true);
+        },
+        true
+      );
+
+      if (location.hash.length > 1) {
+        requestAnimationFrame(function () {
+          scrollToAnchorId(location.hash.slice(1), false);
+        });
+      }
     });
   </script>
 

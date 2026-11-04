@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Official API documentation for the DataVertex Candidate API">
+        <meta name="description" content="Explore DataVertex's candidate sourcing API documentation for developers. Integrate candidate search, enrichment, matching, and recruiting data into your applications.">
       
       
         <meta name="author" content="DataVertex">
@@ -22,10 +22,14 @@
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
     
     
+  
+    
       
-        <title>DataVertex's Candidate API Documentation</title>
+        <title>DataVertex's Candidate Sourcing API Documentation</title>
       
     
+  
+
     
       <link rel="stylesheet" href="/assets/stylesheets/main.484c7ddc.min.css">
       
@@ -57,6 +61,9 @@
 
     
     
+  
+  
+
   </head>
   
   
@@ -85,7 +92,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="DataVertex&#39;s Candidate API Documentation" class="md-header__button md-logo" aria-label="DataVertex's Candidate API Documentation" data-md-component="logo">
+    <a href="/." title="DataVertex&#39;s Candidate Sourcing API Documentation" class="md-header__button md-logo" aria-label="DataVertex's Candidate Sourcing API Documentation" data-md-component="logo">
       
   <img src="/assets/logo.png" alt="logo">
 
@@ -98,7 +105,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            DataVertex's Candidate API Documentation
+            DataVertex's Candidate Sourcing API Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -185,12 +192,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="DataVertex&#39;s Candidate API Documentation" class="md-nav__button md-logo" aria-label="DataVertex's Candidate API Documentation" data-md-component="logo">
+    <a href="/." title="DataVertex&#39;s Candidate Sourcing API Documentation" class="md-nav__button md-logo" aria-label="DataVertex's Candidate Sourcing API Documentation" data-md-component="logo">
       
   <img src="/assets/logo.png" alt="logo">
 
     </a>
-    DataVertex's Candidate API Documentation
+    DataVertex's Candidate Sourcing API Documentation
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -229,14 +236,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/API_SEARCH_ENDPOINT/" class="md-nav__link">
+      <a href="/account_endpoint/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Search Endpoint
+    Account Endpoint
   
 
     
@@ -256,14 +263,41 @@
   
   
     <li class="md-nav__item">
-      <a href="/API_LOOKUP_ENDPOINT/" class="md-nav__link">
+      <a href="/candidate_search_endpoint/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Lookup Endpoint
+    Candidate Search Endpoint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/candidate_lookup_endpoint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Candidate Lookup Endpoint
   
 
     
@@ -410,6 +444,68 @@
           parent.rel = "noopener noreferrer";
         }
       });
+
+      // Tall custom header: Material's TOC scroll still uses the default header
+      // offset, so section titles sit under the sticky bar. Use one measured
+      // offset for TOC clicks, in-page # links, and initial hash URLs.
+      function anchorScrollOffsetPx() {
+        var header = document.querySelector(".md-header");
+        var headerHeight = header ? header.offsetHeight : 0;
+        var rootStyles = getComputedStyle(document.documentElement);
+        var marginRaw =
+          rootStyles.getPropertyValue("--md-scroll-margin").trim() || "0.75rem";
+        var marginPx = 12;
+        if (marginRaw.endsWith("rem")) {
+          marginPx =
+            parseFloat(marginRaw) * (parseFloat(rootStyles.fontSize) || 16);
+        } else if (marginRaw.endsWith("px")) {
+          marginPx = parseFloat(marginRaw);
+        } else {
+          marginPx = parseFloat(marginRaw) || 12;
+        }
+        return headerHeight + marginPx;
+      }
+
+      function scrollToAnchorId(id, updateHash) {
+        if (!id) return;
+        var target = document.getElementById(decodeURIComponent(id));
+        if (!target) return;
+        var offset = anchorScrollOffsetPx();
+        var top =
+          window.pageYOffset + target.getBoundingClientRect().top - offset;
+        window.scrollTo({ top: Math.max(0, top), behavior: "auto" });
+        if (updateHash !== false) {
+          history.pushState(null, "", "#" + id);
+        }
+      }
+
+      document.addEventListener(
+        "click",
+        function (event) {
+          var link = event.target.closest('a[href^="#"]');
+          if (!link) return;
+          var href = link.getAttribute("href");
+          if (!href || href === "#") return;
+          var id = decodeURIComponent(href.slice(1));
+          var target = document.getElementById(id);
+          if (!target || !target.closest(".md-typeset")) return;
+          if (
+            !link.closest(".md-nav--secondary") &&
+            !link.closest(".md-content")
+          ) {
+            return;
+          }
+          event.preventDefault();
+          scrollToAnchorId(id, true);
+        },
+        true
+      );
+
+      if (location.hash.length > 1) {
+        requestAnimationFrame(function () {
+          scrollToAnchorId(location.hash.slice(1), false);
+        });
+      }
     });
   </script>
 
