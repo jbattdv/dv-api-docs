@@ -149,43 +149,111 @@ All Contact Information + Candidate's work history, education, and skills.
   "data": {
     "contacts": [
       {
-        "lookup_identifier": "https://www.linkedin.com/in/janesmith12345/",
+        "lookup_identifier": "https://www.linkedin.com/in/jane-smith-12345",
         "lookup_type": "linkedin_url",
         "success": true,
         "profile": {
-          "id": "12345",
-          "name": "Jane Smith",
-          "current_title": "Software Engineer",
-          "current_employer": "TechCorp",
-          "personal_email": "jane.smith@gmail.com",
-          "phone_number": "+14155551234",
-          "candidate_location": "San Francisco, California, United States",
-          "headline": "Software Engineer | Full-Stack Developer | Open Source Contributor",
-          "summary": "Experienced software engineer with a passion for building scalable web applications and mentoring junior developers...",
+          "personal_email": "jane.smith.personal@gmail.com",
+          "phone_number": "+1-415-555-1234",
+          "headline": "Senior Software Engineer | Full-Stack | Open Source Contributor",
+          "summary": "Experienced software engineer focused on building scalable web applications, mentoring engineers, and shipping products used by millions.",
           "open_to_job_opportunities": true,
-          "linkedin_url": "https://www.linkedin.com/in/janesmith12345/",
-          "skills": ["Python", "JavaScript", "React"],
-          "education": [...],
-          "job_history": [...],
-          "certifications": [...],
-          "languages": [...],
-          "projects": [...],
-          "volunteering": [...],
+          "linkedin_url": "https://www.linkedin.com/in/jane-smith-12345",
+          "skills": [
+            "Python",
+            "AWS",
+            "JavaScript",
+            "React",
+            "DynamoDB"
+          ],
+          "education": [
+            {
+              "major": "Computer Science",
+              "school": "Stanford University",
+              "degree": "Master of Science (M.S.)",
+              "start": 2016,
+              "end": 2018
+            },
+            {
+              "major": "Computer Science",
+              "school": "University of California, Berkeley",
+              "degree": "Bachelor of Science (B.S.)",
+              "start": 2012,
+              "end": 2016
+            }
+          ],
+          "job_history": [
+            {
+              "title": "Senior Software Engineer",
+              "description": "Lead engineer for the candidate data platform and public API.",
+              "company": "Acme Corp",
+              "company_name": "Acme Corp",
+              "company_linkedin_url": "https://www.linkedin.com/company/acme-corp",
+              "company_industry": "Computer Software",
+              "company_location": "San Francisco, California, United States",
+              "is_current": true,
+              "start_date": "2023-03-01",
+              "end_date": "Present"
+            },
+            {
+              "title": "Software Engineer",
+              "description": "Built search and enrichment services used by recruiting platforms.",
+              "company": "HireTech",
+              "company_name": "HireTech",
+              "company_linkedin_url": "https://www.linkedin.com/company/hiretech",
+              "company_industry": "Computer Software",
+              "company_location": "Mountain View, California, United States",
+              "is_current": false,
+              "start_date": "2018-07-01",
+              "end_date": "2023-02-01"
+            }
+          ],
+          "certifications": [
+            {
+              "name": "AWS Certified Solutions Architect – Associate",
+              "authority": "Amazon Web Services",
+              "company": "Amazon Web Services",
+              "start_date": "2022-06-01"
+            }
+          ],
+          "languages": [
+            {
+              "name": "English",
+              "proficiency": "NATIVE_OR_BILINGUAL"
+            },
+            {
+              "name": "Spanish",
+              "proficiency": "PROFESSIONAL_WORKING"
+            }
+          ],
+          "projects": [
+            {
+              "title": "Open Source Talent Graph",
+              "description": "Graph-based candidate matching library used by recruiting tools.",
+              "url": "https://github.com/janesmith/talent-graph",
+              "start_date": "2021-01-01",
+              "end_date": "2022-12-01"
+            }
+          ],
+          "volunteering": [
+            {
+              "title": "Mentor",
+              "organization": "Women Who Code",
+              "cause": "Education",
+              "description": "Mentored junior engineers on career growth and system design.",
+              "start_date": "2020-01-01",
+              "end_date": "2024-01-01"
+            }
+          ]
         },
-        "contact_data_retrieved": ["email", "phone", "detailed_profile"],
-        "retrieved_at": "2025-12-10T12:00:00Z"
+        "contact_data_retrieved": ["email", "phone", "detailed_profile"]
       }
-    ],
-    "summary": {
-      "total_requested": 1,
-      "successful": 1,
-      "failed": 0
-    }
+    ]
   },
   "credits": {
     "used": 10,
     "remaining": 990,
-    "billing_note": "Charged for 1 successful lookup only"
+    "billing_note": "Charged for 1 successful lookups only"
   }
 }
 ```
@@ -878,5 +946,5 @@ with ThreadPoolExecutor(max_workers=15) as executor:
 
 ---
 
-*Last Updated: September 24, 2026*
+*Last Updated: November 4, 2026*
 
