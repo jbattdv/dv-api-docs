@@ -1684,43 +1684,111 @@
   &quot;data&quot;: {
     &quot;contacts&quot;: [
       {
-        &quot;lookup_identifier&quot;: &quot;https://www.linkedin.com/in/janesmith12345/&quot;,
+        &quot;lookup_identifier&quot;: &quot;https://www.linkedin.com/in/jane-smith-12345&quot;,
         &quot;lookup_type&quot;: &quot;linkedin_url&quot;,
         &quot;success&quot;: true,
         &quot;profile&quot;: {
-          &quot;id&quot;: &quot;12345&quot;,
-          &quot;name&quot;: &quot;Jane Smith&quot;,
-          &quot;current_title&quot;: &quot;Software Engineer&quot;,
-          &quot;current_employer&quot;: &quot;TechCorp&quot;,
-          &quot;personal_email&quot;: &quot;jane.smith@gmail.com&quot;,
-          &quot;phone_number&quot;: &quot;+14155551234&quot;,
-          &quot;candidate_location&quot;: &quot;San Francisco, California, United States&quot;,
-          &quot;headline&quot;: &quot;Software Engineer | Full-Stack Developer | Open Source Contributor&quot;,
-          &quot;summary&quot;: &quot;Experienced software engineer with a passion for building scalable web applications and mentoring junior developers...&quot;,
+          &quot;personal_email&quot;: &quot;jane.smith.personal@gmail.com&quot;,
+          &quot;phone_number&quot;: &quot;+1-415-555-1234&quot;,
+          &quot;headline&quot;: &quot;Senior Software Engineer | Full-Stack | Open Source Contributor&quot;,
+          &quot;summary&quot;: &quot;Experienced software engineer focused on building scalable web applications, mentoring engineers, and shipping products used by millions.&quot;,
           &quot;open_to_job_opportunities&quot;: true,
-          &quot;linkedin_url&quot;: &quot;https://www.linkedin.com/in/janesmith12345/&quot;,
-          &quot;skills&quot;: [&quot;Python&quot;, &quot;JavaScript&quot;, &quot;React&quot;],
-          &quot;education&quot;: [...],
-          &quot;job_history&quot;: [...],
-          &quot;certifications&quot;: [...],
-          &quot;languages&quot;: [...],
-          &quot;projects&quot;: [...],
-          &quot;volunteering&quot;: [...],
+          &quot;linkedin_url&quot;: &quot;https://www.linkedin.com/in/jane-smith-12345&quot;,
+          &quot;skills&quot;: [
+            &quot;Python&quot;,
+            &quot;AWS&quot;,
+            &quot;JavaScript&quot;,
+            &quot;React&quot;,
+            &quot;DynamoDB&quot;
+          ],
+          &quot;education&quot;: [
+            {
+              &quot;major&quot;: &quot;Computer Science&quot;,
+              &quot;school&quot;: &quot;Stanford University&quot;,
+              &quot;degree&quot;: &quot;Master of Science (M.S.)&quot;,
+              &quot;start&quot;: 2016,
+              &quot;end&quot;: 2018
+            },
+            {
+              &quot;major&quot;: &quot;Computer Science&quot;,
+              &quot;school&quot;: &quot;University of California, Berkeley&quot;,
+              &quot;degree&quot;: &quot;Bachelor of Science (B.S.)&quot;,
+              &quot;start&quot;: 2012,
+              &quot;end&quot;: 2016
+            }
+          ],
+          &quot;job_history&quot;: [
+            {
+              &quot;title&quot;: &quot;Senior Software Engineer&quot;,
+              &quot;description&quot;: &quot;Lead engineer for the candidate data platform and public API.&quot;,
+              &quot;company&quot;: &quot;Acme Corp&quot;,
+              &quot;company_name&quot;: &quot;Acme Corp&quot;,
+              &quot;company_linkedin_url&quot;: &quot;https://www.linkedin.com/company/acme-corp&quot;,
+              &quot;company_industry&quot;: &quot;Computer Software&quot;,
+              &quot;company_location&quot;: &quot;San Francisco, California, United States&quot;,
+              &quot;is_current&quot;: true,
+              &quot;start_date&quot;: &quot;2023-03-01&quot;,
+              &quot;end_date&quot;: &quot;Present&quot;
+            },
+            {
+              &quot;title&quot;: &quot;Software Engineer&quot;,
+              &quot;description&quot;: &quot;Built search and enrichment services used by recruiting platforms.&quot;,
+              &quot;company&quot;: &quot;HireTech&quot;,
+              &quot;company_name&quot;: &quot;HireTech&quot;,
+              &quot;company_linkedin_url&quot;: &quot;https://www.linkedin.com/company/hiretech&quot;,
+              &quot;company_industry&quot;: &quot;Computer Software&quot;,
+              &quot;company_location&quot;: &quot;Mountain View, California, United States&quot;,
+              &quot;is_current&quot;: false,
+              &quot;start_date&quot;: &quot;2018-07-01&quot;,
+              &quot;end_date&quot;: &quot;2023-02-01&quot;
+            }
+          ],
+          &quot;certifications&quot;: [
+            {
+              &quot;name&quot;: &quot;AWS Certified Solutions Architect – Associate&quot;,
+              &quot;authority&quot;: &quot;Amazon Web Services&quot;,
+              &quot;company&quot;: &quot;Amazon Web Services&quot;,
+              &quot;start_date&quot;: &quot;2022-06-01&quot;
+            }
+          ],
+          &quot;languages&quot;: [
+            {
+              &quot;name&quot;: &quot;English&quot;,
+              &quot;proficiency&quot;: &quot;NATIVE_OR_BILINGUAL&quot;
+            },
+            {
+              &quot;name&quot;: &quot;Spanish&quot;,
+              &quot;proficiency&quot;: &quot;PROFESSIONAL_WORKING&quot;
+            }
+          ],
+          &quot;projects&quot;: [
+            {
+              &quot;title&quot;: &quot;Open Source Talent Graph&quot;,
+              &quot;description&quot;: &quot;Graph-based candidate matching library used by recruiting tools.&quot;,
+              &quot;url&quot;: &quot;https://github.com/janesmith/talent-graph&quot;,
+              &quot;start_date&quot;: &quot;2021-01-01&quot;,
+              &quot;end_date&quot;: &quot;2022-12-01&quot;
+            }
+          ],
+          &quot;volunteering&quot;: [
+            {
+              &quot;title&quot;: &quot;Mentor&quot;,
+              &quot;organization&quot;: &quot;Women Who Code&quot;,
+              &quot;cause&quot;: &quot;Education&quot;,
+              &quot;description&quot;: &quot;Mentored junior engineers on career growth and system design.&quot;,
+              &quot;start_date&quot;: &quot;2020-01-01&quot;,
+              &quot;end_date&quot;: &quot;2024-01-01&quot;
+            }
+          ]
         },
-        &quot;contact_data_retrieved&quot;: [&quot;email&quot;, &quot;phone&quot;, &quot;detailed_profile&quot;],
-        &quot;retrieved_at&quot;: &quot;2025-12-10T12:00:00Z&quot;
+        &quot;contact_data_retrieved&quot;: [&quot;email&quot;, &quot;phone&quot;, &quot;detailed_profile&quot;]
       }
-    ],
-    &quot;summary&quot;: {
-      &quot;total_requested&quot;: 1,
-      &quot;successful&quot;: 1,
-      &quot;failed&quot;: 0
-    }
+    ]
   },
   &quot;credits&quot;: {
     &quot;used&quot;: 10,
     &quot;remaining&quot;: 990,
-    &quot;billing_note&quot;: &quot;Charged for 1 successful lookup only&quot;
+    &quot;billing_note&quot;: &quot;Charged for 1 successful lookups only&quot;
   }
 }
 </code></pre>
@@ -2556,7 +2624,7 @@ with ThreadPoolExecutor(max_workers=15) as executor:
 </ul>
 <p><a href="https://calendly.com/claire-data-vertex/30min">Schedule a quick call</a> to get API access and explore how DataVertex can support your recruiting product development.</p>
 <hr />
-<p><em>Last Updated: September 24, 2026</em></p>
+<p><em>Last Updated: November 4, 2026</em></p>
 
 
 
