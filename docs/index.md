@@ -6,7 +6,7 @@ With a single integration, you gain access to 800M+ professional candidate profi
 
 In addition to structured candidate search, the DataVertex API supports AI-powered search experiences that enable users to discover talent using natural language queries, semantic search, contextual search, helping teams surface more relevant candidates beyond traditional keyword filtering.
 
-[Schedule a quick call](https://calendar.notion.so/meet/claire-liao/datavertex) to get API access and explore how DataVertex can support your product roadmap.
+[Schedule a quick call](https://calendly.com/claire-data-vertex/30min) to get API access and explore how DataVertex can support your product roadmap.
 
 ## What You Can Build with the API
 
@@ -46,4 +46,4 @@ Power AI recruiting assistants and autonomous sourcing workflows with real-time 
 
 Use the navigation on the left to explore the available endpoints, the api documentation for developers. For more product use cases supported and our data coverage, please visit [data-vertex.com](https://www.data-vertex.com/)
 
-[Schedule a quick call](https://calendar.notion.so/meet/claire-liao/datavertex) to get API access and explore how DataVertex can support your product roadmap.
+[Schedule a quick call](https://calendly.com/claire-data-vertex/30min) to get API access and explore how DataVertex can support your product roadmap.
