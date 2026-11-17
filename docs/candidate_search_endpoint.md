@@ -80,7 +80,7 @@ You can obtain your API key from DataVertex directly.
     <tr>
       <td><code>include_similar_titles</code></td>
       <td>boolean</td>
-      <td>Automatically expand <code>current_title</code> with similar titles</td>
+      <td>Automatically expand <code>current_title</code>, <code>previous_title</code>, and <code>current_or_previous_title</code> with similar titles. Each parameter is expanded on its own.</td>
       <td>No (default: <code>false</code>; default <code>true</code> when <code>jd_search</code> is used)</td>
     </tr>
   </tbody>
@@ -90,17 +90,28 @@ You can obtain your API key from DataVertex directly.
 
 #### Extended Title Search - include_similar_titles
 
-When set to `true` at the top level of the request, the API automatically expands your `current_title` array with similar, titles before executing the search. This broadens your candidate pool without requiring you to manually list every relevant title variation.
+When set to `true` at the top level of the request, the API expands each title list you send before running the search. This broadens your candidate pool without requiring you to list every relevant title yourself.
 
-- Only applies when `current_title` is provided with fewer than 10 titles
-- Titles are added up to a maximum of 10 total
-- If `current_title` is not present in your request, this parameter has no effect
+Each parameter is expanded on its own. The response uses a separate field for each one, so you can see which titles were added to which parameter:
+
+| Request parameter | Response field |
+|-------------------|----------------|
+| `current_title` | `similar_titles` |
+| `previous_title` | `similar_previous_titles` |
+| `current_or_previous_title` | `similar_current_or_previous_titles` |
+
+- A parameter is expanded only when its array is present and has fewer than 10 titles
+- Each parameter grows to a maximum of 10 titles. Titles from one parameter are never added to another
+- A parameter that is missing, empty, or already has 10 or more titles is left unchanged, and its response field is left off
+- On later pages, send each returned array back on its matching parameter and set `include_similar_titles` to `false`
 - Default: `false` for standard and free-text searches; default `true` when `jd_search` is used (you may set it to `false` to disable)
 
 ```json
 {
   "search_criteria": {
     "current_title": ["software engineer"],
+    "previous_title": ["account executive"],
+    "current_or_previous_title": ["product manager"],
     "location": ["Austin::~30mi"]
   },
   "page_size": 50,
@@ -108,6 +119,36 @@ When set to `true` at the top level of the request, the API automatically expand
   "include_similar_titles": true
 }
 ```
+
+The expanded lists are added at the end of the response. A field appears only when that parameter was expanded:
+
+```json
+{
+  "success": true,
+  "data": { "..." },
+  "credits": {
+    "used": 1,
+    "remaining": 999
+  },
+  "similar_titles": [
+    "software engineer",
+    "backend engineer",
+    "full stack engineer"
+  ],
+  "similar_previous_titles": [
+    "account executive",
+    "account manager",
+    "sales executive"
+  ],
+  "similar_current_or_previous_titles": [
+    "product manager",
+    "product owner",
+    "technical product manager"
+  ]
+}
+```
+
+`similar_titles` is the list searched for `current_title`. `similar_previous_titles` is the list searched for `previous_title`. `similar_current_or_previous_titles` is the list searched for `current_or_previous_title`. On page 2, pass each array back on that same parameter.
 
 #### Semantic Candidate Search - free_text_search
 
@@ -129,7 +170,7 @@ Write a natural language description of the candidates you are looking for — u
 - Exception: `years_experience` always **overrides** any value already in `search_criteria` rather than merging
 - `free_text_search` can be used as the sole input — `search_criteria` is not required when it is provided
 
-**Compatibility with `include_similar_titles`:** Fully supported. The `current_title` values parsed from `free_text_search` are populated first, and then `include_similar_titles` expands them as normal.
+**Compatibility with `include_similar_titles`:** Fully supported. Titles parsed from `free_text_search` are written to `current_title` first, then expanded. `previous_title` and `current_or_previous_title` in `search_criteria` are expanded separately. Each result comes back on its own field: `similar_titles`, `similar_previous_titles`, or `similar_current_or_previous_titles`.
 
 **Limit:** 300 characters. Requests exceeding this return a 400 error.
 
@@ -174,7 +215,7 @@ Submit a full job description — up to 8,500 characters — and the API parses 
 - Exception: `years_experience` always **overrides** any value already in `search_criteria` rather than merging
 - `jd_search` can be used as the sole input — `search_criteria` is not required when it is provided
 
-**Compatibility with `include_similar_titles`:** Enabled by default for `jd_search`. After the job description is parsed, `current_title` values are expanded with similar titles (up to 10 total) before the search runs. Set `"include_similar_titles": false` to search only the parsed titles.
+**Compatibility with `include_similar_titles`:** Enabled by default for `jd_search`. A job description maps its job title to `current_title` only. It does not map titles to `previous_title` or `current_or_previous_title`. After parsing, that `current_title` list is expanded and returned as `similar_titles`. Set `"include_similar_titles": false` to search only the parsed titles.
 
 **Mutual exclusivity:** `jd_search` and `free_text_search` cannot be sent in the same request.
 
@@ -240,6 +281,8 @@ The `search_criteria` object supports 35+ parameters organized into logical cate
 | `current_or_previous_title` | array of strings | Current or previous titles | `["VP of Sales", "Director of Sales"]` |
 | `department` | array of strings | Company departments | `["Product Management", "Engineering"]` |
 | `management_levels` | array of strings | Management levels | `["Director", "VP", "C-Level"]` |
+
+When `include_similar_titles` is `true`, each of `current_title`, `previous_title`, and `current_or_previous_title` is expanded on its own. The response field for each parameter is listed under [Extended Title Search](#extended-title-search-include_similar_titles).
 
 ### Employer
 
@@ -494,7 +537,9 @@ Top-level Fields
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `similar_titles` | array or null | Expanded titles used for the search (only present when `include_similar_titles: true` and `current_title` was provided) |
+| `similar_titles` | array | Expanded `current_title` list. Present only when `include_similar_titles` expanded `current_title`. Send this array back as `current_title` on later pages. |
+| `similar_previous_titles` | array | Expanded `previous_title` list. Present only when `include_similar_titles` expanded `previous_title`. Send this array back as `previous_title` on later pages. |
+| `similar_current_or_previous_titles` | array | Expanded `current_or_previous_title` list. Present only when `include_similar_titles` expanded `current_or_previous_title`. Send this array back as `current_or_previous_title` on later pages. |
 | `free_text_searched` | object | The structured criteria parsed from your `free_text_search` input (only present when `free_text_search` was used) |
 | `jd_searched` | object | The structured criteria parsed from your `jd_search` input (only present when `jd_search` was used) |
 
@@ -895,7 +940,7 @@ When you only have one or a few titles in mind, use `include_similar_titles` to 
 }
 ```
 
-The response includes a `similar_titles` field containing the exact titles that were searched. Save this array — you will need it for all subsequent pages:
+The response includes `similar_titles`, the expanded `current_title` list. Save that array for later pages. If this request had also sent `previous_title` or `current_or_previous_title`, the same response would end with `similar_previous_titles` and `similar_current_or_previous_titles` as well. Pass each array back only on its own parameter:
 
 ```json
 {
@@ -953,7 +998,7 @@ This ensures every page is searched against the same set of titles, giving you c
 
 ### Example 7: Job Description Search with Pagination
 
-`jd_search` enables `include_similar_titles` by default. Use the same pagination pattern as structured searches: capture `similar_titles` from page 1, then pass that array as `current_title` on subsequent pages.
+`jd_search` enables `include_similar_titles` by default. A job description maps its job title to `current_title` only, so the expanded list comes back as `similar_titles`. Capture that array from page 1 and pass it back as `current_title` on subsequent pages.
 
 **Page 1 — send the job description:**
 
