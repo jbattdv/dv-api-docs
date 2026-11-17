@@ -1769,7 +1769,7 @@
     <tr>
       <td><code>include_similar_titles</code></td>
       <td>boolean</td>
-      <td>Automatically expand <code>current_title</code> with similar titles</td>
+      <td>Automatically expand <code>current_title</code>, <code>previous_title</code>, and <code>current_or_previous_title</code> with similar titles. Each parameter is expanded on its own.</td>
       <td>No (default: <code>false</code>; default <code>true</code> when <code>jd_search</code> is used)</td>
     </tr>
   </tbody>
@@ -1779,16 +1779,42 @@
 <p><strong>Note:</strong> At least one of <code>search_criteria</code>, <code>free_text_search</code>, or <code>jd_search</code> must be provided. <code>free_text_search</code> and <code>jd_search</code> cannot be used in the same request. <code>search_criteria</code> can be combined with either AI input — see <a href="#semantic-candidate-search-free_text_search">free text search</a> and <a href="#job-description-search-jd_search">job description search</a> below for merge behavior.</p>
 </blockquote>
 <h4 id="extended-title-search-include_similar_titles">Extended Title Search - include_similar_titles</h4>
-<p>When set to <code>true</code> at the top level of the request, the API automatically expands your <code>current_title</code> array with similar, titles before executing the search. This broadens your candidate pool without requiring you to manually list every relevant title variation.</p>
+<p>When set to <code>true</code> at the top level of the request, the API expands each title list you send before running the search. This broadens your candidate pool without requiring you to list every relevant title yourself.</p>
+<p>Each parameter is expanded on its own. The response uses a separate field for each one, so you can see which titles were added to which parameter:</p>
+<table>
+<thead>
+<tr>
+<th>Request parameter</th>
+<th>Response field</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>current_title</code></td>
+<td><code>similar_titles</code></td>
+</tr>
+<tr>
+<td><code>previous_title</code></td>
+<td><code>similar_previous_titles</code></td>
+</tr>
+<tr>
+<td><code>current_or_previous_title</code></td>
+<td><code>similar_current_or_previous_titles</code></td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li>Only applies when <code>current_title</code> is provided with fewer than 10 titles</li>
-<li>Titles are added up to a maximum of 10 total</li>
-<li>If <code>current_title</code> is not present in your request, this parameter has no effect</li>
+<li>A parameter is expanded only when its array is present and has fewer than 10 titles</li>
+<li>Each parameter grows to a maximum of 10 titles. Titles from one parameter are never added to another</li>
+<li>A parameter that is missing, empty, or already has 10 or more titles is left unchanged, and its response field is left off</li>
+<li>On later pages, send each returned array back on its matching parameter and set <code>include_similar_titles</code> to <code>false</code></li>
 <li>Default: <code>false</code> for standard and free-text searches; default <code>true</code> when <code>jd_search</code> is used (you may set it to <code>false</code> to disable)</li>
 </ul>
 <pre><code class="language-json">{
   &quot;search_criteria&quot;: {
     &quot;current_title&quot;: [&quot;software engineer&quot;],
+    &quot;previous_title&quot;: [&quot;account executive&quot;],
+    &quot;current_or_previous_title&quot;: [&quot;product manager&quot;],
     &quot;location&quot;: [&quot;Austin::~30mi&quot;]
   },
   &quot;page_size&quot;: 50,
@@ -1796,6 +1822,32 @@
   &quot;include_similar_titles&quot;: true
 }
 </code></pre>
+<p>The expanded lists are added at the end of the response. A field appears only when that parameter was expanded:</p>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;data&quot;: { &quot;...&quot; },
+  &quot;credits&quot;: {
+    &quot;used&quot;: 1,
+    &quot;remaining&quot;: 999
+  },
+  &quot;similar_titles&quot;: [
+    &quot;software engineer&quot;,
+    &quot;backend engineer&quot;,
+    &quot;full stack engineer&quot;
+  ],
+  &quot;similar_previous_titles&quot;: [
+    &quot;account executive&quot;,
+    &quot;account manager&quot;,
+    &quot;sales executive&quot;
+  ],
+  &quot;similar_current_or_previous_titles&quot;: [
+    &quot;product manager&quot;,
+    &quot;product owner&quot;,
+    &quot;technical product manager&quot;
+  ]
+}
+</code></pre>
+<p><code>similar_titles</code> is the list searched for <code>current_title</code>. <code>similar_previous_titles</code> is the list searched for <code>previous_title</code>. <code>similar_current_or_previous_titles</code> is the list searched for <code>current_or_previous_title</code>. On page 2, pass each array back on that same parameter.</p>
 <h4 id="semantic-candidate-search-free_text_search">Semantic Candidate Search - free_text_search</h4>
 <p>Write a natural language description of the candidates you are looking for — up to 300 characters. The API will parse your request into structured search criteria.</p>
 <p><strong>Supported fields parsed from free text:</strong></p>
@@ -1837,7 +1889,7 @@
 - Fields parsed from <code>free_text_search</code> are <strong>merged</strong> into any existing <code>search_criteria</code> — array values are combined
 - Exception: <code>years_experience</code> always <strong>overrides</strong> any value already in <code>search_criteria</code> rather than merging
 - <code>free_text_search</code> can be used as the sole input — <code>search_criteria</code> is not required when it is provided</p>
-<p><strong>Compatibility with <code>include_similar_titles</code>:</strong> Fully supported. The <code>current_title</code> values parsed from <code>free_text_search</code> are populated first, and then <code>include_similar_titles</code> expands them as normal.</p>
+<p><strong>Compatibility with <code>include_similar_titles</code>:</strong> Fully supported. Titles parsed from <code>free_text_search</code> are written to <code>current_title</code> first, then expanded. <code>previous_title</code> and <code>current_or_previous_title</code> in <code>search_criteria</code> are expanded separately. Each result comes back on its own field: <code>similar_titles</code>, <code>similar_previous_titles</code>, or <code>similar_current_or_previous_titles</code>.</p>
 <p><strong>Limit:</strong> 300 characters. Requests exceeding this return a 400 error.</p>
 <pre><code class="language-json">{
   &quot;free_text_search&quot;: &quot;Software engineers with 5+ years experience in Chicago&quot;,
@@ -1892,7 +1944,7 @@
 - Fields parsed from <code>jd_search</code> are <strong>merged</strong> into any existing <code>search_criteria</code> — array values are combined
 - Exception: <code>years_experience</code> always <strong>overrides</strong> any value already in <code>search_criteria</code> rather than merging
 - <code>jd_search</code> can be used as the sole input — <code>search_criteria</code> is not required when it is provided</p>
-<p><strong>Compatibility with <code>include_similar_titles</code>:</strong> Enabled by default for <code>jd_search</code>. After the job description is parsed, <code>current_title</code> values are expanded with similar titles (up to 10 total) before the search runs. Set <code>"include_similar_titles": false</code> to search only the parsed titles.</p>
+<p><strong>Compatibility with <code>include_similar_titles</code>:</strong> Enabled by default for <code>jd_search</code>. A job description maps its job title to <code>current_title</code> only. It does not map titles to <code>previous_title</code> or <code>current_or_previous_title</code>. After parsing, that <code>current_title</code> list is expanded and returned as <code>similar_titles</code>. Set <code>"include_similar_titles": false</code> to search only the parsed titles.</p>
 <p><strong>Mutual exclusivity:</strong> <code>jd_search</code> and <code>free_text_search</code> cannot be sent in the same request.</p>
 <p><strong>Limit:</strong> 8,500 characters. Requests exceeding this return a 400 error.</p>
 <pre><code class="language-json">{
@@ -1979,6 +2031,7 @@
 </tr>
 </tbody>
 </table>
+<p>When <code>include_similar_titles</code> is <code>true</code>, each of <code>current_title</code>, <code>previous_title</code>, and <code>current_or_previous_title</code> is expanded on its own. The response field for each parameter is listed under <a href="#extended-title-search-include_similar_titles">Extended Title Search</a>.</p>
 <h3 id="employer">Employer</h3>
 <table>
 <thead>
@@ -2525,8 +2578,18 @@ With quotes, only exact matches are returned.</p>
 <tbody>
 <tr>
 <td><code>similar_titles</code></td>
-<td>array or null</td>
-<td>Expanded titles used for the search (only present when <code>include_similar_titles: true</code> and <code>current_title</code> was provided)</td>
+<td>array</td>
+<td>Expanded <code>current_title</code> list. Present only when <code>include_similar_titles</code> expanded <code>current_title</code>. Send this array back as <code>current_title</code> on later pages.</td>
+</tr>
+<tr>
+<td><code>similar_previous_titles</code></td>
+<td>array</td>
+<td>Expanded <code>previous_title</code> list. Present only when <code>include_similar_titles</code> expanded <code>previous_title</code>. Send this array back as <code>previous_title</code> on later pages.</td>
+</tr>
+<tr>
+<td><code>similar_current_or_previous_titles</code></td>
+<td>array</td>
+<td>Expanded <code>current_or_previous_title</code> list. Present only when <code>include_similar_titles</code> expanded <code>current_or_previous_title</code>. Send this array back as <code>current_or_previous_title</code> on later pages.</td>
 </tr>
 <tr>
 <td><code>free_text_searched</code></td>
@@ -2871,7 +2934,7 @@ while True:
   &quot;include_similar_titles&quot;: true
 }
 </code></pre>
-<p>The response includes a <code>similar_titles</code> field containing the exact titles that were searched. Save this array — you will need it for all subsequent pages:</p>
+<p>The response includes <code>similar_titles</code>, the expanded <code>current_title</code> list. Save that array for later pages. If this request had also sent <code>previous_title</code> or <code>current_or_previous_title</code>, the same response would end with <code>similar_previous_titles</code> and <code>similar_current_or_previous_titles</code> as well. Pass each array back only on its own parameter:</p>
 <pre><code class="language-json">{
   &quot;success&quot;: true,
   &quot;data&quot;: {
@@ -2921,7 +2984,7 @@ while True:
 </code></pre>
 <p>This ensures every page is searched against the same set of titles, giving you consistent and complete results across your entire pagination sequence.</p>
 <h3 id="example-7-job-description-search-with-pagination">Example 7: Job Description Search with Pagination</h3>
-<p><code>jd_search</code> enables <code>include_similar_titles</code> by default. Use the same pagination pattern as structured searches: capture <code>similar_titles</code> from page 1, then pass that array as <code>current_title</code> on subsequent pages.</p>
+<p><code>jd_search</code> enables <code>include_similar_titles</code> by default. A job description maps its job title to <code>current_title</code> only, so the expanded list comes back as <code>similar_titles</code>. Capture that array from page 1 and pass it back as <code>current_title</code> on subsequent pages.</p>
 <p><strong>Page 1 — send the job description:</strong></p>
 <pre><code class="language-json">{
   &quot;jd_search&quot;: &quot;GrowthCo is hiring a Marketing Manager in Denver. 4+ years of digital marketing experience. HubSpot and Google Analytics required.&quot;,
